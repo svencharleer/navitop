@@ -1,0 +1,95 @@
+<html>
+  <head>
+    <title>NaviWorld</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <link rel="stylesheet" href="NaviFramework/css/naviFramework.css">
+	<script type="text/javascript" src="NaviFramework/js/3rdParty/paper.js"></script>
+	<script type="text/javascript" src="NaviFramework/js/3rdParty/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="NaviFramework/js/magictouch.js"></script>
+	
+	<script type="text/javascript" src="NaviFramework/js/NaviFramework/naviFramework_UI.js"></script>
+	<script type="text/javascript" src="NaviFramework/js/NaviFramework/naviFramework_Events.js"></script>
+	<script type="text/javascript" src="NaviFramework/js/NaviFramework/naviFramework_Animations.js"></script>
+	<script type="text/javascript" src="NaviFramework/js/NaviFramework/naviComponent_Animatable.js"></script>
+	<script type="text/javascript" src="NaviFramework/js/NaviFramework/naviComponent_Group.js"></script>
+	<script type="text/javascript" src="NaviFramework/js/NaviFramework/naviComponent_Touchable.js"></script>
+	<script type="text/javascript" src="NaviFramework/js/NaviFramework/naviObject_Scene.js"></script>
+	<script type="text/javascript" src="NaviFramework/js/NaviFramework/naviComponent_State.js"></script>
+	<script type="text/javascript" src="NaviFramework/js/NaviFramework/naviObject.js"></script>
+
+
+
+	<link rel="stylesheet" href="css/naviWorld.css">
+	<script type="text/javascript" src="js/nwMenu.js"></script>
+		<script type="text/javascript" src="js/nwButton.js"></script>
+	<script type="text/javascript" src="js/nwMenuItem.js"></script>
+	<script type="text/javascript" src="js/nwBadgeIcon.js"></script>
+	<script type="text/javascript" src="js/nwBadgeContainer.js"></script>
+	<script type="text/javascript" src="js/nwStudent.js"></script>
+	<script type="text/javascript" src="js/nwStudentContainer.js"></script>
+	<script type="text/javascript" src="js/nwNaviLogo.js"></script>
+	<script type="text/javascript" src="js/nwNaviOverlay.js"></script>
+	<script type="text/javascript" src="js/nwLogic.js"></script>
+
+	<script type="text/javascript">
+
+
+
+
+function loadNaviWorld() {
+	
+	//init framework
+	fw.init();
+	loadMenu();
+	//activate touch event registering
+	TouchLoop.init();
+	
+};
+
+</script>
+
+</head>
+<body  id="mainBody" onload="loadNaviWorld()">
+<!-- tuio, only needed for tabletop deployments -->
+<object id="tuio" type="application/x-tuio" style="width:0;height:0;">Plugin FAILED to load</object>
+
+<div id="playfield">
+</div>
+<!-- create temp objects here to test layout -->
+<div id="nwMenu" style="display:none">
+<ul>
+	<li><img id="nwMenuItem_Badge" class="nwMenu_Item flicker" src="img/naviworld_menu_badge.png"/></li>
+	<li><img id="nwMenuItem_Person" class="nwMenu_Item flicker" src="img/naviworld_menu_person.png"/></li>
+</ul>
+</div>
+
+<div id="nwBadge" style="display:none" >
+	<img id="" class="nwBadgeIcon" src="NT_IMG_SRC" draggable="false"/>
+	<div class="nwBadgeDetails_hidden">
+		<h1>NT_BADGE_NAME</h1>
+		<p>NT_BADGE_DESCRIPTION</p>
+	</div>
+</div>
+
+<div id="nwStudent" style="display:none"><img src="img/navi_person.png"/ draggable="false"><div class="Student_ListItem">NT_STUDENT_NAME</div></div>
+<div id="nwContainerArea">
+	<div id="nwBadgeContainer" style="visibility:hidden" class="transit">
+		<div id="nwBadgeContainer_topBar" class="Container_topBar">
+			<span id="nwBadgeContainer_ArrowLeft"><img src="img/navi_backward_arrow.png"/></span>
+			<span id="nwBadgeContainer_Title">Period X</span>
+			<span id="nwBadgeContainer_ArrowRight"><img src="img/navi_forward_arrow.png"/></span>
+		</div>
+	</div>
+	<div id="nwStudentContainer" style="visibility:hidden" class="transit">
+		<div id="nwStudentContainer_topBar" class="Container_topBar">
+			<span id="nwStudentContainer_Title">Students</span>
+		</div>
+	</div>
+</div>
+<img id="nwNaviLogo" src="img/navi_logo_small.png"/>
+<div id="nwNaviOverlay" style="" >
+	<img src="img/navi_logo_overlay.png" class="flicker"/>
+	<p>version 2.017b</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,385 @@
+@font-face
+{
+font-family: ubuntuFont;
+src: url(Ubuntu-R.ttf);
+}
+
+::-webkit-scrollbar { 
+    display: none; 
+}
+
+body, :-webkit-full-screen body
+{
+	margin:0;
+	padding:0;
+	/*background: url("../img/background.png") no-repeat center center fixed;
+	background-size: cover;*/
+	background-color: #231f20;
+	font-family: ubuntuFont;
+}
+
+/*check these, it's for the long hold problem on iOS)*/
+body { -webkit-touch-callout: none !important; -webkit-user-select: none; }
+a { -webkit-user-select: none !important; }
+img { -webkit-touch-callout: none !important;}
+#playfield
+{
+	height:100%;
+	width:100%;
+	margin:0;
+	padding:0;
+	position:static;
+}
+
+/* MENU */
+
+/* menu animations */
+@-webkit-keyframes flicker {
+    0% {opacity: .7}
+    50% {opacity: .7}
+    51% {opacity: .3}
+    53% {opacity: .7}
+    
+    86% {opacity: .7}
+    88% {opacity: 1}
+    90% {opacity: .0;}
+    92% {opacity: .7}
+    100% {opacity: 1}  
+} 
+
+@-webkit-keyframes pulsate {
+    0% {opacity: 0}
+    100% {opacity: 1}  
+} 
+
+.flicker
+{
+    -webkit-animation-name: flicker;
+    -webkit-animation-duration: 5s;
+    -webkit-animation-iteration-count: infinite;       
+}
+
+
+/* menu design */
+#nwMenu
+{
+	width: 20%;
+	height:15%;
+	
+	border:solid 1px #cacaca;
+	border-bottom:none;
+	border-radius: 10px;
+
+	background-color:rgb(0,0,0);
+	position:fixed;
+	top:92%;
+	left:40%;
+}
+
+#nwMenu ul
+{
+	margin:0;
+	padding:0;
+	width:100%;
+	margin-left:auto;
+	margin-right:auto;
+	display:inline-block;
+	
+	list-style-type: none;
+}
+
+#nwMenu ul li
+{
+	margin:auto;
+	display: inline-block;
+	width:18%;
+}
+.nwMenu_Item
+{
+	width:100%;
+}
+
+
+
+.pulsate
+{
+	-webkit-animation-name: pulsate;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-iteration-count: infinite;    
+}
+
+#nwMenu_Person
+{
+
+}
+
+/*small badge*/
+.nwBadge
+{
+	width:7%;
+	display:inline-block;
+	z-index:10;
+
+}
+.nwBadgeIcon
+{
+	width:100%;
+	z-index:8;
+}
+
+.nwBadgeDetails_hidden
+{
+	display:none;
+}
+
+/*detailed badge*/
+.nwBadgeIconDetailed
+{
+	width:20%;
+	z-index:10;
+	float:left;
+	margin-left:10px;
+	margin-right:10px;
+	margin-top:3px
+}
+.nwBadgeDetails_shown
+{
+	display:block;
+	
+	font-size:1em;
+	color:#aaa8a8;
+	padding:10px;
+
+	z-index:10;
+
+}
+.nwBadgeDetailed{
+	width:20%;
+	z-index:10;
+	-webkit-box-shadow: 1px 1px 2px 0px #000010;
+	background-color:#585858;
+}
+.nwBadgeDetailed h1{
+	font-size:.8em;
+	color:#ffffff;
+	z-index:10;
+	width:80%;
+	margin-left:20%;
+	padding-bottom:5px;
+	border-bottom:solid 1px white;
+	
+}
+.nwBadgeDetailed p{
+	font-size:.7em;
+	color:#ffffff;
+	z-index:10;
+	text-align:justify;
+}
+
+
+
+
+#nwContainerArea
+{
+	position:absolute;
+	padding:0;
+	margin:0;
+	-webkit-transform: translateY(250%);
+	top:0;
+	left:0;
+	width:100%;
+	height:30%;
+	border-top:dotted 1px #cacaca;
+	text-align: center;
+
+}
+.container_1x1
+{
+	margin-top:1em;
+	width: 70%;
+	height:70%;
+	display:inline-block;
+	-webkit-box-shadow: 0 0 5px#888;
+	border-radius: 5px;
+	background-color:#3a3839;
+}
+
+.container_2x1
+{
+	margin-top:1em;
+	width:40%;
+	height:70%;
+	display:inline-block;
+	vertical-align: top;
+	-webkit-box-shadow: 1px 1px 2px 0px #000010;
+	border-radius: 5px;
+	background-color:#3a3839;
+}
+
+#nwBadgeContainer
+{
+
+	
+	padding:5px;
+
+
+}
+
+#nwStudentContainer
+{
+	
+	
+
+	overflow:scroll;
+	padding:5px;
+	
+
+}
+
+.Container_topBar
+{
+	
+	color: #ffffff;
+
+	font-size: 1.1em;
+	margin-bottom:5px;
+	text-align: center;
+	margin-right:10px;
+
+}
+
+
+#nwBadgeContainer_ArrowLeft, #nwBadgeContainer_ArrowRight{
+	display:inline-block;
+	height:.8em;
+	margin-left:10px;
+	margin-right:10px;
+}
+#nwBadgeContainer_ArrowLeft img, #nwBadgeContainer_ArrowRight img{
+	height:100%;
+}
+.nwStudent
+{
+	display:inline-block;
+	width:15%;
+	height:15px;
+	color: white;
+	
+	z-index:10;
+	
+	background-color:#888888;
+	font-size:.7em;
+	margin:0;
+	padding:2px;
+	margin-right:1px;
+	margin-bottom:1px;
+	overflow:scroll;
+}
+
+.nwStudent img
+{
+	display:none;
+}
+
+.nwStudentDragged
+{
+	display:inline-block;
+	color: #ffffff;
+	
+	font-size:1.0em;
+	-webkit-box-shadow: 1px 1px 2px 0px #000010;
+	background-color:#585858;
+	padding:10px;
+	z-index:10;
+}
+.Student_ListItem 
+{
+	display:inline-block;
+
+}
+.nwStudentDragged img
+{
+	display:inline-block;
+	width:20px;
+	margin-left:10px;
+	float:right;
+}
+/* logo */
+
+@-webkit-keyframes rotateLogo {
+    0% {-webkit-transform: rotate(0deg);}
+    50% {-webkit-transform: rotate(-180deg);}
+    100% {-webkit-transform: rotate(-360deg);}
+} 
+
+#nwNaviLogo
+{
+	/*-webkit-opacity:.6;*/
+	width:30px;
+	position:fixed;
+	display:block;
+	/*border:solid 0px white;
+	padding-top:2px;
+	padding-bottom:2px;
+	padding-left:4px;
+	padding-right:4px;
+	border-radius: 20px;*/
+	left:5px;
+	top:5px;
+	-webkit-animation-timing-function: linear;
+	-webkit-animation-name: rotateLogo;
+    -webkit-animation-duration: 4s;
+    -webkit-animation-iteration-count: infinite; 
+}
+
+.highlightedStudent
+{
+	color: #00c6ff;
+}
+
+.selectedObject
+{
+	
+	background-color: #0082A6;
+	color: white;
+}
+
+
+
+
+.emptyStudent
+{
+	background-color: #4c4c4c;
+}
+
+.emptyBadge
+{
+	opacity: .1;
+}
+
+#nwNaviOverlay
+{
+	position:fixed;
+	top:0;left:0;
+	width:100%;
+	height:100%;
+	background-color:#231f20;
+	text-align:center;
+	vertical-align:middle;
+	z-index:101
+}
+
+#nwNaviOverlay img
+{
+	margin:auto;
+	margin-top:250px
+}
+
+#nwNaviOverlay p
+{
+	color:white;
+	font-size:.5em;
+	position:fixed;
+	top:90%;
+	left:90%;
+}
