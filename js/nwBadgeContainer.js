@@ -5,10 +5,11 @@ var badgesLoaded_callBack = function(json)
 		badgeContainer.removeBadges();
 	var objects = [];
 	var iteration = -1;
-	for(var i = 0; i < json.length; i++)
+	for(var i = 0; i < Object.keys(json).length; i++)
 	{
-		iteration = json[i].biweek;
-		objects.push(new nwBadgeIcon(json[i].GUID, null, null, json[i].imageUrl, json[i]));
+		//iteration = json[i].biweek;
+        var badge = json[Object.keys(json)[i]];
+		objects.push(new nwBadgeIcon(badge.id, null, null, badge.image, badge));
 	};
 	if(badgeContainer == null)
 		badgeContainer = new nwBadgeContainer({x:fw.view.width/3.4, y:fw.view.height/3}, null);
@@ -30,29 +31,26 @@ var updateBadgeColorsForStudent = function(students,removeConnections)
 	for(var i = 0; i < badgeContainer.badges.length;i++)
 	{
 		var studentsFound = false;
-		for(var j = 0; j < badgeContainer.badges[i].badgeData.awardedBadges.length; j++)
-		{
-			var awardedBadge = badgeContainer.badges[i].badgeData.awardedBadges[j];
-			for(var k = 0; k < students.length;k++)
-				{
-					if(awardedBadge.username == students[k].studentName)
-					{
-						studentsFound = true;
-						if(removeConnections)
-						{
-							fw.removeConnection(badgeContainer.badges[i], students[k]);
-							$("#"+students[k].element.id).removeClass("selectedObject");
-							$("#"+badgeContainer.badges[i].element.id).removeClass("selectedObject");
-						}
-						else if(badgeContainer.badges[i].activated)
-						{
-							$("#"+students[k].element.id).addClass("selectedObject");
-							$("#"+badgeContainer.badges[i].element.id).addClass("selectedObject");
-							fw.drawConnection(badgeContainer.badges[i], students[k]);
-						}
-					}
-				}
-		}
+        for(var j = 0; j< students.length; j++)
+        {
+            if( badgeContainer.badges[i].badgeData.awardedTo[students[j].studentName] != null)
+            {
+                studentsFound = true;
+                if(removeConnections)
+                {
+                    fw.removeConnection(badgeContainer.badges[i], students[j]);
+                    $("#"+students[j].element.id).removeClass("selectedObject");
+                    $("#"+badgeContainer.badges[i].element.id).removeClass("selectedObject");
+                }
+                else if(badgeContainer.badges[i].activated)
+                {
+                    $("#"+students[j].element.id).addClass("selectedObject");
+                    $("#"+badgeContainer.badges[i].element.id).addClass("selectedObject");
+                    fw.drawConnection(badgeContainer.badges[i], students[j]);
+                }
+            }
+        }
+
 		if(!studentsFound)
 			badgeContainer.badges[i].element.style["webkitFilter"]= "blur(0px)grayscale(100%)";
 		else
@@ -71,7 +69,7 @@ var	nwBadge_Arrow_Events =
 		if(nwBadge_Arrow_Events.nwBadge_Arrow_Page == 0) nwBadge_Arrow_Events.buttons[0].element.style.visibility = "hidden";
 		nwBadge_Arrow_Events.buttons[1].element.style.visibility = "";
 	    console.log("BADGES REQUEST: LOADING");
-		$.getJSON('/REST/getBadges/' + nwBadge_Arrow_Events.nwBadge_Arrow_Page + '/0000?callback=', badgesLoaded_callBack, "json");
+		$.getJSON('http://localhost:3000/badges', badgesLoaded_callBack, "json");
 	},
 	Forward_Touched: function(point, obj)
 	{
@@ -79,7 +77,7 @@ var	nwBadge_Arrow_Events =
 		if(nwBadge_Arrow_Events.nwBadge_Arrow_Page == 6) nwBadge_Arrow_Events.buttons[1].element.style.visibility = "hidden";
 		nwBadge_Arrow_Events.buttons[0].element.style.visibility = "";
 	    console.log("BADGES REQUEST: LOADING");
-		$.getJSON('/REST/getBadges/' + nwBadge_Arrow_Events.nwBadge_Arrow_Page + '/0000?callback=', badgesLoaded_callBack, "json");
+		$.getJSON('http://localhost:3000/badges', badgesLoaded_callBack, "json");
 	},
 };
 

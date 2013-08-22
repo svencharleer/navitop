@@ -3,9 +3,10 @@ var studentsLoaded_callBack = function(json)
 	console.log("STUDENTS REQUEST: DONE");
 	
 	var objects = [];
-	for(var i = 0; i < json.length; i++)
-	{
-		objects.push(new nwStudent(json[i].replace(/[^A-Za-z0-9]+/g, ''), null, null, json[i]));
+    for(var i = 0; i < Object.keys(json).length; i++)
+    {
+        var user = json[Object.keys(json)[i]];
+		objects.push(new nwStudent(user.username.replace(/[^A-Za-z0-9]+/g, ''), null, null, user.username, user));
 	};
 	if(studentContainer == null)
 		studentContainer = new nwStudentContainer();
@@ -30,31 +31,29 @@ var updateStudentColorsForBadges = function(badges,removeConnections)
 		return null;
 	for(var i = 0; i < studentContainer.students.length;i++)
 	{
-		var student = studentContainer.students[i];
-		var badgesFound = false;
-		for(var j = 0; j < badges.length; j++)
-		{
-			for(var k = 0; k < badges[j].badgeData.awardedBadges.length;k++)
-			{
-				var awardedBadge = badges[j].badgeData.awardedBadges[k];
-				if(awardedBadge.username == student.studentName)
-				{
-					badgesFound = true;
-					if(removeConnections)
-					{
-						$("#"+student.element.id).removeClass("selectedObject");
-						$("#"+badges[j].element.id).removeClass("selectedObject");
-						fw.removeConnection(badges[j], student);
-					}
-					else if(student.activated)
-					{
-						$("#"+student.element.id).addClass("selectedObject");
-						$("#"+badges[j].element.id).addClass("selectedObject");
-						fw.drawConnection(badges[j], student);
-					}
-				}
-			}
-		}
+        for(var j = 0; j < badges.length;j++)
+        {
+            var student = studentContainer.students[i];
+            var badgesFound = false;
+            if(student.studentData.awards[badges[j].id] != null)
+            {
+                if(removeConnections)
+                {
+                    $("#"+student.element.id).removeClass("selectedObject");
+                    $("#"+badges[j].element.id).removeClass("selectedObject");
+                    fw.removeConnection(badges[j], student);
+                }
+                else if(student.activated)
+                {
+                    $("#"+student.element.id).addClass("selectedObject");
+                    $("#"+badges[j].element.id).addClass("selectedObject");
+                    fw.drawConnection(badges[j], student);
+                }
+                badgesFound = true;
+
+            }
+        }
+
 		if(!badgesFound)
 			$("#" + student.element.id).removeClass("highlightedStudent");
 		else

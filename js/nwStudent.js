@@ -1,9 +1,10 @@
 
-function nwStudent(_name, position, size, studentName)
+function nwStudent(_name, position, size, studentName, _studentData)
 {
 	var name = "nwStudent" + _name;
 	var states = [];
 	var animations = [];
+    this.studentData = _studentData;
 	var eventHandler =  
 	{
 		timer: null,

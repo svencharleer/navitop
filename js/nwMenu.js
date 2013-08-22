@@ -12,7 +12,7 @@ var nwMenuItem_Events =
 		else
 		{
 		    console.log("BADGES REQUEST: LOADING");
-			$.getJSON('/REST/getBadges/0/0000?callback=', badgesLoaded_callBack, "json");
+			$.getJSON('http://localhost:3000/badges', badgesLoaded_callBack, "json");
 		}
 	},
 
@@ -28,7 +28,7 @@ var nwMenuItem_Events =
 		else
 		{
 		    console.log("STUDENT REQUEST: LOADING");
-			$.getJSON('/REST/getStudents?callback=', studentsLoaded_callBack, "json");
+			$.getJSON('http://localhost:3000/users', studentsLoaded_callBack, "json");
 		}
 	},
 };

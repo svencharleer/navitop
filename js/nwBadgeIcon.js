@@ -1,6 +1,7 @@
-function nwBadgeIcon(name, position, size, filename, badgeData)
+function nwBadgeIcon(_name, position, size, filename, badgeData)
 {
-	var name = "nwBadgeIcon" + name;
+	var name = "nwBadgeIcon" + _name;
+    this.id = _name;
 	var states = [];
 	var animations = [];
 	this.badgeData = badgeData;
