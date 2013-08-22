@@ -13,7 +13,7 @@ var badgesLoaded_callBack = function(json)
 	};
 	if(badgeContainer == null)
 		badgeContainer = new nwBadgeContainer({x:fw.view.width/3.4, y:fw.view.height/3}, null);
-	badgeContainer.addBadges(objects, "Period " + (iteration + 1));
+	badgeContainer.addBadges(objects, "Badges");
 	fw.addObjectsToDocument([badgeContainer]);
 	updateBadgeColors();
 };
@@ -58,7 +58,7 @@ var updateBadgeColorsForStudent = function(students,removeConnections)
 	}
 }
 
-var	nwBadge_Arrow_Events =
+/*var	nwBadge_Arrow_Events =
 { 
 	nwBadge_Arrow_Page: 0,
 	buttons: [],
@@ -79,7 +79,7 @@ var	nwBadge_Arrow_Events =
 	    console.log("BADGES REQUEST: LOADING");
 		$.getJSON('http://localhost:3000/badges', badgesLoaded_callBack, "json");
 	},
-};
+};*/
 
 function nwBadgeContainer()
 {
@@ -129,21 +129,21 @@ function nwBadgeContainer()
 
 
 	
-	var nwBadgeArrowLeft = new nwButton("nwBadgeContainer_ArrowLeft" , null, nwBadge_Arrow_Events.Back_Touched, true );
-	nwBadge_Arrow_Events.buttons.push(nwBadgeArrowLeft);
-	var nwBadgeArrowRight = new nwButton("nwBadgeContainer_ArrowRight" , null, nwBadge_Arrow_Events.Forward_Touched, true );
-	nwBadge_Arrow_Events.buttons.push(nwBadgeArrowRight);
-	this.addChildren.call(this, [nwBadgeArrowLeft, nwBadgeArrowRight]);
+	//var nwBadgeArrowLeft = new nwButton("nwBadgeContainer_ArrowLeft" , null, nwBadge_Arrow_Events.Back_Touched, true );
+	//nwBadge_Arrow_Events.buttons.push(nwBadgeArrowLeft);
+	//var nwBadgeArrowRight = new nwButton("nwBadgeContainer_ArrowRight" , null, nwBadge_Arrow_Events.Forward_Touched, true );
+	//nwBadge_Arrow_Events.buttons.push(nwBadgeArrowRight);
+	//this.addChildren.call(this, [nwBadgeArrowLeft, nwBadgeArrowRight]);
 	//REMEMBER WE HAVE TO DELETE THESE AT SOME POINT
 	//ALSO MAYBE WE WANNA PUT THEM ALL IN THE GROUP POOL --> K WE DID THAT BUT I THINK THEY STAY IN MEMORY IN THE LAYER OF THE FRAMEWORK
 
-	nwBadgeArrowLeft.element.style.visibility = "hidden";
+	//nwBadgeArrowLeft.element.style.visibility = "hidden";
 
 	this.delete = function()
 	{
 		this.removeBadges();
-		delete nwBadgeArrowLeft;
-		delete nwBadgeArrowRight; //we gotta make destructors per object, take into account to delete doc element or not
+		//delete nwBadgeArrowLeft;
+		//delete nwBadgeArrowRight; //we gotta make destructors per object, take into account to delete doc element or not
 		this.element.style.display = "none";
 	}
 

@@ -12,27 +12,28 @@ function nwBadgeIcon(_name, position, size, filename, badgeData)
 		{
 			//obj.setPosition(point);
 			//$("#" + obj.element.id).removeClass("transit");
-			obj.setTouchAnchor(point);
+			//obj.setTouchAnchor(point);
 
-			if(!obj.activated)
+			if(false && !obj.activated)
 			{
 				var placeHolder = document.createElement("div");
 				$("#"+obj.element.id).before("<div id='"+ obj.element.id + "_ph' class='nwBadge'><img class='nwBadgeIcon emptyBadge' src='img/navi_empty_badge.png' draggable='false'/></div>");
 				document.getElementById("playfield").appendChild(obj.element);
 			}
-			obj.setPosition(point);
+			//obj.setPosition(point);
 			updateStudentColorsForBadges([obj]);
 			obj.activated = true;
-			var icon = $("#" + obj.element.id).find(".nwBadgeIcon");
-			icon.removeClass("nwBadgeIcon");
-			icon.addClass("nwBadgeIconDetailed");
-			$("#" + obj.element.id).removeClass("nwBadge");		
-			$("#" + obj.element.id).addClass("nwBadgeDetailed");
+            obj.element.style["webkitFilter"]= "";//"blur(0px)grayscale(100%)";
+			//var icon = $("#" + obj.element.id).find(".nwBadgeIcon");
+			//icon.removeClass("nwBadgeIcon");
+			//icon.addClass("nwBadgeIconDetailed");
+			//$("#" + obj.element.id).removeClass("nwBadge");
+			//$("#" + obj.element.id).addClass("nwBadgeDetailed");
 		
 		},
 		onLetGo: function(obj)
 		{
-			if(obj.getPosition().y < $("#nwContainerArea").offset().top)
+			/*if(obj.getPosition().y < $("#nwContainerArea").offset().top)
 			{
 				var details = $("#" + obj.element.id).find(".nwBadgeDetails_hidden");
 				details.removeClass("nwBadgeDetails_hidden");
@@ -43,8 +44,9 @@ function nwBadgeIcon(_name, position, size, filename, badgeData)
 				
 			}
 			else
-			{
-				var details = $("#" + obj.element.id).find(".nwBadgeDetails_shown");
+			{ */
+                obj.element.style["webkitFilter"]= "blur(0px)grayscale(100%)";
+				/*var details = $("#" + obj.element.id).find(".nwBadgeDetails_shown");
 				details.removeClass("nwBadgeDetails_shown");
 				details.addClass("nwBadgeDetails_hidden");
 				var icon = $("#" + obj.element.id).find(".nwBadgeIconDetailed");
@@ -56,20 +58,20 @@ function nwBadgeIcon(_name, position, size, filename, badgeData)
 				$("#"+obj.element.id + "_ph").before(jElement);
 				$("#"+obj.element.id + "_ph").remove();
 				obj.setPosition(null);
-				
+                */
 				updateStudentColors(true);
 				obj.activated = false;
 				updateStudentColors(true);
-			}
+			//}
 			//if outside of container area, let it go ...
-			//otherwise snap back
+			//otherwise snap back    */
 		},
 		onMove: function(point, obj)
 		{
 			
 
-			obj.setPosition(point);
-			updateStudentColorsForBadges([obj]);
+			//obj.setPosition(point);
+			//updateStudentColorsForBadges([obj]);
 		}
 	};
 	var layer = 2;

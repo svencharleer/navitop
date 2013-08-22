@@ -31,9 +31,10 @@ var updateStudentColorsForBadges = function(badges,removeConnections)
 		return null;
 	for(var i = 0; i < studentContainer.students.length;i++)
 	{
+        var student = studentContainer.students[i];
         for(var j = 0; j < badges.length;j++)
         {
-            var student = studentContainer.students[i];
+
             var badgesFound = false;
             if(student.studentData.awards[badges[j].id] != null)
             {
