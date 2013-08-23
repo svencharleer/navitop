@@ -7,6 +7,11 @@ function nwNaviActivityByDayGraph()
 	{
 		onHit: function(point, obj)
 		{
+            //find the svg
+
+            //find the rect
+
+
 			//document.getElementsByTagName("html")[0].webkitRequestFullScreen();
 			//naviOverlay.element.style.display = "block";
 		},
@@ -38,9 +43,9 @@ function addGraph(data, title, color) {
         var day = new Date(data[i]._id.day);
         var item = [day, data[i].value.count] ;
         dataset.push(item);
-        console.log(item[0] + " " + item[1]);
+        //console.log(item[0] + " " + item[1]);
     }
-    var w = 1200;
+    var w = 800;//1200;
     var h = 250;
     var svg = d3.select("#nwNaviActivityByDayGraph")
         .append("svg")
@@ -59,8 +64,8 @@ function addGraph(data, title, color) {
     var yScale = d3.scale.linear()
         .domain([0, yMax])
         .range([h - padding, padding]);
-    console.log("0= " + yScale(0));
-    console.log("140= " + yScale(140));
+    //console.log("0= " + yScale(0));
+    //console.log("140= " + yScale(140));
 
     var xAxis = d3.svg.axis()
         .scale(xScale)
@@ -87,6 +92,7 @@ function addGraph(data, title, color) {
         .data(dataset)
         .enter()
         .append("rect")
+        .attr("id", function(d,i){return title.replace(" ", "_") + i;})
         .attr("x", function (d) {
             return xScale(d[0]);// * (w / dataset.length);
         })
@@ -99,7 +105,14 @@ function addGraph(data, title, color) {
             return h - yScale(d[1]) - padding;
         })
         .attr("fill", color);//"teal");
-
+    var test = svg.selectAll("rect");
+    var objects = [];
+    for(var i = 0;i < test[0].length;i++)
+    {
+        //console.log(test[0][t].id);
+        objects.push(new nwNaviGraphBar("", test[0][i].id));
+    }
+    fw.addObjectsToDocument(objects);
     svg.append("text")
         .attr("class", "ActivityGraphTitle")
         .attr("x", (w / 2))

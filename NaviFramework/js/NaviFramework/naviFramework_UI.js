@@ -191,13 +191,15 @@ TouchTest = function(point, objects)
         if(object != null && object.touchable)
         {
             var position = object.getPosition();
+            if(keys[i] == "Blog_Posts0") console.log("mouse x y " + point.x + " " + point.y + "bar x y" + position.x + " " + position.y);
+
             var size = object.getSize();
             if(point.x > position.x 
                 && point.y > position.y 
                 && point.x < position.x + size.width 
                 && point.y < position.y + size.height)
             {
-                //console.log("Object " + object.element.id + " hit");
+                console.log("Object " + object.element.id + " hit");
                 
                 touchedObjects.push(object);
             }

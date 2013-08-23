@@ -55,7 +55,8 @@ function NObject(name,  layer, position, size, cssClass, innerHTML, events, anim
 	this.getPosition = function()
 	{
 		var jelement = $("#"+this.element.id);
-		return {x:jelement.offset().left, y:jelement.offset().top};
+        return {x:this.element.getBoundingClientRect().left, y: this.element.getBoundingClientRect().top};
+		//return {x:jelement.offset().left, y:jelement.offset().top};
 	}
 	//SIZE
 	var _width, _height;
@@ -69,7 +70,10 @@ function NObject(name,  layer, position, size, cssClass, innerHTML, events, anim
 	this.getSize = function()
 	{
 		var jelement = $("#"+this.element.id);
-		return {width:jelement.outerWidth(), height:jelement.outerHeight()};
+        return {width:this.element.getBoundingClientRect().width, height: this.element.getBoundingClientRect().height};
+        //    return {width:jelement.outerWidth(), height:jelement.outerHeight()};
+
+
 	}
 	this.layer = layer;
 	
