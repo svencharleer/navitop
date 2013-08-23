@@ -13,6 +13,7 @@ var nwMenuItem_Events =
 		{
 		    console.log("BADGES REQUEST: LOADING");
 			$.getJSON('http://localhost:3000/badges', badgesLoaded_callBack, "json");
+
 		}
 	},
 
@@ -29,8 +30,14 @@ var nwMenuItem_Events =
 		{
 		    console.log("STUDENT REQUEST: LOADING");
 			$.getJSON('http://localhost:3000/users', studentsLoaded_callBack, "json");
+            /*
+            $.ajax({   url: 'http://localhost:3000/users',
+
+                dataType: 'json',
+
+                success: studentsLoaded_callBack});   */
 		}
-	},
+	}
 };
 
 

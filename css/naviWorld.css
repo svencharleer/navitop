@@ -383,3 +383,17 @@ img { -webkit-touch-callout: none !important;}
 	top:90%;
 	left:90%;
 }
+
+
+.nwNaviActivityByDayGraphAxis path,
+.nwNaviActivityByDayGraphAxis line {
+    fill: none;
+    stroke: white;
+    shape-rendering: crispEdges;
+}
+
+.nwNaviActivityByDayGraphAxis text {
+    font-family: ubuntuFont;;
+    font-size: 11px;
+    fill: white;
+}

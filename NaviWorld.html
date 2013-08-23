@@ -4,9 +4,13 @@
     <meta name="viewport" content="width=device-width, user-scalable=no">
     <link rel="stylesheet" href="NaviFramework/css/naviFramework.css">
 	<script type="text/javascript" src="NaviFramework/js/3rdParty/paper.js"></script>
-	<script type="text/javascript" src="NaviFramework/js/3rdParty/jquery-1.9.1.min.js"></script>
+      <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+      <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+      <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
 	<script type="text/javascript" src="NaviFramework/js/magictouch.js"></script>
-	
+
+
 	<script type="text/javascript" src="NaviFramework/js/NaviFramework/naviFramework_UI.js"></script>
 	<script type="text/javascript" src="NaviFramework/js/NaviFramework/naviFramework_Events.js"></script>
 	<script type="text/javascript" src="NaviFramework/js/NaviFramework/naviFramework_Animations.js"></script>
@@ -29,7 +33,9 @@
 	<script type="text/javascript" src="js/nwStudentContainer.js"></script>
 	<script type="text/javascript" src="js/nwNaviLogo.js"></script>
 	<script type="text/javascript" src="js/nwNaviOverlay.js"></script>
-	<script type="text/javascript" src="js/nwLogic.js"></script>
+    <script type="text/javascript" src="js/nwNaviActivityByDayGraph.js"></script>
+    <script type="text/javascript" src="js/nwLogic.js"></script>
+
 
 	<script type="text/javascript">
 
@@ -83,7 +89,9 @@ function loadNaviWorld() {
 			<span id="nwStudentContainer_Title">Students</span>
 		</div>
 	</div>
+    <div id="nwNaviActivityByDayGraph"></div>
 </div>
+
 <img id="nwNaviLogo" src="img/navi_logo_small.png"/>
 <div id="nwNaviOverlay" style="" >
 	<img src="img/navi_logo_overlay.png" class="flicker"/>
