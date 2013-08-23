@@ -385,14 +385,20 @@ img { -webkit-touch-callout: none !important;}
 }
 
 
-.nwNaviActivityByDayGraphAxis path,
-.nwNaviActivityByDayGraphAxis line {
+.ActivityGraphAxis path,
+.ActivityGraphAxis line {
     fill: none;
     stroke: white;
     shape-rendering: crispEdges;
 }
 
-.nwNaviActivityByDayGraphAxis text {
+.ActivityGraphAxis text {
+    font-family: ubuntuFont;;
+    font-size: 11px;
+    fill: white;
+}
+
+.ActivityGraphTitle {
     font-family: ubuntuFont;;
     font-size: 11px;
     fill: white;

@@ -2,20 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="99beab25-e08d-4161-8fc8-1c54b518edf8" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/nwNaviActivityByDayGraph.js" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/.ignore" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NaviWorld.html" afterPath="$PROJECT_DIR$/NaviWorld.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/naviWorld.css" afterPath="$PROJECT_DIR$/css/naviWorld.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/nwLogic.js" afterPath="$PROJECT_DIR$/js/nwLogic.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/nwMenu.js" afterPath="$PROJECT_DIR$/js/nwMenu.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/nwNaviActivityByDayGraph.js" afterPath="$PROJECT_DIR$/js/nwNaviActivityByDayGraph.js" />
     </list>
     <ignored path="navitop.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="99beab25-e08d-4161-8fc8-1c54b518edf8" time="1377153348475" ignored="false" />
     <file path="$PROJECT_DIR$/../navidata/dbConnection.js" changelist="99beab25-e08d-4161-8fc8-1c54b518edf8" time="1377009179816" ignored="false" />
-    <file path="$PROJECT_DIR$/../navidata/app.js" changelist="99beab25-e08d-4161-8fc8-1c54b518edf8" time="1377176364915" ignored="false" />
-    <file path="/app.js" changelist="99beab25-e08d-4161-8fc8-1c54b518edf8" time="1377176318712" ignored="false" />
+    <file path="$PROJECT_DIR$/../navidata/app.js" changelist="99beab25-e08d-4161-8fc8-1c54b518edf8" time="1377252063373" ignored="false" />
+    <file path="/app.js" changelist="99beab25-e08d-4161-8fc8-1c54b518edf8" time="1377252057401" ignored="false" />
     <file path="$PROJECT_DIR$/../navidata/routes/events.js" changelist="99beab25-e08d-4161-8fc8-1c54b518edf8" time="1376981881197" ignored="false" />
     <file path="/events.js" changelist="99beab25-e08d-4161-8fc8-1c54b518edf8" time="1376981880812" ignored="false" />
     <file path="/dbConnection.js" changelist="99beab25-e08d-4161-8fc8-1c54b518edf8" time="1376980761981" ignored="false" />
@@ -30,13 +26,14 @@
     <file path="/nwStudent.js" changelist="99beab25-e08d-4161-8fc8-1c54b518edf8" time="1377175564981" ignored="false" />
     <file path="/nwBadgeIcon.js" changelist="99beab25-e08d-4161-8fc8-1c54b518edf8" time="1377175289937" ignored="false" />
     <file path="/NaviWorld.html" changelist="99beab25-e08d-4161-8fc8-1c54b518edf8" time="1377185453367" ignored="false" />
-    <file path="/naviWorld.css" changelist="99beab25-e08d-4161-8fc8-1c54b518edf8" time="1377246147526" ignored="false" />
-    <file path="$PROJECT_DIR$/../navidata/routes/activity.js" changelist="99beab25-e08d-4161-8fc8-1c54b518edf8" time="1377249275349" ignored="false" />
-    <file path="/activity.js" changelist="99beab25-e08d-4161-8fc8-1c54b518edf8" time="1377249267350" ignored="false" />
-    <file path="/nwNaviActivityByDayGraph.js" changelist="99beab25-e08d-4161-8fc8-1c54b518edf8" time="1377251485251" ignored="false" />
+    <file path="/naviWorld.css" changelist="99beab25-e08d-4161-8fc8-1c54b518edf8" time="1377253867032" ignored="false" />
+    <file path="$PROJECT_DIR$/../navidata/routes/activity.js" changelist="99beab25-e08d-4161-8fc8-1c54b518edf8" time="1377251959206" ignored="false" />
+    <file path="/activity.js" changelist="99beab25-e08d-4161-8fc8-1c54b518edf8" time="1377251940140" ignored="false" />
+    <file path="/nwNaviActivityByDayGraph.js" changelist="99beab25-e08d-4161-8fc8-1c54b518edf8" time="1377254375683" ignored="false" />
     <file path="/nwLogic.js" changelist="99beab25-e08d-4161-8fc8-1c54b518edf8" time="1377179828583" ignored="false" />
     <file path="/a.dummy" changelist="99beab25-e08d-4161-8fc8-1c54b518edf8" time="1377181210857" ignored="false" />
     <file path="/nwMenu.js" changelist="99beab25-e08d-4161-8fc8-1c54b518edf8" time="1377185168698" ignored="false" />
+    <file path="/fragment.js2" changelist="99beab25-e08d-4161-8fc8-1c54b518edf8" time="1377252221158" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,7 +56,7 @@
       <file leaf-file-name="nwNaviActivityByDayGraph.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/nwNaviActivityByDayGraph.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="62" column="38" selection-start="1634" selection-end="1634" vertical-scroll-proportion="2.53406">
+            <state line="43" column="14" selection-start="1229" selection-end="1229" vertical-scroll-proportion="0.46866485">
               <folding />
             </state>
           </provider>
@@ -68,7 +65,7 @@
       <file leaf-file-name="naviWorld.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/naviWorld.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="397" column="8" selection-start="5432" selection-end="5432" vertical-scroll-proportion="-10.08">
+            <state line="403" column="16" selection-start="5500" selection-end="5500" vertical-scroll-proportion="-12.48">
               <folding />
             </state>
           </provider>
@@ -507,14 +504,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/css/naviWorld.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="397" column="8" selection-start="5432" selection-end="5432" vertical-scroll-proportion="-10.08">
+        <state line="403" column="16" selection-start="5500" selection-end="5500" vertical-scroll-proportion="-12.48">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/nwNaviActivityByDayGraph.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="62" column="38" selection-start="1634" selection-end="1634" vertical-scroll-proportion="2.53406">
+        <state line="43" column="14" selection-start="1229" selection-end="1229" vertical-scroll-proportion="0.46866485">
           <folding />
         </state>
       </provider>
