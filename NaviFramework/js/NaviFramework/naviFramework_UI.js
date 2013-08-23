@@ -224,15 +224,15 @@ function naviFramework_UI()
     this.windowResize = function(event)
     {
         this.view = {width: $(window).width(), height: $(window).height()};
-        sfxCanvas.size({w:$(window).width(),h:$(window).height()})
+        //sfxCanvas.size({w:$(window).width(),h:$(window).height()})
     }
 
     this.init = function()
     {
         this.layers = [new DocumentLayer(), new DocumentLayer(), new DocumentLayer(), new DocumentLayer()];
         this.paper = paper;
-        sfxCanvas = new PaperCanvas(this.paper);
-        sfxCanvas.init("sfxLayer", {x:0, y:0}, {w:this.view.width, h:this.view.height});
+        //sfxCanvas = new PaperCanvas(this.paper);
+        //sfxCanvas.init("sfxLayer", {x:0, y:0}, {w:this.view.width, h:this.view.height});
     }
     
     
@@ -267,7 +267,7 @@ function naviFramework_UI()
         //(could also be useful to make touch pretty :P particles?)
         if(drawFingers)
         {
-            sfxCanvas.drawCircle(identifier, hitPoint);
+            //sfxCanvas.drawCircle(identifier, hitPoint);
             this.fingerToCursors[identifier] = identifier;
         }
         var hitResults = TouchTest(hitPoint,fw.layers[2].objects);
@@ -293,7 +293,7 @@ function naviFramework_UI()
         {   
             
             //hm we have to find a way to get rid of this
-            sfxCanvas.removePath(identifier);
+            //sfxCanvas.removePath(identifier);
             this.fingerToCursors[identifier] = null;
         }
         if(this.fingerToObjects[identifier] != null)
@@ -320,7 +320,7 @@ function naviFramework_UI()
         //(could also be useful to make touch pretty :P particles?)
         if(drawFingers && this.fingerToCursors[identifier] != null)
         {
-            sfxCanvas.drawCircle(identifier, hitPoint);
+            //sfxCanvas.drawCircle(identifier, hitPoint);
         }
         else
         {
@@ -396,12 +396,12 @@ function naviFramework_UI()
     {
         var linkName = object1.getName() + "_" + object2.getName();
         
-        sfxCanvas.drawLine(linkName, this.getCenterOfObject(object1), this.getCenterOfObject(object2));
+        //sfxCanvas.drawLine(linkName, this.getCenterOfObject(object1), this.getCenterOfObject(object2));
     }
     this.removeConnection = function(object1, object2)
     {
         var linkName = object1.getName() + "_" + object2.getName();
-        sfxCanvas.removePath(linkName);
+        //sfxCanvas.removePath(linkName);
     }
 
    
