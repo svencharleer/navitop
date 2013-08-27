@@ -200,8 +200,24 @@ function updateGraph_Users(user)
 {
     graph_selectedUsers.push(user);
     updateGraph_all();
-    console.log("how many times");
 }
+
+function updateGraph_UsersDeleted(user)
+{
+    var index = graph_selectedUsers.indexOf(user);
+    if(index != -1)
+        graph_selectedUsers.splice(index, 1);
+    if(graph_selectedUsers.length > 0)
+        updateGraph_all();
+    else
+    {
+        $.getJSON('http://localhost:3000/activity', updateGraph_total_callBack, "json");
+        $.getJSON('http://localhost:3000/activity/tweeted', updateGraph_tweets_callBack, "json");
+        $.getJSON('http://localhost:3000/activity/commented', updateGraph_comments_callBack, "json");
+        $.getJSON('http://localhost:3000/activity/posted', updateGraph_posts_callBack, "json");
+    }
+}
+
 function updateGraph_all()
 {   var usersJSON = JSON.stringify(graph_selectedUsers);
     $.getJSON('http://localhost:3000/activity/total/' + usersJSON, updateGraph_total_callBack, "json");

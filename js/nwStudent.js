@@ -21,21 +21,29 @@ function nwStudent(_name, position, size, studentName, _studentData)
 			//	$("#"+obj.element.id).before("<div id='"+ obj.element.id + "_ph' class='nwStudent emptyStudent''>&nbsp;</div>");
 			//	document.getElementById("playfield").appendChild(obj.element);
 			//}
-			obj.activated = true;
-			//obj.setPosition(point);
-            $("#"+obj.element.id).addClass("selectedObject");
-			updateBadgeColorsForStudent([obj]);
 
-            updateGraph_Users(obj.studentName);
-			
+            if(!obj.activated)
+            {
+                obj.activated = true;
+                //obj.setPosition(point);
+                $("#"+obj.element.id).addClass("selectedObject");
+                updateBadgeColorsForStudent([obj]);
+
+                updateGraph_Users(obj.studentName);
+            }
+            else
+            {
+                $("#"+obj.element.id).removeClass("selectedObject");
+                updateBadgeColors(true);
+                obj.activated = false;
+                updateBadgeColors(true);
+                updateGraph_UsersDeleted(obj.studentName);
+            }
 		},
 		onLetGo: function(obj)
 		{
 
-            $("#"+obj.element.id).removeClass("selectedObject");
-				updateBadgeColors(true);
-				obj.activated = false;
-				updateBadgeColors(true);
+
 
 			//if outside of container area, let it go ...
 			//otherwise snap back

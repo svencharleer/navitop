@@ -3,10 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="99beab25-e08d-4161-8fc8-1c54b518edf8" name="Default" comment="">
       <change type="DELETED" beforePath="$PROJECT_DIR$/.ignore" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NaviWorld.html" afterPath="$PROJECT_DIR$/NaviWorld.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/nwBadgeContainer.js" afterPath="$PROJECT_DIR$/js/nwBadgeContainer.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/nwNaviActivityByDayGraph.js" afterPath="$PROJECT_DIR$/js/nwNaviActivityByDayGraph.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/nwStudent.js" afterPath="$PROJECT_DIR$/js/nwStudent.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="navitop.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -25,13 +24,13 @@
     <file path="/badges.js" changelist="99beab25-e08d-4161-8fc8-1c54b518edf8" time="1377163357820" ignored="false" />
     <file path="/nwBadgeContainer.js" changelist="99beab25-e08d-4161-8fc8-1c54b518edf8" time="1377172561010" ignored="false" />
     <file path="/nwStudentContainer.js" changelist="99beab25-e08d-4161-8fc8-1c54b518edf8" time="1377173621079" ignored="false" />
-    <file path="/nwStudent.js" changelist="99beab25-e08d-4161-8fc8-1c54b518edf8" time="1377597015507" ignored="false" />
+    <file path="/nwStudent.js" changelist="99beab25-e08d-4161-8fc8-1c54b518edf8" time="1377607840646" ignored="false" />
     <file path="/nwBadgeIcon.js" changelist="99beab25-e08d-4161-8fc8-1c54b518edf8" time="1377175289937" ignored="false" />
     <file path="/NaviWorld.html" changelist="99beab25-e08d-4161-8fc8-1c54b518edf8" time="1377260669161" ignored="false" />
     <file path="/naviWorld.css" changelist="99beab25-e08d-4161-8fc8-1c54b518edf8" time="1377253867032" ignored="false" />
     <file path="$PROJECT_DIR$/../navidata/routes/activity.js" changelist="99beab25-e08d-4161-8fc8-1c54b518edf8" time="1377607563268" ignored="false" />
     <file path="/activity.js" changelist="99beab25-e08d-4161-8fc8-1c54b518edf8" time="1377607552753" ignored="false" />
-    <file path="/nwNaviActivityByDayGraph.js" changelist="99beab25-e08d-4161-8fc8-1c54b518edf8" time="1377607076905" ignored="false" />
+    <file path="/nwNaviActivityByDayGraph.js" changelist="99beab25-e08d-4161-8fc8-1c54b518edf8" time="1377608124979" ignored="false" />
     <file path="/nwLogic.js" changelist="99beab25-e08d-4161-8fc8-1c54b518edf8" time="1377179828583" ignored="false" />
     <file path="/a.dummy" changelist="99beab25-e08d-4161-8fc8-1c54b518edf8" time="1377181210857" ignored="false" />
     <file path="/nwMenu.js" changelist="99beab25-e08d-4161-8fc8-1c54b518edf8" time="1377185168698" ignored="false" />
@@ -78,7 +77,7 @@
       <file leaf-file-name="nwNaviActivityByDayGraph.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/nwNaviActivityByDayGraph.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="209" column="66" selection-start="6077" selection-end="6077" vertical-scroll-proportion="0.41489363">
+            <state line="209" column="0" selection-start="5731" selection-end="5731" vertical-scroll-proportion="0.33333334">
               <folding />
             </state>
           </provider>
@@ -101,7 +100,25 @@
       <file leaf-file-name="nwStudent.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/nwStudent.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="30" selection-start="951" selection-end="951" vertical-scroll-proportion="0.0">
+            <state line="36" column="0" selection-start="1176" selection-end="1176" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="nwStudentContainer.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/nwStudentContainer.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="nwBadgeContainer.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/nwBadgeContainer.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="42" column="0" selection-start="1464" selection-end="1464" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -125,20 +142,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="users" pinned="false" current="false" current-in-tab="false">
-        <entry file="http://localhost:3000/users">
-          <provider selected="true" editor-type-id="httpFileEditor">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="badges" pinned="false" current="false" current-in-tab="false">
-        <entry file="http://localhost:3000/badges">
-          <provider selected="true" editor-type-id="httpFileEditor">
-            <state />
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FindManager">
@@ -158,7 +161,6 @@
     <option name="changedFiles">
       <list>
         <option value="$PROJECT_DIR$/js/nwStudentContainer.js" />
-        <option value="$PROJECT_DIR$/js/nwBadgeContainer.js" />
         <option value="$PROJECT_DIR$/js/nwBadgeIcon.js" />
         <option value="$PROJECT_DIR$/js/nwLogic.js" />
         <option value="$PROJECT_DIR$/js/nwMenu.js" />
@@ -169,8 +171,9 @@
         <option value="d3js.org/d3.v3.min.js" />
         <option value="$PROJECT_DIR$/NaviWorld.html" />
         <option value="d3js.org/d3.v3.js" />
-        <option value="$PROJECT_DIR$/js/nwStudent.js" />
         <option value="code.jquery.com/jquery-1.10.1.js" />
+        <option value="$PROJECT_DIR$/js/nwStudent.js" />
+        <option value="$PROJECT_DIR$/js/nwBadgeContainer.js" />
         <option value="$PROJECT_DIR$/js/nwNaviActivityByDayGraph.js" />
       </list>
     </option>
@@ -482,27 +485,15 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="24" />
+      <option name="time" value="27" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/js/nwNaviLogo.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/nwBadgeIcon.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="73" column="14" selection-start="2466" selection-end="2466" vertical-scroll-proportion="0.0">
           <folding />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/nwBadgeContainer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="27" selection-start="563" selection-end="586" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/NaviFramework/js/NaviFramework/naviObject.js">
@@ -566,16 +557,30 @@
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/js/nwStudentContainer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/js/nwStudent.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="30" selection-start="951" selection-end="951" vertical-scroll-proportion="0.0">
+        <state line="36" column="0" selection-start="1176" selection-end="1176" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/nwBadgeContainer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="42" column="0" selection-start="1464" selection-end="1464" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/nwNaviActivityByDayGraph.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="209" column="66" selection-start="6077" selection-end="6077" vertical-scroll-proportion="0.41489363">
+        <state line="209" column="0" selection-start="5731" selection-end="5731" vertical-scroll-proportion="0.33333334">
           <folding />
         </state>
       </provider>

@@ -38,15 +38,15 @@ var updateBadgeColorsForStudent = function(students,removeConnections)
                 studentsFound = true;
                 if(removeConnections)
                 {
-                    fw.removeConnection(badgeContainer.badges[i], students[j]);
-                    $("#"+students[j].element.id).removeClass("selectedObject");
+                    //fw.removeConnection(badgeContainer.badges[i], students[j]);
+                    //$("#"+students[j].element.id).removeClass("selectedObject");
                     $("#"+badgeContainer.badges[i].element.id).removeClass("selectedObject");
                 }
                 else if(badgeContainer.badges[i].activated)
                 {
-                    $("#"+students[j].element.id).addClass("selectedObject");
+                    //$("#"+students[j].element.id).addClass("selectedObject");
                     $("#"+badgeContainer.badges[i].element.id).addClass("selectedObject");
-                    fw.drawConnection(badgeContainer.badges[i], students[j]);
+                    //fw.drawConnection(badgeContainer.badges[i], students[j]);
                 }
             }
         }
