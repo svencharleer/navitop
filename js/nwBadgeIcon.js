@@ -19,7 +19,7 @@ function nwBadgeIcon(_name, position, size, filename, badgeData)
                 updateStudentColorsForBadges([obj]);
                 obj.activated = true;
                 obj.element.style["webkitFilter"]= "";
-                updateGraph_Badges(obj.badgeData.eventIds);
+                updateGraph_Badges(obj);
 			}
             else
             {
@@ -27,7 +27,7 @@ function nwBadgeIcon(_name, position, size, filename, badgeData)
                 updateStudentColors(true);
                 obj.activated = false;
                 updateStudentColors(true);
-                updateGraph_BadgesDeleted(obj.badgeData.eventIds);
+                updateGraph_BadgesDeleted(obj);
             }
 			//obj.setPosition(point);
 
@@ -86,6 +86,7 @@ function nwBadgeIcon(_name, position, size, filename, badgeData)
 	NObject.call(this, name, layer, position, size, "", innerHTML, eventHandler, animations, states, [], false, false);
 	this.element.style.display = "";
 	this.element.className = "nwBadge";
+    this.element.style["webkitFilter"]= "blur(0px)grayscale(100%)";
 	//replace placeholders
 	this.element.innerHTML = this.element.innerHTML.replace("NT_IMG_SRC", filename);
 	this.element.innerHTML = this.element.innerHTML.replace("NT_BADGE_NAME", this.badgeData.name);

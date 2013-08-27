@@ -36,7 +36,7 @@ var updateBadgeColorsForStudent = function(students,removeConnections)
             if( badgeContainer.badges[i].badgeData.awardedTo[students[j].studentName] != null)
             {
                 studentsFound = true;
-                if(removeConnections)
+                /*if(removeConnections)
                 {
                     //fw.removeConnection(badgeContainer.badges[i], students[j]);
                     //$("#"+students[j].element.id).removeClass("selectedObject");
@@ -47,14 +47,14 @@ var updateBadgeColorsForStudent = function(students,removeConnections)
                     //$("#"+students[j].element.id).addClass("selectedObject");
                     $("#"+badgeContainer.badges[i].element.id).addClass("selectedObject");
                     //fw.drawConnection(badgeContainer.badges[i], students[j]);
-                }
+                } */
             }
         }
 
 		if(!studentsFound)
-			badgeContainer.badges[i].element.style["webkitFilter"]= "blur(0px)grayscale(100%)";
+			badgeContainer.badges[i].element.style["background-color"] = "";//["webkitFilter"]= "blur(0px)grayscale(100%)";
 		else
-			badgeContainer.badges[i].element.style["webkitFilter"]= "";
+            badgeContainer.badges[i].element.style["background-color"] = "blue";
 	}
 }
 

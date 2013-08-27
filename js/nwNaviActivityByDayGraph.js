@@ -218,32 +218,7 @@ function updateGraph_UsersDeleted(user)
     }
 }
 
-var graph_selectedBadges = [];
 
-function updateGraph_Badges(badges)
-{
-    graph_selectedBadges = graph_selectedBadges.concat(badges);
-    updateGraph_all_badges();
-}
-
-function updateGraph_BadgesDeleted(badges)
-{
-    for(var i = 0; i < badges.length; i++)
-    {
-        var index = graph_selectedBadges.indexOf(badges[i]);
-        if(index != -1)
-            graph_selectedBadges.splice(index, 1);
-    }
-    if(graph_selectedBadges.length > 0)
-        updateGraph_all_badges();
-    else
-    {
-        $.getJSON('http://localhost:3000/activity', updateGraph_total_callBack, "json");
-        $.getJSON('http://localhost:3000/activity/tweeted', updateGraph_tweets_callBack, "json");
-        $.getJSON('http://localhost:3000/activity/commented', updateGraph_comments_callBack, "json");
-        $.getJSON('http://localhost:3000/activity/posted', updateGraph_posts_callBack, "json");
-    }
-}
 
 function updateGraph_all_users()
 {   var usersJSON = JSON.stringify(graph_selectedUsers);
@@ -287,9 +262,60 @@ function updateGraph_posts_callBack(data)
 
 }
 
+var badgeFilter = {};
+badgeFilter["tweets"] = 0;
+badgeFilter["posts"] = 0;
+badgeFilter["comments"] = 0;
 
 
 
+function updateGraph_Badges(badgeIcon)
+{
+    if(badgeIcon.badgeData.description.indexOf('tweet') != -1)
+       badgeFilter["tweets"]++;
+    if(badgeIcon.badgeData.description.indexOf('Commenter') != -1)
+       badgeFilter["comments"]++;
+    if(badgeIcon.badgeData.description.indexOf('post') != -1)
+       badgeFilter["posts"]++;
+    updateVisibleGraphs_filterBadges();
+}
+function updateGraph_BadgesDeleted(badgeIcon)
+{
+    if(badgeIcon.badgeData.description.indexOf('tweet') != -1)
+        badgeFilter["tweets"]--;
+    if(badgeIcon.badgeData.description.indexOf('Commenter') != -1)
+        badgeFilter["comments"]--;
+    if(badgeIcon.badgeData.description.indexOf('post') != -1)
+        badgeFilter["posts"]--;
+    updateVisibleGraphs_filterBadges();
+}
+
+function updateVisibleGraphs_filterBadges()
+{
+
+    if(badgeFilter["tweets"] == 0 && badgeFilter["comments"] == 0 && badgeFilter["posts"] == 0)
+    {
+        $("#" + "nwTweetGraph").show();
+        $("#" + "nwBlogCommentGraph").show();
+        $("#" + "nwBlogPostGraph").show();
+        return;
+    }
+    if(badgeFilter["tweets"] > 0)
+        $("#" + "nwTweetGraph").show();
+    else
+        $("#" + "nwTweetGraph").hide();
+
+    if(badgeFilter["comments"] > 0)
+        $("#" + "nwBlogCommentGraph").show();
+    else
+        $("#" + "nwBlogCommentGraph").hide();
+
+    if(badgeFilter["posts"] > 0)
+        $("#" + "nwBlogPostGraph").show();
+    else
+        $("#" + "nwBlogPostGraph").hide();
+
+}
 
 
 
