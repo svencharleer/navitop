@@ -36,25 +36,37 @@ function nwNaviActivityByDayGraph()
 
 }
 
-function addGraph(data, title, color) {
+var svgW = 800;//1200;
+var svgH = 250;
+var graphBarPadding = 1;
+var graphPadding = 30;
+var graphTransformX = [];
+var graphTransformY = [];
+var graphDays = 0;
+var minDate = new Date(1361232000000);
+var maxDate = new Date(1369612800000);
+function addGraph(data, id, title, color) {
+
+
     var dataset = [];
+
     for(var i = 0; i < data.length; i++)
     {
         var day = new Date(data[i]._id.day);
         var item = [day, data[i].value.count] ;
         dataset.push(item);
-        //console.log(item[0] + " " + item[1]);
     }
-    var w = 800;//1200;
-    var h = 250;
+
+    var w = svgW;//1200;
+    var h = svgH;
     var svg = d3.select("#nwNaviActivityByDayGraph")
         .append("svg")
+        .attr("id", id )
         .attr("width", w)   // <-- Here
         .attr("height", h); // <-- and here!
-    var barPadding = 1;
-    var padding = 30;
-    var minDate = new Date(1361232000000); /*[dataset[0][0]*/
-    var maxDate = dataset[dataset.length - 1][0];
+    var barPadding = graphBarPadding;
+    var padding = graphPadding;
+
     var xScale = d3.time.scale()
         .domain([minDate, maxDate])
         .range([padding, w - padding * 2]);
@@ -64,8 +76,6 @@ function addGraph(data, title, color) {
     var yScale = d3.scale.linear()
         .domain([0, yMax])
         .range([h - padding, padding]);
-    //console.log("0= " + yScale(0));
-    //console.log("140= " + yScale(140));
 
     var xAxis = d3.svg.axis()
         .scale(xScale)
@@ -75,6 +85,8 @@ function addGraph(data, title, color) {
         .scale(yScale)
         .orient("left")
         .ticks(3);
+    graphTransformX[id] = xScale;
+    graphTransformY[id] = yScale;
 
 
     svg.append("g")
@@ -86,17 +98,17 @@ function addGraph(data, title, color) {
         .attr("transform", "translate(" + padding + ",0)")
         .call(yAxis);
 
-    var days = Math.floor((maxDate.getTime() - minDate.getTime())/(1000*60*60*24));
+    graphDays = Math.floor((maxDate.getTime() - minDate.getTime())/(1000*60*60*24));
 
     svg.selectAll("rect")
         .data(dataset)
         .enter()
         .append("rect")
-        .attr("id", function(d,i){return title.replace(" ", "_") + i;})
+        .attr("id", function(d,i){return id + i;})
         .attr("x", function (d) {
             return xScale(d[0]);// * (w / dataset.length);
         })
-        .attr("width", w / days - barPadding)
+        .attr("width", w / graphDays - barPadding)
         .attr("y", function (d) {
             return yScale(d[1]);//d[1];
         })
@@ -122,20 +134,108 @@ function addGraph(data, title, color) {
 }
 function activityGraph_tweets_callBack(data)
 {
-    addGraph(data, "Tweets", "#ff7f0e");
+    addGraph(data, "nwTweetGraph", "Tweets", "#ff7f0e");
 }
 function activityGraph_comments_callBack(data)
 {
-    addGraph(data, "Blog Comments", "#9467bd");
+    addGraph(data, "nwBlogCommentGraph","Blog Comments", "#9467bd");
 }
 function activityGraph_total_callBack(data)
 {
-    addGraph(data, "Total Activity", "#74c476");
+    addGraph(data, "nwActivityGraph","Total Activity", "#74c476");
 }
 function activityGraph_posts_callBack(data)
 {
-    addGraph(data, "Blog Posts", "#d62728");
+    addGraph(data, "nwBlogPostGraph","Blog Posts", "#d62728");
 }
+
+function updateGraph(data, id)
+{
+    var w = svgW;//1200;
+    var h = svgH;
+    var barPadding = graphBarPadding;
+    var padding = graphPadding;
+    var dataset = [];
+    for(var i = 0; i < data.length; i++)
+    {
+        var day = new Date(data[i]._id.day);
+        var item = [day, data[i].value.count] ;
+        dataset.push(item);
+    }
+
+    var svg = d3.select("#"+id);
+    svg.selectAll("rect").remove();
+    svg.selectAll("rect")
+        .data(dataset)
+        .enter()
+        .append("rect")
+        .attr("y", function (d) {
+            return graphTransformY[id](0);//d[1];
+        })
+        .attr("height", function (d) {
+            return h - graphTransformY[id](0) - padding;
+        });
+    svg.selectAll("rect")
+        .data(dataset)
+        .transition()
+        .duration(1000)
+        .attr("id", function(d,i){return id + i;})
+        .attr("x", function (d) {
+            return graphTransformX[id](d[0]);
+        })
+        .attr("width", w / graphDays - barPadding)
+        .attr("y", function (d) {
+            return graphTransformY[id](d[1]);//d[1];
+        })
+        .attr("height", function (d) {
+            return h - graphTransformY[id](d[1]) - padding;
+        })
+        .attr("fill","teal");
+    ;
+}
+
+var graph_selectedUsers = [];
+
+function updateGraph_Users(user)
+{
+    graph_selectedUsers.push(user);
+    updateGraph_all();
+    console.log("how many times");
+}
+function updateGraph_all()
+{   var usersJSON = JSON.stringify(graph_selectedUsers);
+    $.getJSON('http://localhost:3000/activity/total/' + usersJSON, updateGraph_total_callBack, "json");
+    $.getJSON('http://localhost:3000/activity/tweeted/' +usersJSON, updateGraph_tweets_callBack, "json");
+    $.getJSON('http://localhost:3000/activity/commented/' + usersJSON, updateGraph_comments_callBack, "json");
+    $.getJSON('http://localhost:3000/activity/posted/' + usersJSON, updateGraph_posts_callBack, "json");
+}
+
+function updateGraph_total_callBack(data)
+{
+    updateGraph(data, "nwActivityGraph");
+
+}
+
+function updateGraph_tweets_callBack(data)
+{
+    updateGraph(data, "nwTweetGraph");
+
+}
+
+function updateGraph_comments_callBack(data)
+{
+    updateGraph(data, "nwBlogCommentGraph");
+
+}
+
+
+function updateGraph_posts_callBack(data)
+{
+    updateGraph(data, "nwBlogPostGraph");
+
+}
+
+
 
 
 
