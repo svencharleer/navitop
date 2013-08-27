@@ -199,7 +199,7 @@ var graph_selectedUsers = [];
 function updateGraph_Users(user)
 {
     graph_selectedUsers.push(user);
-    updateGraph_all();
+    updateGraph_all_users();
 }
 
 function updateGraph_UsersDeleted(user)
@@ -208,7 +208,7 @@ function updateGraph_UsersDeleted(user)
     if(index != -1)
         graph_selectedUsers.splice(index, 1);
     if(graph_selectedUsers.length > 0)
-        updateGraph_all();
+        updateGraph_all_users();
     else
     {
         $.getJSON('http://localhost:3000/activity', updateGraph_total_callBack, "json");
@@ -218,13 +218,46 @@ function updateGraph_UsersDeleted(user)
     }
 }
 
-function updateGraph_all()
+var graph_selectedBadges = [];
+
+function updateGraph_Badges(badge)
+{
+    graph_selectedBadges.push(badge);
+    updateGraph_all_badges();
+}
+
+function updateGraph_BadgesDeleted(user)
+{
+    var index = graph_selectedBadges.indexOf(user);
+    if(index != -1)
+        graph_selectedBadges.splice(index, 1);
+    if(graph_selectedBadges.length > 0)
+        updateGraph_all_badges();
+    else
+    {
+        $.getJSON('http://localhost:3000/activity', updateGraph_total_callBack, "json");
+        $.getJSON('http://localhost:3000/activity/tweeted', updateGraph_tweets_callBack, "json");
+        $.getJSON('http://localhost:3000/activity/commented', updateGraph_comments_callBack, "json");
+        $.getJSON('http://localhost:3000/activity/posted', updateGraph_posts_callBack, "json");
+    }
+}
+
+function updateGraph_all_users()
 {   var usersJSON = JSON.stringify(graph_selectedUsers);
     $.getJSON('http://localhost:3000/activity/total/' + usersJSON, updateGraph_total_callBack, "json");
     $.getJSON('http://localhost:3000/activity/tweeted/' +usersJSON, updateGraph_tweets_callBack, "json");
     $.getJSON('http://localhost:3000/activity/commented/' + usersJSON, updateGraph_comments_callBack, "json");
     $.getJSON('http://localhost:3000/activity/posted/' + usersJSON, updateGraph_posts_callBack, "json");
 }
+
+function updateGraph_all_badges()
+{   var badgesJSON = JSON.stringify(graph_selectedBadges);
+    $.getJSON('http://localhost:3000/relatedevents/activy/total/' + badgesJSON, updateGraph_total_callBack, "json");
+    $.getJSON('http://localhost:3000/relatedevents/activy/tweeted/' +badgesJSON, updateGraph_tweets_callBack, "json");
+    $.getJSON('http://localhost:3000/relatedevents/activy/commented/' + badgesJSON, updateGraph_comments_callBack, "json");
+    $.getJSON('http://localhost:3000/relatedevents/activy/posted/' + badgesJSON, updateGraph_posts_callBack, "json");
+}
+
 
 function updateGraph_total_callBack(data)
 {

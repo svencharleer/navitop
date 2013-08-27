@@ -14,16 +14,21 @@ function nwBadgeIcon(_name, position, size, filename, badgeData)
 			//$("#" + obj.element.id).removeClass("transit");
 			//obj.setTouchAnchor(point);
 
-			if(false && !obj.activated)
+			if(!obj.activated)
 			{
-				var placeHolder = document.createElement("div");
-				$("#"+obj.element.id).before("<div id='"+ obj.element.id + "_ph' class='nwBadge'><img class='nwBadgeIcon emptyBadge' src='img/navi_empty_badge.png' draggable='false'/></div>");
-				document.getElementById("playfield").appendChild(obj.element);
+                updateStudentColorsForBadges([obj]);
+                obj.activated = true;
+                obj.element.style["webkitFilter"]= "";
 			}
+            else
+            {
+                obj.element.style["webkitFilter"]= "blur(0px)grayscale(100%)";
+                updateStudentColors(true);
+                obj.activated = false;
+                updateStudentColors(true);
+            }
 			//obj.setPosition(point);
-			updateStudentColorsForBadges([obj]);
-			obj.activated = true;
-            obj.element.style["webkitFilter"]= "";//"blur(0px)grayscale(100%)";
+
 			//var icon = $("#" + obj.element.id).find(".nwBadgeIcon");
 			//icon.removeClass("nwBadgeIcon");
 			//icon.addClass("nwBadgeIconDetailed");
