@@ -220,17 +220,20 @@ function updateGraph_UsersDeleted(user)
 
 var graph_selectedBadges = [];
 
-function updateGraph_Badges(badge)
+function updateGraph_Badges(badges)
 {
-    graph_selectedBadges.push(badge);
+    graph_selectedBadges = graph_selectedBadges.concat(badges);
     updateGraph_all_badges();
 }
 
-function updateGraph_BadgesDeleted(user)
+function updateGraph_BadgesDeleted(badges)
 {
-    var index = graph_selectedBadges.indexOf(user);
-    if(index != -1)
-        graph_selectedBadges.splice(index, 1);
+    for(var i = 0; i < badges.length; i++)
+    {
+        var index = graph_selectedBadges.indexOf(badges[i]);
+        if(index != -1)
+            graph_selectedBadges.splice(index, 1);
+    }
     if(graph_selectedBadges.length > 0)
         updateGraph_all_badges();
     else
@@ -252,10 +255,10 @@ function updateGraph_all_users()
 
 function updateGraph_all_badges()
 {   var badgesJSON = JSON.stringify(graph_selectedBadges);
-    $.getJSON('http://localhost:3000/relatedevents/activy/total/' + badgesJSON, updateGraph_total_callBack, "json");
-    $.getJSON('http://localhost:3000/relatedevents/activy/tweeted/' +badgesJSON, updateGraph_tweets_callBack, "json");
-    $.getJSON('http://localhost:3000/relatedevents/activy/commented/' + badgesJSON, updateGraph_comments_callBack, "json");
-    $.getJSON('http://localhost:3000/relatedevents/activy/posted/' + badgesJSON, updateGraph_posts_callBack, "json");
+    $.getJSON('http://localhost:3000/relatedevents/activity/total/' + badgesJSON, updateGraph_total_callBack, "json");
+    $.getJSON('http://localhost:3000/relatedevents/activity/tweeted/' +badgesJSON, updateGraph_tweets_callBack, "json");
+    $.getJSON('http://localhost:3000/relatedevents/activity/commented/' + badgesJSON, updateGraph_comments_callBack, "json");
+    $.getJSON('http://localhost:3000/relatedevents/activity/posted/' + badgesJSON, updateGraph_posts_callBack, "json");
 }
 
 

@@ -19,6 +19,7 @@ function nwBadgeIcon(_name, position, size, filename, badgeData)
                 updateStudentColorsForBadges([obj]);
                 obj.activated = true;
                 obj.element.style["webkitFilter"]= "";
+                updateGraph_Badges(obj.badgeData.eventIds);
 			}
             else
             {
@@ -26,6 +27,7 @@ function nwBadgeIcon(_name, position, size, filename, badgeData)
                 updateStudentColors(true);
                 obj.activated = false;
                 updateStudentColors(true);
+                updateGraph_BadgesDeleted(obj.badgeData.eventIds);
             }
 			//obj.setPosition(point);
 
@@ -50,7 +52,7 @@ function nwBadgeIcon(_name, position, size, filename, badgeData)
 			}
 			else
 			{ */
-                obj.element.style["webkitFilter"]= "blur(0px)grayscale(100%)";
+                //obj.element.style["webkitFilter"]= "blur(0px)grayscale(100%)";
 				/*var details = $("#" + obj.element.id).find(".nwBadgeDetails_shown");
 				details.removeClass("nwBadgeDetails_shown");
 				details.addClass("nwBadgeDetails_hidden");
@@ -64,9 +66,9 @@ function nwBadgeIcon(_name, position, size, filename, badgeData)
 				$("#"+obj.element.id + "_ph").remove();
 				obj.setPosition(null);
                 */
-				updateStudentColors(true);
-				obj.activated = false;
-				updateStudentColors(true);
+				//updateStudentColors(true);
+				//obj.activated = false;
+				//updateStudentColors(true);
 			//}
 			//if outside of container area, let it go ...
 			//otherwise snap back    */
