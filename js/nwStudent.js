@@ -64,11 +64,12 @@ function nwStudent(_name, position, size, studentName, _studentData)
 
 	NObject.call(this, name, layer, position, size, "", innerHTML, eventHandler, animations, states, [], false, false);
 	this.element.style.display = "";
-	this.element.className = "nwStudent";
-	this.element.innerHTML = this.element.innerHTML.replace("NT_STUDENT_NAME", studentName);
+	this.element.className = "nwStudent" + " " + this.studentData.group.replace(/ /g, "_");;
+	this.element.innerHTML = this.element.innerHTML.replace("NT_STUDENT_NAME", _studentData.fullname);
 
 	this.activated = false;
 	this.studentName = studentName;
+
 }
 
 nwStudent.prototype = Object.create(NObject.prototype);

@@ -75,9 +75,35 @@ function nwStudentContainer()
 
 	this.setStudents = function(_students)
 	{
-		this.students = _students;
-		
-		this.addChildren.call(this, this.students, true);	
+        this.students = _students;
+        var groups = {};
+        for(var i = 0; i < _students.length; i++)
+        {
+            if(groups[_students[i].studentData.group] == null)
+                groups[_students[i].studentData.group] = [];
+            groups[_students[i].studentData.group].push(_students[i]);
+        }
+        for(var i = 0; i < Object.keys(groups).length;i++)
+        {
+            var key = Object.keys(groups)[i];
+
+            //add divider
+            var element = document.createElement("div");
+            element.className = "nwGroupDivider";
+            element.innerHTML = key;
+            this.element.appendChild(element);
+
+            this.addChildren.call(this, groups[key], true);
+        }
+
+
+		/*var element = document.createElement("div");
+        this.element.id = name;
+        this.element.className = this.element.className + " " + cssClass;
+
+        this.element.appendChild("<div class="student_group">)
+		*/
+
 	}
 
 	this.resetStudents = function()

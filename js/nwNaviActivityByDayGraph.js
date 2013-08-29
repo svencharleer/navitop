@@ -39,7 +39,7 @@ function nwNaviActivityByDayGraph()
 var svgW = 800;//1200;
 var svgH = 250;
 var graphBarPadding = 1;
-var graphPadding = 30;
+var graphPadding = 50;
 var graphTransformX = [];
 var graphTransformY = [];
 var graphDays = 0;
@@ -130,11 +130,13 @@ function addGraph(data, id, title, color) {
         objects.push(new nwNaviGraphBar("", toAddToFw[0][i].id));
     }
     fw.addObjectsToDocument(objects);
-    mainBars.append("text")
+    svg.append("text")
         .attr("class", "ActivityGraphTitle")
-        .attr("x", (w / 2))
-        .attr("y", (padding))
+        .attr("x", -h/2)
+        .attr("y", 20)
         .attr("text-anchor", "middle")
+        .attr("transform", "rotate(-90)")
+        .attr("fill",color)
         .text(title);
 }
 
@@ -157,19 +159,30 @@ function activityGraph_tweets_callBack(data)
 }
 function activityGraph_comments_callBack(data)
 {
-    addGraph(data, "nwBlogCommentGraph","Blog Comments", colors["nwActivityGraph"]);
+    addGraph(data, "nwBlogCommentGraph","Blog Comments", colors["nwBlogCommentGraph"]);
 }
 function activityGraph_total_callBack(data)
 {
-    addGraph(data, "nwActivityGraph","Total Activity", colors["nwBlogCommentGraph"]);
+    addGraph(data, "nwActivityGraph","Total Activity", colors["nwActivityGraph"]);
 }
 function activityGraph_posts_callBack(data)
 {
     addGraph(data, "nwBlogPostGraph","Blog Posts", colors["nwBlogPostGraph"]);
 }
 
-function updateGraph(data, id)
+function updateGraph(data, id, reset)
 {
+    var svg = d3.select("#"+id);
+    var mainBars = svg.select("#mainBars");
+    var subBars = svg.select("#subBars");
+    if(reset)
+    {
+        mainBars.selectAll("rect").transition()
+            .duration(500).attr("fill", colors[id]);
+        subBars.selectAll("rect").remove();
+        return;
+
+    }
     var w = svgW;//1200;
     var h = svgH;
     var barPadding = graphBarPadding;
@@ -182,10 +195,11 @@ function updateGraph(data, id)
         dataset.push(item);
     }
 
-    var svg = d3.select("#"+id);
 
-    var mainBars = svg.select("#mainBars");
-    mainBars.selectAll("rect").attr("fill", fadedColors[id]);
+
+
+    mainBars.selectAll("rect").transition()
+        .duration(500).attr("fill", fadedColors[id]);
 
     var subBars = svg.select("#subBars");
     subBars.selectAll("rect").remove();
@@ -202,8 +216,8 @@ function updateGraph(data, id)
         });
     subBars.selectAll("rect")
         .data(dataset)
-        //.transition()
-        //.duration(1000)
+        .transition()
+        .duration(500)
         .attr("id", function(d,i){return id + i;})
         .attr("x", function (d) {
             return graphTransformX[id](d[0]);
@@ -236,10 +250,10 @@ function updateGraph_UsersDeleted(user)
         updateGraph_all_users();
     else
     {
-        $.getJSON('http://localhost:3000/activity', updateGraph_total_callBack, "json");
-        $.getJSON('http://localhost:3000/activity/tweeted', updateGraph_tweets_callBack, "json");
-        $.getJSON('http://localhost:3000/activity/commented', updateGraph_comments_callBack, "json");
-        $.getJSON('http://localhost:3000/activity/posted', updateGraph_posts_callBack, "json");
+        updateGraph(null, "nwActivityGraph", true);
+        updateGraph(null, "nwTweetGraph", true);
+        updateGraph(null, "nwBlogCommentGraph", true);
+        updateGraph(null, "nwBlogPostGraph", true);
     }
 }
 

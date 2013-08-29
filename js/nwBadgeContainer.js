@@ -52,9 +52,9 @@ var updateBadgeColorsForStudent = function(students,removeConnections)
         }
 
 		if(!studentsFound)
-			badgeContainer.badges[i].element.style["background-color"] = "";//["webkitFilter"]= "blur(0px)grayscale(100%)";
+            $("#"+badgeContainer.badges[i].element.id).removeClass("selectedObject");
 		else
-            badgeContainer.badges[i].element.style["background-color"] = "blue";
+            $("#"+badgeContainer.badges[i].element.id).addClass("selectedObject");
 	}
 }
 
@@ -95,7 +95,7 @@ function nwBadgeContainer()
 	
 	this.thereAreXContainer = function(numberOfContainers)
 	{
-		if(numberOfContainers == 1)
+		/*if(numberOfContainers == 1)
 		{
 			$("#"+ this.element.id).removeClass("container_2x1");
 			$("#"+ this.element.id).addClass("container_1x1");
@@ -104,13 +104,13 @@ function nwBadgeContainer()
 		{
 			$("#"+ this.element.id).removeClass("container_1x1");
 			$("#"+ this.element.id).addClass("container_2x1");
-		}
+		}         */
 	}
 	
 	NObject.call(this, name, layer, null, null, "", "", events, animations, states, this.badges, true);
 	this.addBadges = function(_badges, title)
 	{
-		this.titleElement.innerHTML = title;
+		//this.titleElement.innerHTML = title;
 		for(var i = 0; i < _badges.length;i++)
 			this.badges.push(_badges[i]);
 		this.addChildren.call(this, _badges, true);	

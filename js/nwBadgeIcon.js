@@ -85,12 +85,13 @@ function nwBadgeIcon(_name, position, size, filename, badgeData)
 	var innerHTML = $("#nwBadge").html();
 	NObject.call(this, name, layer, position, size, "", innerHTML, eventHandler, animations, states, [], false, false);
 	this.element.style.display = "";
-	this.element.className = "nwBadge";
-    this.element.style["webkitFilter"]= "blur(0px)grayscale(100%)";
+	this.element.className = "nwBadgeDetailed";
+    //this.element.style["webkitFilter"]= "blur(0px)grayscale(100%)";
 	//replace placeholders
 	this.element.innerHTML = this.element.innerHTML.replace("NT_IMG_SRC", filename);
 	this.element.innerHTML = this.element.innerHTML.replace("NT_BADGE_NAME", this.badgeData.name);
-	this.element.innerHTML = this.element.innerHTML.replace("NT_BADGE_DESCRIPTION", this.badgeData.description);	
+	this.element.innerHTML = this.element.innerHTML.replace("NT_BADGE_DESCRIPTION", this.badgeData.description);
+    this.element.innerHTML = this.element.innerHTML.replace("NT_BADGE_COUNT", this.badgeData.eventIds.length);
 
 	this.activated = false;
 
