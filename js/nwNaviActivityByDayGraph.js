@@ -98,12 +98,17 @@ function addGraph(data, id, title, color) {
         .attr("transform", "translate(" + padding + ",0)")
         .call(yAxis);
 
+    var mainBars = svg.append("g").attr("id","mainBars");
+    svg.append("g").attr("id","subBars");
+
+
     graphDays = Math.floor((maxDate.getTime() - minDate.getTime())/(1000*60*60*24));
 
-    svg.selectAll("rect")
+    mainBars.selectAll("rect")
         .data(dataset)
         .enter()
         .append("rect")
+        .attr("class", "mainBar")
         .attr("id", function(d,i){return id + i;})
         .attr("x", function (d) {
             return xScale(d[0]);// * (w / dataset.length);
@@ -117,36 +122,50 @@ function addGraph(data, id, title, color) {
             return h - yScale(d[1]) - padding;
         })
         .attr("fill", color);//"teal");
-    var test = svg.selectAll("rect");
+    var toAddToFw = svg.selectAll("rect");
     var objects = [];
-    for(var i = 0;i < test[0].length;i++)
+    for(var i = 0;i < toAddToFw[0].length;i++)
     {
         //console.log(test[0][t].id);
-        objects.push(new nwNaviGraphBar("", test[0][i].id));
+        objects.push(new nwNaviGraphBar("", toAddToFw[0][i].id));
     }
     fw.addObjectsToDocument(objects);
-    svg.append("text")
+    mainBars.append("text")
         .attr("class", "ActivityGraphTitle")
         .attr("x", (w / 2))
         .attr("y", (padding))
         .attr("text-anchor", "middle")
         .text(title);
 }
+
+var colors = {};
+var fadedColors = {};
+colors["nwTweetGraph"] = "#ff7f0e";
+colors["nwActivityGraph"] = "#74c476";
+colors["nwBlogCommentGraph"] = "#9467bd";
+colors["nwBlogPostGraph"] = "#d62728";
+
+fadedColors["nwTweetGraph"] = "#9d2c00";
+fadedColors["nwActivityGraph"] = "#004e07";
+fadedColors["nwBlogCommentGraph"] = "#47206f";
+fadedColors["nwBlogPostGraph"] = "#7f0000";
+
+
 function activityGraph_tweets_callBack(data)
 {
-    addGraph(data, "nwTweetGraph", "Tweets", "#ff7f0e");
+    addGraph(data, "nwTweetGraph", "Tweets", colors["nwTweetGraph"]);
 }
 function activityGraph_comments_callBack(data)
 {
-    addGraph(data, "nwBlogCommentGraph","Blog Comments", "#9467bd");
+    addGraph(data, "nwBlogCommentGraph","Blog Comments", colors["nwActivityGraph"]);
 }
 function activityGraph_total_callBack(data)
 {
-    addGraph(data, "nwActivityGraph","Total Activity", "#74c476");
+    addGraph(data, "nwActivityGraph","Total Activity", colors["nwBlogCommentGraph"]);
 }
 function activityGraph_posts_callBack(data)
 {
-    addGraph(data, "nwBlogPostGraph","Blog Posts", "#d62728");
+    addGraph(data, "nwBlogPostGraph","Blog Posts", colors["nwBlogPostGraph"]);
 }
 
 function updateGraph(data, id)
@@ -164,21 +183,27 @@ function updateGraph(data, id)
     }
 
     var svg = d3.select("#"+id);
-    svg.selectAll("rect").remove();
-    svg.selectAll("rect")
+
+    var mainBars = svg.select("#mainBars");
+    mainBars.selectAll("rect").attr("fill", fadedColors[id]);
+
+    var subBars = svg.select("#subBars");
+    subBars.selectAll("rect").remove();
+    subBars.selectAll("rect")
         .data(dataset)
         .enter()
         .append("rect")
+        .attr("class", "subBar")
         .attr("y", function (d) {
             return graphTransformY[id](0);//d[1];
         })
         .attr("height", function (d) {
             return h - graphTransformY[id](0) - padding;
         });
-    svg.selectAll("rect")
+    subBars.selectAll("rect")
         .data(dataset)
-        .transition()
-        .duration(1000)
+        //.transition()
+        //.duration(1000)
         .attr("id", function(d,i){return id + i;})
         .attr("x", function (d) {
             return graphTransformX[id](d[0]);
@@ -190,7 +215,7 @@ function updateGraph(data, id)
         .attr("height", function (d) {
             return h - graphTransformY[id](d[1]) - padding;
         })
-        .attr("fill","teal");
+        .attr("fill",colors[id]);
     ;
 }
 
