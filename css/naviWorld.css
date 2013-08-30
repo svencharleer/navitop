@@ -418,3 +418,11 @@ img { -webkit-touch-callout: none !important;}
     font-size: 10px;
     color: white;
 }
+
+.CompareButton
+{
+    width:100px;
+    color:white;
+    background-color: greenyellow;
+    float:left;
+}

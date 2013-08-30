@@ -45,6 +45,15 @@ function loadMenu(){
 	nwMenuItem_Events.studentTouched();
 
 
+    var nwCompareButtonNone = new nwCompareButtonItem("nwCompareButtonNone", eventButtonCompareNone);
+    var nwCompareButtonGroup1 = new nwCompareButtonItem("nwCompareButtonGroup1", eventButtonCompareGroup1);
+    var nwCompareButtonGroup2 = new nwCompareButtonItem("nwCompareButtonGroup2", eventButtonCompareGroup2);
+
+    fw.addObjectToDocument(nwCompareButtonNone);
+    fw.addObjectToDocument(nwCompareButtonGroup1);
+    fw.addObjectToDocument(nwCompareButtonGroup2);
+
+
 }
 
 function getStudentsInPlayField()

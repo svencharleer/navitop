@@ -34,6 +34,7 @@
 	<script type="text/javascript" src="js/nwNaviLogo.js"></script>
 	<script type="text/javascript" src="js/nwNaviOverlay.js"></script>
     <script type="text/javascript" src="js/nwNaviGraphBar.js"></script>
+      <script type="text/javascript" src="js/nwCompareButtonItem.js"></script>
     <script type="text/javascript" src="js/nwNaviActivityByDayGraph.js"></script>
     <script type="text/javascript" src="js/nwLogic.js"></script>
 
@@ -79,8 +80,13 @@ function loadNaviWorld() {
 	</div>
 </div>
 
-<div id="nwStudent" style="display:none"><img src="img/navi_person.png"/ draggable="false"><div class="Student_ListItem">NT_STUDENT_NAME</div></div>
+<div id="nwStudent" style="display:none"><img src="img/navi_person.png" draggable="false"><div class="Student_ListItem">NT_STUDENT_NAME</div></div>
 <div id="nwContainerArea">
+    <div id="nwCompareButtons">
+        <div id="nwCompareButtonNone" class="CompareButton">No comparison</div>
+        <div id="nwCompareButtonGroup1" class="CompareButton">Compare X</div>
+        <div id="nwCompareButtonGroup2" class="CompareButton">Compare Y</div>
+    </div>
     <div id="nwBadgeContainer" style="visibility:hidden;" class="transit">
 		<div id="nwBadgeContainer_topBar" class="Container_topBar">
 			<!-- <span id="nwBadgeContainer_Title">Period X</span>       -->
@@ -92,7 +98,10 @@ function loadNaviWorld() {
 		</div>
 	</div>
     <div id="nwNaviActivityByDayGraph"></div>
+
 </div>
+
+
 
 <img id="nwNaviLogo" src="img/navi_logo_small.png"/>
 <div id="nwNaviOverlay" style="" >

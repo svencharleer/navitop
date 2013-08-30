@@ -100,6 +100,7 @@ function addGraph(data, id, title, color) {
 
     var mainBars = svg.append("g").attr("id","mainBars");
     svg.append("g").attr("id","subBars");
+    svg.append("g").attr("id","subBars2");
 
 
     graphDays = Math.floor((maxDate.getTime() - minDate.getTime())/(1000*60*60*24));
@@ -140,38 +141,49 @@ function addGraph(data, id, title, color) {
         .text(title);
 }
 
-var colors = {};
+var colors = [];
 var fadedColors = {};
-colors["nwTweetGraph"] = "#ff7f0e";
-colors["nwActivityGraph"] = "#74c476";
-colors["nwBlogCommentGraph"] = "#9467bd";
-colors["nwBlogPostGraph"] = "#d62728";
+colors[0] = {};
+colors[1] = {};
+
+colors[0]["nwTweetGraph"] = "#ff7f0e";
+colors[0]["nwActivityGraph"] = "#74c476";
+colors[0]["nwBlogCommentGraph"] = "#9467bd";
+colors[0]["nwBlogPostGraph"] = "#d62728";
 
 fadedColors["nwTweetGraph"] = "#9d2c00";
 fadedColors["nwActivityGraph"] = "#004e07";
 fadedColors["nwBlogCommentGraph"] = "#47206f";
 fadedColors["nwBlogPostGraph"] = "#7f0000";
 
+colors[1]["nwTweetGraph"] = "#ffba51";
+colors[1]["nwActivityGraph"] = "#baffba";
+colors[1]["nwBlogCommentGraph"] = "#ecbbff";
+colors[1]["nwBlogPostGraph"] = "#ff6b5a";
+
 
 function activityGraph_tweets_callBack(data)
 {
-    addGraph(data, "nwTweetGraph", "Tweets", colors["nwTweetGraph"]);
+    addGraph(data, "nwTweetGraph", "Tweets", colors[0]["nwTweetGraph"]);
 }
 function activityGraph_comments_callBack(data)
 {
-    addGraph(data, "nwBlogCommentGraph","Blog Comments", colors["nwBlogCommentGraph"]);
+    addGraph(data, "nwBlogCommentGraph","Blog Comments", colors[0]["nwBlogCommentGraph"]);
 }
 function activityGraph_total_callBack(data)
 {
-    addGraph(data, "nwActivityGraph","Total Activity", colors["nwActivityGraph"]);
+    addGraph(data, "nwActivityGraph","Total Activity", colors[0]["nwActivityGraph"]);
 }
 function activityGraph_posts_callBack(data)
 {
-    addGraph(data, "nwBlogPostGraph","Blog Posts", colors["nwBlogPostGraph"]);
+    addGraph(data, "nwBlogPostGraph","Blog Posts", colors[0]["nwBlogPostGraph"]);
 }
+
+
 
 function updateGraph(data, id, reset)
 {
+    var compare = compareGroupStatus;
     var svg = d3.select("#"+id);
     var mainBars = svg.select("#mainBars");
     var subBars = svg.select("#subBars");
@@ -195,14 +207,45 @@ function updateGraph(data, id, reset)
         dataset.push(item);
     }
 
+    //check if we're showing 1 value, or comparing 2. if 2, which one, left or right
+    var barXOffset;
+    var barWidth;
+    var barGroupName;
+    var barColor;
+    switch(compare)
+    {
+        case GRAPH_COMPARE1:
+            barXOffset = 0;
+            barWidth = (w / graphDays - barPadding)/2;
+            barGroupName  = "#subBars";
+            barColor = colors[0][id];
+            break;
+        case GRAPH_COMPARE2:
+            barXOffset = (w / graphDays - barPadding)/2;
+            barWidth = (w / graphDays - barPadding)/2;
+            barGroupName  = "#subBars2";
+            barColor = colors[1][id];
+            break;
+        case GRAPH_NOCOMPARE:
+        default:
+            barXOffset = 0;
+            barWidth = (w / graphDays - barPadding);
+            barGroupName  = "#subBars";
+            //reset if there is still a comparison
+            var subBars2 = svg.select(barGroupName + "2");
+            subBars2.selectAll("rect").remove();
+            barColor = colors[0][id];
+            break;
 
+    }
 
 
     mainBars.selectAll("rect").transition()
         .duration(500).attr("fill", fadedColors[id]);
 
-    var subBars = svg.select("#subBars");
+    var subBars = svg.select(barGroupName);
     subBars.selectAll("rect").remove();
+
     subBars.selectAll("rect")
         .data(dataset)
         .enter()
@@ -214,40 +257,46 @@ function updateGraph(data, id, reset)
         .attr("height", function (d) {
             return h - graphTransformY[id](0) - padding;
         });
+
+
     subBars.selectAll("rect")
         .data(dataset)
         .transition()
         .duration(500)
         .attr("id", function(d,i){return id + i;})
         .attr("x", function (d) {
-            return graphTransformX[id](d[0]);
+            return graphTransformX[id](d[0])+barXOffset;
         })
-        .attr("width", w / graphDays - barPadding)
+        .attr("width", barWidth)
         .attr("y", function (d) {
             return graphTransformY[id](d[1]);//d[1];
         })
         .attr("height", function (d) {
             return h - graphTransformY[id](d[1]) - padding;
         })
-        .attr("fill",colors[id]);
+        .attr("fill",barColor);
     ;
 }
 
-var graph_selectedUsers = [];
+var graph_selectedUsers = []
+    graph_selectedUsers[0] = [];
+    graph_selectedUsers[1] = [];
 
 function updateGraph_Users(user)
 {
-    graph_selectedUsers.push(user);
-    updateGraph_all_users();
+    var comparegroup = compareGroupStatus == GRAPH_NOCOMPARE || compareGroupStatus == GRAPH_COMPARE1 ? 0 : 1;
+    graph_selectedUsers[comparegroup].push(user);
+    updateGraph_all_users(comparegroup);
 }
 
 function updateGraph_UsersDeleted(user)
 {
-    var index = graph_selectedUsers.indexOf(user);
+    var comparegroup = compareGroupStatus == GRAPH_NOCOMPARE || compareGroupStatus == GRAPH_COMPARE1 ? 0 : 1;
+    var index = graph_selectedUsers[comparegroup].indexOf(user);
     if(index != -1)
-        graph_selectedUsers.splice(index, 1);
-    if(graph_selectedUsers.length > 0)
-        updateGraph_all_users();
+        graph_selectedUsers[comparegroup].splice(index, 1);
+    if(graph_selectedUsers[comparegroup].length > 0)
+        updateGraph_all_users(comparegroup);
     else
     {
         updateGraph(null, "nwActivityGraph", true);
@@ -259,8 +308,8 @@ function updateGraph_UsersDeleted(user)
 
 
 
-function updateGraph_all_users()
-{   var usersJSON = JSON.stringify(graph_selectedUsers);
+function updateGraph_all_users(comparegroup)
+{   var usersJSON = JSON.stringify(graph_selectedUsers[comparegroup]);
     $.getJSON('http://localhost:3000/activity/total/' + usersJSON, updateGraph_total_callBack, "json");
     $.getJSON('http://localhost:3000/activity/tweeted/' +usersJSON, updateGraph_tweets_callBack, "json");
     $.getJSON('http://localhost:3000/activity/commented/' + usersJSON, updateGraph_comments_callBack, "json");
