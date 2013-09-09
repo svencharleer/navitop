@@ -2,17 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="99beab25-e08d-4161-8fc8-1c54b518edf8" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/nwCompareButtonItem.js" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/.ignore" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NaviWorld.html" afterPath="$PROJECT_DIR$/NaviWorld.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/naviWorld.css" afterPath="$PROJECT_DIR$/css/naviWorld.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/nwBadgeContainer.js" afterPath="$PROJECT_DIR$/js/nwBadgeContainer.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/nwCompareButtonItem.js" afterPath="$PROJECT_DIR$/js/nwCompareButtonItem.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/nwLogic.js" afterPath="$PROJECT_DIR$/js/nwLogic.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/nwNaviActivityByDayGraph.js" afterPath="$PROJECT_DIR$/js/nwNaviActivityByDayGraph.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/nwStudent.js" afterPath="$PROJECT_DIR$/js/nwStudent.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/nwStudentContainer.js" afterPath="$PROJECT_DIR$/js/nwStudentContainer.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="navitop.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="99beab25-e08d-4161-8fc8-1c54b518edf8" time="1377606932550" ignored="false" />
+    <file path="/Dummy.txt" changelist="99beab25-e08d-4161-8fc8-1c54b518edf8" time="1378378133651" ignored="false" />
     <file path="$PROJECT_DIR$/../navidata/dbConnection.js" changelist="99beab25-e08d-4161-8fc8-1c54b518edf8" time="1377769305971" ignored="false" />
     <file path="$PROJECT_DIR$/../navidata/app.js" changelist="99beab25-e08d-4161-8fc8-1c54b518edf8" time="1377610795536" ignored="false" />
     <file path="/app.js" changelist="99beab25-e08d-4161-8fc8-1c54b518edf8" time="1377609575177" ignored="false" />
@@ -25,15 +28,15 @@
     <file path="/relatedevents.js" changelist="99beab25-e08d-4161-8fc8-1c54b518edf8" time="1377627669585" ignored="false" />
     <file path="$PROJECT_DIR$/../navidata/routes/badges.js" changelist="99beab25-e08d-4161-8fc8-1c54b518edf8" time="1377627479002" ignored="false" />
     <file path="/badges.js" changelist="99beab25-e08d-4161-8fc8-1c54b518edf8" time="1377627477996" ignored="false" />
-    <file path="/nwBadgeContainer.js" changelist="99beab25-e08d-4161-8fc8-1c54b518edf8" time="1377629714968" ignored="false" />
-    <file path="/nwStudentContainer.js" changelist="99beab25-e08d-4161-8fc8-1c54b518edf8" time="1377781912232" ignored="false" />
-    <file path="/nwStudent.js" changelist="99beab25-e08d-4161-8fc8-1c54b518edf8" time="1377844890880" ignored="false" />
+    <file path="/nwBadgeContainer.js" changelist="99beab25-e08d-4161-8fc8-1c54b518edf8" time="1378719202370" ignored="false" />
+    <file path="/nwStudentContainer.js" changelist="99beab25-e08d-4161-8fc8-1c54b518edf8" time="1378718977236" ignored="false" />
+    <file path="/nwStudent.js" changelist="99beab25-e08d-4161-8fc8-1c54b518edf8" time="1378719232472" ignored="false" />
     <file path="/nwBadgeIcon.js" changelist="99beab25-e08d-4161-8fc8-1c54b518edf8" time="1377783213582" ignored="false" />
-    <file path="/NaviWorld.html" changelist="99beab25-e08d-4161-8fc8-1c54b518edf8" time="1377846332883" ignored="false" />
-    <file path="/naviWorld.css" changelist="99beab25-e08d-4161-8fc8-1c54b518edf8" time="1377846598845" ignored="false" />
+    <file path="/NaviWorld.html" changelist="99beab25-e08d-4161-8fc8-1c54b518edf8" time="1378717735203" ignored="false" />
+    <file path="/naviWorld.css" changelist="99beab25-e08d-4161-8fc8-1c54b518edf8" time="1378719178166" ignored="false" />
     <file path="$PROJECT_DIR$/../navidata/routes/activity.js" changelist="99beab25-e08d-4161-8fc8-1c54b518edf8" time="1377607563268" ignored="false" />
     <file path="/activity.js" changelist="99beab25-e08d-4161-8fc8-1c54b518edf8" time="1377607552753" ignored="false" />
-    <file path="/nwNaviActivityByDayGraph.js" changelist="99beab25-e08d-4161-8fc8-1c54b518edf8" time="1377854890164" ignored="false" />
+    <file path="/nwNaviActivityByDayGraph.js" changelist="99beab25-e08d-4161-8fc8-1c54b518edf8" time="1378718765929" ignored="false" />
     <file path="/nwLogic.js" changelist="99beab25-e08d-4161-8fc8-1c54b518edf8" time="1377179828583" ignored="false" />
     <file path="/a.dummy" changelist="99beab25-e08d-4161-8fc8-1c54b518edf8" time="1377181210857" ignored="false" />
     <file path="/nwMenu.js" changelist="99beab25-e08d-4161-8fc8-1c54b518edf8" time="1377185168698" ignored="false" />
@@ -42,7 +45,7 @@
     <file path="/fragment.js" changelist="99beab25-e08d-4161-8fc8-1c54b518edf8" time="1377847724373" ignored="false" />
     <file path="/naviObject.js" changelist="99beab25-e08d-4161-8fc8-1c54b518edf8" time="1377264233531" ignored="false" />
     <file path="/naviFramework_UI.js" changelist="99beab25-e08d-4161-8fc8-1c54b518edf8" time="1377265893094" ignored="false" />
-    <file path="/nwCompareButtonItem.js" changelist="99beab25-e08d-4161-8fc8-1c54b518edf8" time="1377846391362" ignored="false" />
+    <file path="/nwCompareButtonItem.js" changelist="99beab25-e08d-4161-8fc8-1c54b518edf8" time="1378718617508" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,30 +68,16 @@
       <file leaf-file-name="NaviWorld.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/NaviWorld.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="84" column="58" selection-start="3651" selection-end="3651" vertical-scroll-proportion="-6.5416665">
-              <folding>
-                <element signature="n#style#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#2;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="nwNaviActivityByDayGraph.js" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/js/nwNaviActivityByDayGraph.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="178" column="60" selection-start="5103" selection-end="5103" vertical-scroll-proportion="0.6807611">
+            <state line="85" column="63" selection-start="3715" selection-end="3715" vertical-scroll-proportion="-5.0416665">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="naviComponent_Touchable.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/NaviFramework/js/NaviFramework/naviComponent_Touchable.js">
+      <file leaf-file-name="nwNaviActivityByDayGraph.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/nwNaviActivityByDayGraph.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="31" selection-start="273" selection-end="273" vertical-scroll-proportion="0.0">
+            <state line="202" column="28" selection-start="5846" selection-end="5846" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -103,19 +92,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="nwButton.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/nwButton.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="38" column="13" selection-start="678" selection-end="678" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="nwStudent.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/nwStudent.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="17" selection-start="1027" selection-end="1027" vertical-scroll-proportion="0.0">
+            <state line="35" column="87" selection-start="1215" selection-end="1215" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -124,7 +104,7 @@
       <file leaf-file-name="nwLogic.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/nwLogic.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="53" column="50" selection-start="1918" selection-end="1918" vertical-scroll-proportion="0.0">
+            <state line="48" column="40" selection-start="1490" selection-end="1490" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -139,19 +119,37 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="nwCompareButtonItem.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/nwCompareButtonItem.js">
+      <file leaf-file-name="nwStudentContainer.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/nwStudentContainer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="0" selection-start="483" selection-end="483" vertical-scroll-proportion="0.0">
+            <state line="58" column="66" selection-start="1924" selection-end="1924" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="naviObject.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/NaviFramework/js/NaviFramework/naviObject.js">
+      <file leaf-file-name="nwBadgeContainer.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/nwBadgeContainer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="84" column="0" selection-start="2077" selection-end="2077" vertical-scroll-proportion="0.0">
+            <state line="56" column="101" selection-start="2189" selection-end="2189" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="naviWorld.css" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/css/naviWorld.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="348" column="20" selection-start="4901" selection-end="4901" vertical-scroll-proportion="0.36842105">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="nwCompareButtonItem.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/nwCompareButtonItem.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="22" column="24" selection-start="574" selection-end="574" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -182,20 +180,21 @@
         <option value="d3js.org/d3.v3.min.js" />
         <option value="d3js.org/d3.v3.js" />
         <option value="code.jquery.com/jquery-1.10.1.js" />
-        <option value="$PROJECT_DIR$/js/nwStudentContainer.js" />
         <option value="$PROJECT_DIR$/js/nwBadgeIcon.js" />
+        <option value="$PROJECT_DIR$/NaviWorld.html" />
+        <option value="$PROJECT_DIR$/js/nwLogic.js" />
+        <option value="$PROJECT_DIR$/js/nwCompareButtonItem.js" />
+        <option value="$PROJECT_DIR$/js/nwNaviActivityByDayGraph.js" />
+        <option value="$PROJECT_DIR$/js/nwStudentContainer.js" />
         <option value="$PROJECT_DIR$/js/nwBadgeContainer.js" />
         <option value="$PROJECT_DIR$/js/nwStudent.js" />
         <option value="$PROJECT_DIR$/css/naviWorld.css" />
-        <option value="$PROJECT_DIR$/NaviWorld.html" />
-        <option value="$PROJECT_DIR$/js/nwCompareButtonItem.js" />
-        <option value="$PROJECT_DIR$/js/nwLogic.js" />
-        <option value="$PROJECT_DIR$/js/nwNaviActivityByDayGraph.js" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="y" value="22" />
+    <option name="x" value="440" />
+    <option name="y" value="261" />
     <option name="width" value="1680" />
     <option name="height" value="959" />
   </component>
@@ -254,93 +253,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="NaviFramework" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="navitop" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="navitop" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="NaviFramework" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="navitop" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="navitop" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="NaviFramework" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="NaviFramework" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="navitop" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="navitop" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="NaviFramework" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="navitop" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="navitop" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="navitop" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="navitop" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="img" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -421,14 +334,14 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="1680" height="959" extended-state="6" />
+    <frame x="440" y="261" width="1680" height="959" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17018709" sideWeight="0.624553" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.37544698" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17018709" sideWeight="0.6254459" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3745541" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -509,48 +422,42 @@
           <option name="timeStamp" value="33" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="47" />
+      <option name="time" value="48" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/js/nwBadgeContainer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="53" column="17" selection-start="1964" selection-end="1964" vertical-scroll-proportion="-18.8">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/nwStudentContainer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="46" column="50" selection-start="1534" selection-end="1534" vertical-scroll-proportion="5.8">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/naviWorld.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="426" column="15" selection-start="5825" selection-end="5825" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/nwMenuItem.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/nwMenu.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/nwNaviGraphBar.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/nwButton.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="38" column="13" selection-start="678" selection-end="678" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/NaviFramework/js/NaviFramework/naviObject.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="84" column="0" selection-start="2077" selection-end="2077" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/NaviFramework/js/NaviFramework/naviComponent_Touchable.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="31" selection-start="273" selection-end="273" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -564,40 +471,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/NaviWorld.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="84" column="58" selection-start="3651" selection-end="3651" vertical-scroll-proportion="-6.5416665">
-          <folding>
-            <element signature="n#style#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/nwButton.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="13" selection-start="678" selection-end="678" vertical-scroll-proportion="0.0">
+        <state line="85" column="63" selection-start="3715" selection-end="3715" vertical-scroll-proportion="-5.0416665">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/nwLogic.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="53" column="50" selection-start="1918" selection-end="1918" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/NaviFramework/js/NaviFramework/naviObject.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="84" column="0" selection-start="2077" selection-end="2077" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/nwCompareButtonItem.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="0" selection-start="483" selection-end="483" vertical-scroll-proportion="0.0">
+        <state line="48" column="40" selection-start="1490" selection-end="1490" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -609,23 +490,44 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/nwStudent.js">
+    <entry file="file://$PROJECT_DIR$/js/nwCompareButtonItem.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="17" selection-start="1027" selection-end="1027" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/NaviFramework/js/NaviFramework/naviComponent_Touchable.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="31" selection-start="273" selection-end="273" vertical-scroll-proportion="0.0">
+        <state line="22" column="24" selection-start="574" selection-end="574" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/nwNaviActivityByDayGraph.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="178" column="60" selection-start="5103" selection-end="5103" vertical-scroll-proportion="0.6807611">
+        <state line="202" column="28" selection-start="5846" selection-end="5846" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/nwBadgeContainer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="56" column="101" selection-start="2189" selection-end="2189" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/nwStudentContainer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="58" column="66" selection-start="1924" selection-end="1924" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/nwStudent.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="35" column="87" selection-start="1215" selection-end="1215" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/naviWorld.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="348" column="20" selection-start="4901" selection-end="4901" vertical-scroll-proportion="0.36842105">
           <folding />
         </state>
       </provider>

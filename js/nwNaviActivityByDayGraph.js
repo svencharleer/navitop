@@ -161,29 +161,42 @@ colors[1]["nwActivityGraph"] = "#baffba";
 colors[1]["nwBlogCommentGraph"] = "#ecbbff";
 colors[1]["nwBlogPostGraph"] = "#ff6b5a";
 
+var dataCache = {
+        "nwTweetGraph": {GRAPH_NOCOMPARE: [], GRAPH_COMPARE: []},
+        "nwActivityGraph": {GRAPH_NOCOMPARE: [], GRAPH_COMPARE: []},
+        "nwBlogCommentGraph": {GRAPH_NOCOMPARE: [], GRAPH_COMPARE: []},
+        "nwBlogPostGraph": {GRAPH_NOCOMPARE: [], GRAPH_COMPARE: []}
+};
+
+
+
 
 function activityGraph_tweets_callBack(data)
 {
+    dataCache["nwTweetGraph"][GRAPH_NOCOMPARE] = data;
     addGraph(data, "nwTweetGraph", "Tweets", colors[0]["nwTweetGraph"]);
 }
 function activityGraph_comments_callBack(data)
 {
+    dataCache["nwBlogCommentGraph"][GRAPH_NOCOMPARE] = data;
     addGraph(data, "nwBlogCommentGraph","Blog Comments", colors[0]["nwBlogCommentGraph"]);
 }
 function activityGraph_total_callBack(data)
 {
+    dataCache["nwActivityGraph"][GRAPH_NOCOMPARE] = data;
     addGraph(data, "nwActivityGraph","Total Activity", colors[0]["nwActivityGraph"]);
 }
 function activityGraph_posts_callBack(data)
 {
+    dataCache["nwBlogPostGraph"][GRAPH_NOCOMPARE] = data;
     addGraph(data, "nwBlogPostGraph","Blog Posts", colors[0]["nwBlogPostGraph"]);
 }
 
 
 
-function updateGraph(data, id, reset)
+function updateGraph(data, id, reset, compareSet)
 {
-    var compare = compareGroupStatus;
+
     var svg = d3.select("#"+id);
     var mainBars = svg.select("#mainBars");
     var subBars = svg.select("#subBars");
@@ -212,19 +225,23 @@ function updateGraph(data, id, reset)
     var barWidth;
     var barGroupName;
     var barColor;
-    switch(compare)
+    switch(compareGroupStatus)
     {
-        case GRAPH_COMPARE1:
-            barXOffset = 0;
-            barWidth = (w / graphDays - barPadding)/2;
-            barGroupName  = "#subBars";
-            barColor = colors[0][id];
-            break;
-        case GRAPH_COMPARE2:
-            barXOffset = (w / graphDays - barPadding)/2;
-            barWidth = (w / graphDays - barPadding)/2;
-            barGroupName  = "#subBars2";
-            barColor = colors[1][id];
+        case GRAPH_COMPARE:
+            if(compareSet == 1)
+            {
+                barXOffset = 0;
+                barWidth = (w / graphDays - barPadding)/2;
+                barGroupName  = "#subBars";
+                barColor = colors[0][id];
+            }
+            else
+            {
+                barXOffset = (w / graphDays - barPadding)/2;
+                barWidth = (w / graphDays - barPadding)/2;
+                barGroupName  = "#subBars2";
+                barColor = colors[1][id];
+            }
             break;
         case GRAPH_NOCOMPARE:
         default:
@@ -284,14 +301,14 @@ var graph_selectedUsers = []
 
 function updateGraph_Users(user)
 {
-    var comparegroup = compareGroupStatus == GRAPH_NOCOMPARE || compareGroupStatus == GRAPH_COMPARE1 ? 0 : 1;
+    var comparegroup = compareGroupStatus == GRAPH_NOCOMPARE || compareGroupStatus == GRAPH_COMPARE ? 0 : 1;
     graph_selectedUsers[comparegroup].push(user);
     updateGraph_all_users(comparegroup);
 }
 
 function updateGraph_UsersDeleted(user)
 {
-    var comparegroup = compareGroupStatus == GRAPH_NOCOMPARE || compareGroupStatus == GRAPH_COMPARE1 ? 0 : 1;
+    var comparegroup = compareGroupStatus == GRAPH_NOCOMPARE || compareGroupStatus == GRAPH_COMPARE ? 0 : 1;
     var index = graph_selectedUsers[comparegroup].indexOf(user);
     if(index != -1)
         graph_selectedUsers[comparegroup].splice(index, 1);
@@ -327,18 +344,21 @@ function updateGraph_all_badges()
 
 function updateGraph_total_callBack(data)
 {
+    dataCache["nwActivityGraph"][compareGroupStatus] = data;
     updateGraph(data, "nwActivityGraph");
 
 }
 
 function updateGraph_tweets_callBack(data)
 {
+    dataCache["nwTweetGraph"][compareGroupStatus] = data;
     updateGraph(data, "nwTweetGraph");
 
 }
 
 function updateGraph_comments_callBack(data)
 {
+    dataCache["nwBlogCommentGraph"][compareGroupStatus] = data;
     updateGraph(data, "nwBlogCommentGraph");
 
 }
@@ -346,9 +366,37 @@ function updateGraph_comments_callBack(data)
 
 function updateGraph_posts_callBack(data)
 {
+    dataCache["nwBlogPostGraph"][compareGroupStatus] = data;
     updateGraph(data, "nwBlogPostGraph");
 
 }
+
+function switchComparisonOnOff()
+{
+
+    if(compareGroupStatus == GRAPH_COMPARE)
+    {
+        //update all graphs with the right cache
+        updateGraph(dataCache["nwBlogPostGraph"][GRAPH_NOCOMPARE], "nwBlogPostGraph", false, 1);
+        updateGraph(dataCache["nwBlogCommentGraph"][GRAPH_NOCOMPARE], "nwBlogCommentGraph",false, 1);
+        updateGraph(dataCache["nwTweetGraph"][GRAPH_NOCOMPARE], "nwTweetGraph", false,1);
+        updateGraph(dataCache["nwActivityGraph"][GRAPH_NOCOMPARE], "nwActivityGraph", false,1);
+
+        updateGraph(dataCache["nwBlogPostGraph"][GRAPH_COMPARE], "nwBlogPostGraph", false,2);
+        updateGraph(dataCache["nwBlogCommentGraph"][GRAPH_COMPARE], "nwBlogCommentGraph", false,2);
+        updateGraph(dataCache["nwTweetGraph"][GRAPH_COMPARE], "nwTweetGraph",false, 2);
+        updateGraph(dataCache["nwActivityGraph"][GRAPH_COMPARE], "nwActivityGraph",false, 2);
+    }
+    else
+    {
+        updateGraph(dataCache["nwBlogPostGraph"][GRAPH_NOCOMPARE], "nwBlogPostGraph",false, 1);
+        updateGraph(dataCache["nwBlogCommentGraph"][GRAPH_NOCOMPARE], "nwBlogCommentGraph",false, 1);
+        updateGraph(dataCache["nwTweetGraph"][GRAPH_NOCOMPARE], "nwTweetGraph",false, 1);
+        updateGraph(dataCache["nwActivityGraph"][GRAPH_NOCOMPARE], "nwActivityGraph", false,1);
+
+    }
+}
+
 
 var badgeFilter = {};
 badgeFilter["tweets"] = 0;

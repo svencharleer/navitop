@@ -52,9 +52,9 @@ var updateBadgeColorsForStudent = function(students,removeConnections)
         }
 
 		if(!studentsFound)
-            $("#"+badgeContainer.badges[i].element.id).removeClass("selectedObject");
+            $("#"+badgeContainer.badges[i].element.id).removeClass("selectedObject" + compareGroupStatus);
 		else
-            $("#"+badgeContainer.badges[i].element.id).addClass("selectedObject");
+            $("#"+badgeContainer.badges[i].element.id).addClass("selectedObject" + compareGroupStatus);
 	}
 }
 

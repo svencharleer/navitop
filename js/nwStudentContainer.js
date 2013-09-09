@@ -56,9 +56,9 @@ var updateStudentColorsForBadges = function(badges,removeConnections)
         }
 
 		if(!badgesFound)
-			$("#" + student.element.id).removeClass("highlightedStudent");
+			$("#" + student.element.id).removeClass("highlightedStudent" + compareGroupStatus);
 		else
-			$("#" + student.element.id).addClass("highlightedStudent");
+			$("#" + student.element.id).addClass("highlightedStudent" + compareGroupStatus);
 	}
 };
 

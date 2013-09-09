@@ -26,14 +26,14 @@ function nwStudent(_name, position, size, studentName, _studentData)
             {
                 obj.activated = true;
                 //obj.setPosition(point);
-                $("#"+obj.element.id).addClass("selectedObject");
+                $("#"+obj.element.id).addClass("selectedObject" + compareGroupStatus);
                 updateBadgeColorsForStudent([obj]);
 
                 updateGraph_Users(obj.studentName);
             }
             else
             {
-                $("#"+obj.element.id).removeClass("selectedObject");
+                $("#"+obj.element.id).removeClass("selectedObject" + compareGroupStatus);
                 updateBadgeColors(true);
                 obj.activated = false;
                 updateBadgeColors(true);

@@ -340,16 +340,29 @@ img { -webkit-touch-callout: none !important;}
     -webkit-animation-iteration-count: infinite; 
 }
 
-.highlightedStudent
+.highlightedStudent0
 {
 	color: #00c6ff;
 }
 
-.selectedObject
+
+.highlightedStudent1
+{
+    color: red;
+}
+
+.selectedObject0
 {
 	
 	background-color: #0082A6;
 	color: white;
+}
+
+.selectedObject1
+{
+
+    background-color: red;
+    color: white;
 }
 
 
@@ -423,6 +436,6 @@ img { -webkit-touch-callout: none !important;}
 {
     width:100px;
     color:white;
-    background-color: greenyellow;
+    background-color: blue;
     float:left;
 }
