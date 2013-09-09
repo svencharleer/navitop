@@ -18,21 +18,21 @@ function nwNaviGraphBar(graphID, barID, _value)
                 case "nwBlogPostGraph":
                     verb = "posted";
                     break;
-                case "nwBlogComment"   :
+                case "nwBlogCommentGraph"   :
                     verb = "commented";
                     break;
                 case "nwActivityGraph" :
                     verb = "";
                     break;
             }
-
+            $("#nwNaviDetailedActivityView").empty();
             var dateForURL = "";
             if(verb != "")
                 dateForURL = 'http://localhost:3000/activitybydate/' + value.getTime() + "/" + verb;
             else
                 dateForURL = 'http://localhost:3000/activitybydate/' + value.getTime();
 
-            $.getJSON(dateForURL, function(data){ console.log(data.toString());}, "json");
+            $.getJSON(dateForURL, barClick_callback, "json");
 		},
 		onLetGo: function(obj)
 		{
@@ -49,3 +49,73 @@ function nwNaviGraphBar(graphID, barID, _value)
 }
 
 nwNaviGraphBar.prototype = Object.create(NObject.prototype);
+
+
+//nwNaviDetailedActivityView
+var link = [];
+var bkData = {};
+function barClick_callback(data)
+{
+     bkData = data;
+    for(var i = 0; i < data.length; i++)
+    {
+
+        var html = "";
+        switch(data[i].verb)
+        {
+            case "tweeted":
+                html = "Tweet by " + data[i].username;
+                link[i] = "https://twitter.com/" +data[i].username + "/status/" + data[i].object;
+                break;
+            case "posted":
+                html = "Blog post by " + data[i].username + "(" + data[i].starttime + ")";
+                link[i] = data[i].object;
+                break;
+            case "commented"   :
+                html = "Blog comment by " + data[i].username;
+                link[i] = data[i].object;
+                break;
+            default:
+                html = "badge..<br/>";
+                break;
+        }
+        var iframeButton = new nwButton(
+            "detailedActivity" + i,
+            null,
+            function(obj)
+            {
+                /*$.get(link,
+                    function(data)
+                    {
+                        //$("#nwNaviDetailedActivityIFRAME").attr("src", "http://google.com");
+                        //$("#nwNaviDetailedActivityView").load(link + " .tweet-text");
+                        $("#nwNaviDetailedActivityViewExternal").load(link + " #content");
+
+                    })   */
+                if(bkData[obj.order].verb == "posted")
+                {
+                    var linkJSON = encodeURIComponent(link[obj.order]);
+                    $.getJSON("http://localhost:3000/blogposts/" + linkJSON, blogpost_callback, "json");
+                    console.log(linkJSON);
+                }
+                if(bkData[obj.order].verb == "tweeted")
+                {
+                    var tmp = link[obj.order] + " .tweet-text";
+                    $("#nwNaviDetailedActivityViewExternal").load(tmp);
+                }
+            },
+            false,html,i);
+
+        fw.addObjectToDocument(iframeButton);
+        //should make that an object, and use hte methods i made
+        $("#nwNaviDetailedActivityView").append(iframeButton.element);
+    }
+
+}
+
+function blogpost_callback(data)
+{   if(data != null)
+        $("#nwNaviDetailedActivityViewExternal").html(data.description);
+    else
+    $("#nwNaviDetailedActivityViewExternal").text("none");
+}

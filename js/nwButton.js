@@ -1,8 +1,9 @@
-function nwButton(name, template, buttonEvent, alreadyInDocument)
+function nwButton(name, template, buttonEvent, alreadyInDocument, _innerHTML, _order)
 {
 	var name = name;
 	var states = [];
 	var animations = [];
+    this.order = _order;
 	var eventHandler =  
 	{
 		timer: null,
@@ -13,7 +14,7 @@ function nwButton(name, template, buttonEvent, alreadyInDocument)
 				obj.animatable.switchToAnimation(1);
 				this.timer = setTimeout(function()
 						{
-							buttonEvent();
+							buttonEvent(obj);
 							obj.animatable.idle();
 						},
 
@@ -36,6 +37,9 @@ function nwButton(name, template, buttonEvent, alreadyInDocument)
 	var innerHTML = "";
 	if(template != null)
 		innerHTML = $("#" + template).html();
+    else
+    if(innerHTML != null)
+        innerHTML = _innerHTML;
 	NObject.call(this, name, layer, null, null, "", innerHTML, eventHandler, animations, states,[], alreadyInDocument);
 	this.element.style.display = "";
 }
