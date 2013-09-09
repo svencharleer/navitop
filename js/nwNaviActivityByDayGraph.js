@@ -128,7 +128,7 @@ function addGraph(data, id, title, color) {
     for(var i = 0;i < toAddToFw[0].length;i++)
     {
         //console.log(test[0][t].id);
-        objects.push(new nwNaviGraphBar("", toAddToFw[0][i].id));
+        objects.push(new nwNaviGraphBar(id, toAddToFw[0][i].id, dataset[i][0]));
     }
     fw.addObjectsToDocument(objects);
     svg.append("text")
