@@ -98,6 +98,12 @@ function barClick_callback(data)
                     $.getJSON("http://localhost:3000/blogposts/" + linkJSON, blogpost_callback, "json");
                     console.log(linkJSON);
                 }
+                if(bkData[obj.order].verb == "commented")
+                {
+                    var linkJSON = encodeURIComponent(link[obj.order]);
+                    $.getJSON("http://localhost:3000/comments/" + linkJSON, blogpost_callback, "json");
+                    console.log(linkJSON);
+                }
                 if(bkData[obj.order].verb == "tweeted")
                 {
                     var tmp = link[obj.order] + " .tweet-text";
@@ -115,7 +121,7 @@ function barClick_callback(data)
 
 function blogpost_callback(data)
 {   if(data != null)
-        $("#nwNaviDetailedActivityViewExternal").html(data.description);
+        $("#nwNaviDetailedActivityViewExternal").html(data.originalrequest);
     else
     $("#nwNaviDetailedActivityViewExternal").text("none");
 }

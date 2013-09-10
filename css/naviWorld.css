@@ -60,47 +60,6 @@ img { -webkit-touch-callout: none !important;}
 }
 
 
-/* menu design */
-#nwMenu
-{
-	width: 20%;
-	height:15%;
-	
-	border:solid 1px #cacaca;
-	border-bottom:none;
-	border-radius: 10px;
-
-	background-color:rgb(0,0,0);
-	position:fixed;
-	top:92%;
-	left:40%;
-}
-
-#nwMenu ul
-{
-	margin:0;
-	padding:0;
-	width:100%;
-	margin-left:auto;
-	margin-right:auto;
-	display:inline-block;
-	
-	list-style-type: none;
-}
-
-#nwMenu ul li
-{
-	margin:auto;
-	display: inline-block;
-	width:18%;
-}
-.nwMenu_Item
-{
-	width:100%;
-}
-
-
-
 .pulsate
 {
 	-webkit-animation-name: pulsate;
@@ -108,10 +67,6 @@ img { -webkit-touch-callout: none !important;}
     -webkit-animation-iteration-count: infinite;    
 }
 
-#nwMenu_Person
-{
-
-}
 
 /*small badge*/
 .nwBadge
