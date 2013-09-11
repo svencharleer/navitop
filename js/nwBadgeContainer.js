@@ -1,3 +1,5 @@
+var badgesGeneral = [];
+
 var badgesLoaded_callBack = function(json)
 {	
 	console.log("BADGES REQUEST: DONE");
@@ -10,12 +12,14 @@ var badgesLoaded_callBack = function(json)
 		//iteration = json[i].biweek;
         var badge = json[Object.keys(json)[i]];
 		objects.push(new nwBadgeIcon(badge.id, null, null, badge.image, badge));
+        badgesGeneral.push(badge);
 	};
 	if(badgeContainer == null)
 		badgeContainer = new nwBadgeContainer({x:fw.view.width/3.4, y:fw.view.height/3}, null);
 	badgeContainer.addBadges(objects, "Badges");
 	fw.addObjectsToDocument([badgeContainer]);
 	updateBadgeColors();
+    setTimeout(function(){loadingDone(true, false);},1000);
 };
 
 var updateBadgeColors = function(removeConnections)

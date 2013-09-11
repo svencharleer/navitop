@@ -26,14 +26,14 @@ function nwStudent(_name, position, size, studentName, _studentData)
             {
                 obj.activated = true;
                 //obj.setPosition(point);
-                $("#"+obj.element.id).addClass("selectedObject" + compareGroupStatus);
+                $("#"+obj.element.id).addClass("selectedObject1");
                 updateBadgeColorsForStudent([obj]);
 
                 updateGraph_Users(obj.studentName);
             }
             else
             {
-                $("#"+obj.element.id).removeClass("selectedObject" + compareGroupStatus);
+                $("#"+obj.element.id).removeClass("selectedObject");
                 updateBadgeColors(true);
                 obj.activated = false;
                 updateBadgeColors(true);
@@ -64,7 +64,8 @@ function nwStudent(_name, position, size, studentName, _studentData)
 
 	NObject.call(this, name, layer, position, size, "", innerHTML, eventHandler, animations, states, [], false, false);
 	this.element.style.display = "";
-	this.element.className = "nwStudent" + " " + this.studentData.group.replace(/ /g, "_");;
+    if(this.studentData.group != null)
+	    this.element.className = "nwStudent" + " " + this.studentData.group.replace(/ /g, "_");;
 	this.element.innerHTML = this.element.innerHTML.replace("NT_STUDENT_NAME", _studentData.fullname);
 
 	this.activated = false;

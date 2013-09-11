@@ -471,6 +471,28 @@ img { -webkit-touch-callout: none !important;}
     color:white;
 }
 
+svg#circlechart
+{
+
+    top:1050px;
+    left:10px;
+    height:900px;
+}
+
+.CircleGraphAxis path,
+.CircleGraphAxis line {
+    fill: none;
+    stroke: white;
+    shape-rendering: crispEdges;
+}
+
+.CircleGraphAxis text {
+    font-family: ubuntuFont;
+    font-size: 9px;
+    fill: white;
+}
+
+
 #nwNaviDetailedActivityViewExternal a
 {
     color:cyan;

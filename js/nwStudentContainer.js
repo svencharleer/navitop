@@ -1,3 +1,5 @@
+var studentsGeneral = [];
+
 var studentsLoaded_callBack = function(json)
 {	
 	console.log("STUDENTS REQUEST: DONE");
@@ -7,6 +9,7 @@ var studentsLoaded_callBack = function(json)
     {
         var user = json[Object.keys(json)[i]];
 		objects.push(new nwStudent(user.username.replace(/[^A-Za-z0-9]+/g, ''), null, null, user.username, user));
+        studentsGeneral.push(user);
 	};
 	if(studentContainer == null)
 		studentContainer = new nwStudentContainer();
@@ -16,7 +19,7 @@ var studentsLoaded_callBack = function(json)
 
 
 	fw.addObjectsToDocument([studentContainer]);
-	//setTimeout(function(){loadingDone();},1000);
+	setTimeout(function(){loadingDone(false,true);},1000);
 };
 
 

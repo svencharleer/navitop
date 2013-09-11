@@ -5,6 +5,7 @@ var studentContainer;
 var naviLogo;
 var naviOverlay;
 var naviActivityByDayGraph;
+var naviBadgeStudentGraph;
 
 function length(point)
 {
@@ -35,8 +36,10 @@ function loadMenu(){
 	naviLogo = new nwNaviLogo();
 	naviOverlay = new nwNaviOverlay();
     naviActivityByDayGraph = new nwNaviActivityByDayGraph();
+    naviBadgeStudentGraph = new nwBadgeStudentGraph();
 	fw.addObjectToDocument(naviLogo);
 	fw.addObjectToDocument(naviOverlay);
+    fw.addObjectToDocument(naviActivityByDayGraph)    ;
     fw.addObjectToDocument(naviActivityByDayGraph)    ;
 	//load objects
 	//var objects = [new nwMenu(null,null)];//{x:2*fw.view.width/5, y:7.3*fw.view.height/8}, {width:fw.view.width/5, height:fw.view.height/8})];
@@ -100,11 +103,13 @@ function getBadgeObjectsInPlayField()
 
 
 
-/*var loadingDone = function()
+var badgesLoaded = false;
+var studentsLoaded = false;
+var loadingDone = function(badges, students)
 {
-	for(var i = 0; i < objects.length; i++)
-	{
-		objects[i].setPosition();
-	}
-}*/
+    if(badges) badgesLoaded = true;
+    if(students) studentsLoaded = true;
+    if(badgesLoaded && studentsLoaded)
+        addBadgeGraph("");
+}
 
