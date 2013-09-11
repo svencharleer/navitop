@@ -4,6 +4,25 @@ font-family: ubuntuFont;
 src: url(Ubuntu-R.ttf);
 }
 
+@font-face
+{
+    font-family: square;
+    src: url(Square.ttf);
+}
+
+@font-face
+{
+    font-family: elysium;
+    src: url(Exo-Light.otf);
+}
+
+@font-face
+{
+    font-family: oblivion;
+    src: url(Champagne%20&%20Limousines.ttf);
+}
+
+
 ::-webkit-scrollbar { 
     display: none; 
 }
@@ -12,10 +31,10 @@ body, :-webkit-full-screen body
 {
 	margin:0;
 	padding:0;
-	/*background: url("../img/background.png") no-repeat center center fixed;
-	background-size: cover;*/
+	/*background: url("../img/background_tile.png") repeat;*/
+	/*background-size: cover;*/
 	background-color: #231f20;
-	font-family: ubuntuFont;
+	font-family: oblivion;
 }
 
 /*check these, it's for the long hold problem on iOS)*/
@@ -136,81 +155,11 @@ img { -webkit-touch-callout: none !important;}
 
 
 
-#nwContainerArea
-{
-	position:absolute;
-	padding:0;
-	margin:0;
-	/*-webkit-transform: translateY(250%);*/
-	top:0;
-	left:0;
-	width:100%;
-	height:100%;
-	border-top:dotted 1px #cacaca;
-	text-align: center;
-
-}
-.container_1x1
-{
-	margin-top:1em;
-	width: 10%;
-	height:90%;
-	display:inline-block;
-	-webkit-box-shadow: 0 0 5px#888;
-	border-radius: 5px;
-	background-color:#3a3839;
-}
-
-.container_2x1
-{
-	margin-top:1em;
-	width:10%;
-	height:90%;
-	display:inline-block;
-	vertical-align: top;
-	-webkit-box-shadow: 1px 1px 2px 0px #000010;
-	border-radius: 5px;
-	background-color:#3a3839;
-}
-
-#nwBadgeContainer
-{
-
-	
-	padding:5px;
-    margin-top:1em;
-    width:80%;
-    height:30%;
-    display:inline-block;
-    vertical-align: top;
 
 
 
-}
 
-#nwStudentContainer
-{
-	
-	
 
-	overflow:scroll;
-	padding:5px;
-	
-
-}
-
-#nwNaviDetailedActivityView
-{
-    overflow:scroll;
-    padding:5px;
-    margin-top:1em;
-    display:inline-block;
-    vertical-align: top;
-    -webkit-box-shadow: 1px 1px 2px 0px #000010;
-    border-radius: 5px;
-    background-color:#3a3839;
-
-}
 .Container_topBar
 {
 	
@@ -224,15 +173,7 @@ img { -webkit-touch-callout: none !important;}
 }
 
 
-#nwBadgeContainer_ArrowLeft, #nwBadgeContainer_ArrowRight{
-	display:inline-block;
-	height:.8em;
-	margin-left:10px;
-	margin-right:10px;
-}
-#nwBadgeContainer_ArrowLeft img, #nwBadgeContainer_ArrowRight img{
-	height:100%;
-}
+
 .nwStudent
 {
 	display:inline-block;
@@ -381,22 +322,115 @@ img { -webkit-touch-callout: none !important;}
 }
 
 .ActivityGraphAxis text {
-    font-family: ubuntuFont;;
-    font-size: 11px;
+    font-family: square;;
+    font-size: 9px;
     fill: white;
 }
 
 .ActivityGraphTitle {
-    font-family: ubuntuFont;;
+    font-family: square;;
     font-size: 12px;
 
 }
 
 
 .nwGroupDivider {
-    font-family: ubuntuFont;;
+    font-family: oblivion;;
     font-size: 10px;
     color: white;
+}
+
+
+
+
+
+
+#nwContainerArea
+{
+    position:absolute;
+    padding:0;
+    margin:0;
+    /*-webkit-transform: translateY(250%);*/
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    text-align: center;
+
+}
+
+#nwContainerArea > div, #nwContainerArea > svg
+{
+    display:block;
+    position:absolute;
+    border-top: solid 1px cadetblue;
+    border-bottom:  dotted 1px cadetblue;
+}
+
+#nwContainerArea > svg
+{
+    display:block;
+    position:absolute;
+    width:50%;
+    height:200px;
+}
+
+
+#nwBadgeContainer
+{
+
+
+    padding:5px;
+
+    width:50%;
+    display:block;
+    vertical-align: top;
+
+
+
+}
+
+
+#nwActivityGraph
+ {
+
+    top:10px;
+     left:10px;
+ }
+
+#nwBlogPostGraph
+{
+    top:220px;
+    left:10px;
+}
+
+#nwBlogCommentGraph
+{
+    top:430px;
+    left:10px;
+}
+
+
+#nwTweetGraph
+{
+    top:640px;
+    left:10px;
+}
+
+#nwBadgeContainer
+{
+    top:850px;
+    left:10px;
+}
+
+#nwStudentContainer
+{
+    overflow:scroll;
+    padding:5px;
+    top:50px;
+    left:880px;
+    width:10%;
+
 }
 
 .CompareButton
@@ -404,13 +438,40 @@ img { -webkit-touch-callout: none !important;}
     width:100px;
     color:white;
     background-color: blue;
-    float:left;
+    top:10px;
+    left:880px;
+
+}
+
+
+#nwNaviDetailedActivityView
+{
+    width:400px;
+    height:470px;
+    overflow:scroll;
+    top:50px;
+    left:1080px;
+    text-align: left;
+    padding:5px;
+    color:white;
+
+
+
 }
 
 #nwNaviDetailedActivityViewExternal
 {
-    width:300px;
-    height:300px;
+    width:400px;
+    height:500px;
     overflow:scroll;
+    top:500px;
+    left:1080px;
+    text-align: left;
+    padding:5px;
+    color:white;
+}
 
+#nwNaviDetailedActivityViewExternal a
+{
+    color:cyan;
 }

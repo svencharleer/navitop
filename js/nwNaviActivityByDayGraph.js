@@ -37,9 +37,9 @@ function nwNaviActivityByDayGraph()
 }
 
 var svgW = 800;//1200;
-var svgH = 250;
+var svgH = 200;
 var graphBarPadding = 1;
-var graphPadding = 50;
+var graphPadding = 38;
 var graphTransformX = [];
 var graphTransformY = [];
 var graphDays = 0;
@@ -59,7 +59,7 @@ function addGraph(data, id, title, color) {
 
     var w = svgW;//1200;
     var h = svgH;
-    var svg = d3.select("#nwNaviActivityByDayGraph")
+    var svg = d3.select("#nwContainerArea")
         .append("svg")
         .attr("id", id )
         .attr("width", w)   // <-- Here
@@ -133,10 +133,12 @@ function addGraph(data, id, title, color) {
     fw.addObjectsToDocument(objects);
     svg.append("text")
         .attr("class", "ActivityGraphTitle")
-        .attr("x", -h/2)
+        .attr("x", 35)
         .attr("y", 20)
-        .attr("text-anchor", "middle")
-        .attr("transform", "rotate(-90)")
+        //.attr("x", -h/2)
+        //.attr("y", 20)
+        //.attr("text-anchor", "middle")
+        //.attr("transform", "rotate(-90)")
         .attr("fill",color)
         .text(title);
 }
