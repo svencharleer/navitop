@@ -7,6 +7,7 @@ var naviOverlay;
 var naviActivityByDayGraph;
 var naviBadgeStudentGraph;
 
+
 function length(point)
 {
 	return Math.sqrt(point.x * point.x + point.y * point.y);
@@ -53,6 +54,9 @@ function loadMenu(){
 
 
     fw.addObjectToDocument(nwCompareButton);
+
+
+
 
 
 

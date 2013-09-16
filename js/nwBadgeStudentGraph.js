@@ -44,7 +44,7 @@ var bsg_graphPaddingY = 200;
 function addBadgeGraph(title) {
 
     var nrOfStudents = studentsGeneral.length;
-    var nrOfBadges = badgesGeneral.length;
+    var nrOfBadges = badgesFiltered.length;
 
     var studentToGraphPositionMap = {};
     for(var i = 0; i < nrOfStudents;i++)
@@ -77,7 +77,7 @@ function addBadgeGraph(title) {
         .scale(yScale)
         .ticks(badgesGeneral.length)
         .tickFormat(function(d,i) {
-            return badgesGeneral[d].name; })
+            return badgesFiltered[d].name; })
 
         .orient("left")
         .tickSize(1);
@@ -103,7 +103,7 @@ function addBadgeGraph(title) {
         .attr("dx", "-10px")
         .attr("dy", "10px")
         .attr("transform", function(d) {
-            return "rotate(90)"
+            return "rotate(45)"
         })
 
     ;
@@ -114,53 +114,33 @@ function addBadgeGraph(title) {
         .call(yAxis)
         ;
 
-    var mainBars = svg.append("g").attr("id","bsg_mainCircles");
 
     for(var i = 0; i < nrOfBadges;i++)
     {
-        var dataset = badgesGeneral[i].awardedTo;
-        var studentKeys = Object.keys(dataset);
+
+        var dataset = badgesFiltered[i].awardedToFlat;
+        var chartName = badgesFiltered[i].id;
         var colors = {"positive":"#92ffa1", "negative":"#ff9292", "neutral":"#92e2ff"};
+        var color = colors[badgesFiltered[i].connotation];
+        var mainBars = svg.append("g").attr("id","bsg_mainCircles"+chartName);
+        mainBars.selectAll("circle")
+            .data(dataset)
+            .enter()
+            .append("circle")
+            .attr("class", "mainBar")
+            .attr("id", function(d,i) { return "circlechart" + chartName + d + i;})
+            .attr("cy", yScale(i))
 
-        for(var j = 0; j  < studentKeys.length;j++)
-        {
+            .attr("cx", function(d,i) {
+                return xScale(studentToGraphPositionMap[d.key]);}) // map the user name onto the correct X value
 
+            .attr("r",
+            function(d,j) {
 
-            var color = colors[badgesGeneral[i].connotation];
-            if(color == null)
-                console.log("we have a broken badge");
+                return d.value;})
 
-            mainBars//.selectAll("circle")
-                //.data(dataset)
-                //.enter()
-                .append("circle")
-                .attr("class", "mainBar")
-                .attr("id", "circlechart" + i)
-                .attr("cy", yScale(i))
-
-                .attr("cx", xScale(studentToGraphPositionMap[studentKeys[j]])) // map the user name onto the correct X value
-
-                .attr("r", dataset[studentKeys[j]].length)
-
-                .attr("fill", color);
-
-        }
-
-
-
+            .attr("fill", color);
     }
-
-
-
-
-   // var toAddToFw = svg.selectAll("circle");
-   // var objects = [];
-   // for(var i = 0;i < toAddToFw[0].length;i++)
-   // {
-        //console.log(test[0][t].id);
-        //objects.push(new nwNaviGraphBar("circlechart", toAddToFw[i].id, dataset[i][0]));
-  //  }
-   // fw.addObjectsToDocument(objects);
     svg.append("text")
         .attr("class", "ActivityGraphTitle")
         .attr("x", 35)
@@ -171,7 +151,164 @@ function addBadgeGraph(title) {
         //.attr("transform", "rotate(-90)")
         .attr("fill","yellow")
         .text(title);
+
+
+    setTimeout(function(){filtering();},2000);
+}
+
+
+function updateBadgeStudentGraph()
+{
+    var nrOfStudents = studentsGeneral.length;
+    var nrOfBadges = badgesGeneral.length;
+
+    var studentToGraphPositionMap = {};
+    for(var i = 0; i < nrOfStudents;i++)
+    {
+        studentToGraphPositionMap[studentsGeneral[i].username] = i;
+    }
+
+
+    var w = bsg_svgW;
+    var h = bsg_svgH;
+    var svg = d3.select("#circlechart");
+
+
+    var paddingX = bsg_graphPaddingX;
+    var paddingY = bsg_graphPaddingY;
+    var yScale = d3.scale.linear()
+        .domain([0, nrOfBadges-1])
+        .range([paddingX+10, h-paddingX]);
+
+    var xScale = d3.scale.linear()
+        .domain([0, nrOfStudents-1])
+
+        .range([paddingY+10, w - paddingY * 2]);
+
+
+
+    for(var i = 0; i < nrOfBadges;i++)
+    {
+
+        var dataset = badgesFiltered[i].awardedToFlat;
+        var chartName = badgesFiltered[i].id;
+        var colors = {"positive":"#92ffa1", "negative":"#ff9292", "neutral":"#92e2ff"};
+        var color = colors[badgesFiltered[i].connotation];
+        var mainBars = svg.select("#bsg_mainCircles"+chartName);
+
+        var p = mainBars.selectAll("circle")
+            .data(dataset)
+
+            .attr("cy", yScale(i))
+
+            .attr("cx", function(d,i) {
+                return xScale(studentToGraphPositionMap[d.key]);}) // map the user name onto the correct X value
+
+            .attr("r", function(d,j) {
+                return d.value;})
+
+            .attr("fill", color);
+
+        p
+            .enter()
+            .append("circle")
+            .attr("class", "mainBar")
+            .attr("id", function(d,i) { return "circlechart" + chartName + d + i;})
+            .attr("cy", yScale(i))
+
+            .attr("cx", function(d,i) {
+                return xScale(studentToGraphPositionMap[d.key]);}) // map the user name onto the correct X value
+
+            .attr("r",
+            function(d,j) {
+
+                return d.value;})
+
+            .attr("fill", color);
+
+
+
+
+        p.exit().remove();
+
+    }
+
+
+    setTimeout(function(){filtering();},200);
+
 }
 
 
 nwBadgeStudentGraph.prototype = Object.create(NObject.prototype);
+
+
+
+
+
+
+//tests for filtering the data
+//minDate maxDate
+var dayThingTest = 0;
+function filtering()
+{
+    var from = new Date(minDate.valueOf() + (dayThingTest) * 86400000);
+    var till = new Date(minDate.valueOf() + (1+dayThingTest) * 86400000);
+    if(minDate.valueOf() + (1+dayThingTest) * 86400000 < maxDate.valueOf())
+    {
+        dayThingTest++;
+    }
+    filterData(true, from, till);
+    updateBadgeStudentGraph();
+
+}
+
+//badgesFiltered
+function filterData(filter, from, till)
+{
+    badgesFiltered = [];
+    badgesGeneral.forEach(
+        function(d)
+        {
+            /*var lessAwards = {};
+            for(var i = 0; i < Object.keys(d.awardedTo).length;i++)
+            {
+                  lessAwards[Object.keys(d.awardedTo)[i]] = d.awardedTo[Object.keys(d.awardedTo)[i]].slice(0, 2);
+            }*/
+
+            var awards = crossfilter(d.awardedToFlat);
+            var awardsByDateDimension = awards.dimension(function(f) {
+                return f.timestamp;
+            });
+
+            var _minDate = minDate;
+            var _maxDate = maxDate;
+            if(filter)
+            {
+                _minDate = from;
+                _maxDate = till;
+            }
+
+
+
+            var awardsByStudentsFilteredByDateArray = awardsByDateDimension.filter([_minDate.valueOf(), _maxDate.valueOf()]).top(Infinity);
+            console.log(_minDate + " " + _maxDate);
+            var dateRange = crossfilter(awardsByStudentsFilteredByDateArray);
+            var dateRangeWithStudentDimension = dateRange.dimension(function(f) { return f.student});
+
+
+            var awardsPerStudents =  dateRangeWithStudentDimension.group().reduceCount();
+
+
+            var da = JSON.parse(JSON.stringify(d)); //deep copy
+            da.awardedToFlat = awardsPerStudents.top(Infinity);
+            badgesFiltered.push(da);
+        }
+    )
+
+    //var test = [{id:1, name: "test"}, {id:2, name: "test2"},{id:3, name: "test3"}];
+    //var t = crossfilter(test);
+    //var sorted = t.dimension
+
+    //
+
+}
