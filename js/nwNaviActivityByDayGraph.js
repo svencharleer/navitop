@@ -131,10 +131,13 @@ function drawGraph(data, id, color) {
     for (var i = 0; i < toAddToFw[0].length; i++) {
         //console.log(test[0][t].id);
         //objects.push(new nwNaviGraphBar(id, toAddToFw[0][i].id, data[i].key));
-        var key = data[i].key;
-        toAddToFw[0][i].addEventListener('mousedown', function(event){
-            graphBarHit(event.srcElement.attributes["chart"].value, event.srcElement.__data__.key);
-        })
+        if(data[i] != null)
+        {
+            var key = data[i].key;
+            toAddToFw[0][i].addEventListener('mousedown', function(event){
+                graphBarHit(event.srcElement.attributes["chart"].value, event.srcElement.__data__.key);
+            });
+        }
     }
     fw.addObjectsToDocument(objects);
 }

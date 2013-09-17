@@ -497,3 +497,33 @@ svg#circlechart
 {
     color:cyan;
 }
+
+#nwTimeSlider
+{
+    border:solid 1px #00c6ff;
+}
+
+#nwTimeSliderLeft, #nwTimeSliderRight,#nwTimeSliderPlay
+{
+    width:20px;
+    color:cornflowerblue;
+    background-color: aliceblue;
+    border: solid 1px cornflowerblue;
+    position:absolute;
+}
+#nwTimeSliderLeft
+{
+    top:10px;
+    left:1080px;
+}
+#nwTimeSliderRight
+{
+    top:10px;
+    left:1280px;
+}
+
+#nwTimeSliderPlay
+{
+    top:10px;
+    left:1380px;
+}

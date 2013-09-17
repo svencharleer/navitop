@@ -6,6 +6,7 @@ var naviLogo;
 var naviOverlay;
 var naviActivityByDayGraph;
 var naviBadgeStudentGraph;
+var naviTimeSliderLeft, naviTimeSliderRight, naviTimeSliderPlay;
 
 
 function length(point)
@@ -38,10 +39,18 @@ function loadMenu(){
 	naviOverlay = new nwNaviOverlay();
     naviActivityByDayGraph = new nwNaviActivityByDayGraph();
     naviBadgeStudentGraph = new nwBadgeStudentGraph();
+
+    naviTimeSliderLeft = new nwTimeSliderLeft();
+    naviTimeSliderRight = new nwTimeSliderRight();
+    naviTimeSliderPlay = new nwTimeSliderPlay();
+
 	fw.addObjectToDocument(naviLogo);
 	fw.addObjectToDocument(naviOverlay);
     fw.addObjectToDocument(naviActivityByDayGraph)    ;
-    fw.addObjectToDocument(naviActivityByDayGraph)    ;
+    fw.addObjectToDocument(naviBadgeStudentGraph)    ;
+    fw.addObjectToDocument(naviTimeSliderLeft)    ;
+    fw.addObjectToDocument(naviTimeSliderRight)    ;
+    fw.addObjectToDocument(naviTimeSliderPlay)    ;
 	//load objects
 	//var objects = [new nwMenu(null,null)];//{x:2*fw.view.width/5, y:7.3*fw.view.height/8}, {width:fw.view.width/5, height:fw.view.height/8})];
 	//fw.addObjectsToDocument(objects);

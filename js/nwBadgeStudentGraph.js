@@ -153,7 +153,7 @@ function addBadgeGraph(title) {
         .text(title);
 
 
-    setTimeout(function(){filtering();},5000);
+   // setTimeout(function(){filtering();},5000);
 }
 
 
@@ -234,7 +234,7 @@ function updateBadgeStudentGraph()
     }
 
 
-    setTimeout(function(){filtering();},1000);
+
 
 }
 
@@ -246,22 +246,7 @@ nwBadgeStudentGraph.prototype = Object.create(NObject.prototype);
 
 
 
-//tests for filtering the data
-//minDate maxDate
-var dayThingTest = 0;
-function filtering()
-{
-    variableMinDate = new Date(minDate.valueOf() + (dayThingTest) * 86400000);
-    variableMaxDate = new Date(minDate.valueOf() + (30+dayThingTest) * 86400000);
-    if(variableMaxDate < maxDate.valueOf())
-    {
-        dayThingTest++;
-    }
-    filterData(true, variableMinDate, variableMaxDate);
-    updateBadgeStudentGraph();
-    updateGraph();
 
-}
 
 //badgesFiltered
 function filterData(filter, from, till)
