@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="99beab25-e08d-4161-8fc8-1c54b518edf8" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/nwBadgeStudentGraph.js" afterPath="$PROJECT_DIR$/js/nwBadgeStudentGraph.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/nwCompareButtonItem.js" afterPath="$PROJECT_DIR$/js/nwCompareButtonItem.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/nwNaviActivityByDayGraph.js" afterPath="$PROJECT_DIR$/js/nwNaviActivityByDayGraph.js" />
     </list>
     <ignored path="navitop.iws" />
@@ -29,7 +28,7 @@
     <file path="/naviWorld.css" changelist="99beab25-e08d-4161-8fc8-1c54b518edf8" time="1378905073034" ignored="false" />
     <file path="$PROJECT_DIR$/../navidata/routes/activity.js" changelist="99beab25-e08d-4161-8fc8-1c54b518edf8" time="1379345055537" ignored="false" />
     <file path="/activity.js" changelist="99beab25-e08d-4161-8fc8-1c54b518edf8" time="1379341740002" ignored="false" />
-    <file path="/nwNaviActivityByDayGraph.js" changelist="99beab25-e08d-4161-8fc8-1c54b518edf8" time="1379408257195" ignored="false" />
+    <file path="/nwNaviActivityByDayGraph.js" changelist="99beab25-e08d-4161-8fc8-1c54b518edf8" time="1379408966260" ignored="false" />
     <file path="/nwLogic.js" changelist="99beab25-e08d-4161-8fc8-1c54b518edf8" time="1379315899667" ignored="false" />
     <file path="/a.dummy" changelist="99beab25-e08d-4161-8fc8-1c54b518edf8" time="1379337423188" ignored="false" />
     <file path="/nwMenu.js" changelist="99beab25-e08d-4161-8fc8-1c54b518edf8" time="1377185168698" ignored="false" />
@@ -82,7 +81,7 @@
       <file leaf-file-name="nwNaviActivityByDayGraph.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/nwNaviActivityByDayGraph.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="51" column="0" selection-start="1094" selection-end="1094" vertical-scroll-proportion="0.3325893">
+            <state line="123" column="9" selection-start="3509" selection-end="3509" vertical-scroll-proportion="0.734375">
               <folding />
             </state>
           </provider>
@@ -91,7 +90,7 @@
       <file leaf-file-name="nwBadgeStudentGraph.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/nwBadgeStudentGraph.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="155" column="6" selection-start="3806" selection-end="3806" vertical-scroll-proportion="-75.0">
+            <state line="155" column="41" selection-start="3841" selection-end="3841" vertical-scroll-proportion="-93.0">
               <folding />
             </state>
           </provider>
@@ -504,13 +503,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/nwNaviGraphBar.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="80" column="4" selection-start="2270" selection-end="2270" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/nwLogic.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="8" column="0" selection-start="152" selection-end="152" vertical-scroll-proportion="0.0">
@@ -548,14 +540,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/nwBadgeStudentGraph.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="155" column="6" selection-start="3806" selection-end="3806" vertical-scroll-proportion="-75.0">
+        <state line="155" column="41" selection-start="3841" selection-end="3841" vertical-scroll-proportion="-93.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/nwNaviGraphBar.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="80" column="4" selection-start="2270" selection-end="2270" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/nwNaviActivityByDayGraph.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="0" selection-start="1094" selection-end="1094" vertical-scroll-proportion="0.3325893">
+        <state line="123" column="9" selection-start="3509" selection-end="3509" vertical-scroll-proportion="0.734375">
           <folding />
         </state>
       </provider>

@@ -153,7 +153,7 @@ function addBadgeGraph(title) {
         .text(title);
 
 
-    //setTimeout(function(){filtering();},2000);
+    setTimeout(function(){filtering();},5000);
 }
 
 
@@ -234,7 +234,7 @@ function updateBadgeStudentGraph()
     }
 
 
-    //setTimeout(function(){filtering();},1000);
+    setTimeout(function(){filtering();},1000);
 
 }
 

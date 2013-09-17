@@ -48,8 +48,22 @@ function redrawAllGraphs()
 {
     //always draw them, as they will auto reset the values with an empty array
     var graphs = ["nwActivityGraph","nwTweetGraph","nwBlogPostGraph","nwBlogCommentGraph"];
+
     graphs.forEach(function(d){
+        var svg = d3.select("#"+d);
+        var mainBars = svg.select("#mainBars");
         drawGraph(dataCache[d].DATA, d,colors[0][d]);
+        if(dataCache[d].DATA_USERS2.length == 0  && dataCache[d].DATA_USERS.length == 0)
+        {
+            mainBars.selectAll("rect").transition()
+                .duration(500).attr("fill", colors[0][d]);
+        }
+        else
+        {
+            mainBars.selectAll("rect").transition()
+                .duration(500).attr("fill", fadedColors[d]);
+        }
+
         if(dataCache[d].DATA_USERS2.length == 0)
             drawSubGraph(subGraph_mode.ONE_LIST, d,dataCache[d].DATA_USERS);
         else
@@ -87,7 +101,7 @@ function drawGraph(data, id, color) {
             //console.log("height is " + d[1] + " yScale is" + yScale(d[1]));
             return svgH - graphTransformY[id](d.value) - graphPadding;
         })
-        .attr("fill", color);
+        ;//.attr("fill", color);
 
     p
         .enter()
@@ -107,7 +121,7 @@ function drawGraph(data, id, color) {
             //console.log("height is " + d[1] + " yScale is" + yScale(d[1]));
             return svgH - graphTransformY[id](d.value) - graphPadding;
         })
-        .attr("fill", color);//"teal");
+        ;//.attr("fill", color);//"teal");
 
     p.exit().remove();
 
@@ -127,8 +141,7 @@ function drawSubGraph(mode, id, data) {
 
     var mainBars = svg.select("#mainBars");
 
-        mainBars.selectAll("rect").transition()
-            .duration(500).attr("fill", fadedColors[id]);
+
 
 
     var barXOffset;
