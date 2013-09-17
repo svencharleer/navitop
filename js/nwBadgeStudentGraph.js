@@ -153,7 +153,7 @@ function addBadgeGraph(title) {
         .text(title);
 
 
-    setTimeout(function(){filtering();},2000);
+    //setTimeout(function(){filtering();},2000);
 }
 
 
@@ -234,7 +234,7 @@ function updateBadgeStudentGraph()
     }
 
 
-    setTimeout(function(){filtering();},200);
+    //setTimeout(function(){filtering();},1000);
 
 }
 
@@ -251,14 +251,15 @@ nwBadgeStudentGraph.prototype = Object.create(NObject.prototype);
 var dayThingTest = 0;
 function filtering()
 {
-    var from = new Date(minDate.valueOf() + (dayThingTest) * 86400000);
-    var till = new Date(minDate.valueOf() + (1+dayThingTest) * 86400000);
-    if(minDate.valueOf() + (1+dayThingTest) * 86400000 < maxDate.valueOf())
+    variableMinDate = new Date(minDate.valueOf() + (dayThingTest) * 86400000);
+    variableMaxDate = new Date(minDate.valueOf() + (30+dayThingTest) * 86400000);
+    if(variableMaxDate < maxDate.valueOf())
     {
         dayThingTest++;
     }
-    filterData(true, from, till);
+    filterData(true, variableMinDate, variableMaxDate);
     updateBadgeStudentGraph();
+    updateGraph();
 
 }
 
@@ -291,7 +292,7 @@ function filterData(filter, from, till)
 
 
             var awardsByStudentsFilteredByDateArray = awardsByDateDimension.filter([_minDate.valueOf(), _maxDate.valueOf()]).top(Infinity);
-            console.log(_minDate + " " + _maxDate);
+            //console.log(_minDate + " " + _maxDate);
             var dateRange = crossfilter(awardsByStudentsFilteredByDateArray);
             var dateRangeWithStudentDimension = dateRange.dimension(function(f) { return f.student});
 

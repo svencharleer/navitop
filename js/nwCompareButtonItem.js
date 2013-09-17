@@ -21,15 +21,13 @@ function eventButtonCompare()
     {
         compareGroupStatus = GRAPH_COMPARE;
         $("#nwCompareButton").css("border","solid 1px white");
-        switchComparisonOnOff();
     }
     else
     {
         compareGroupStatus = GRAPH_NOCOMPARE;
         $("#nwCompareButton").css("border","none");
-        switchComparisonOnOff();
     }
-
+    updateGraph();
 
 }
 
