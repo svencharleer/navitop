@@ -5,6 +5,7 @@ function nwStudent(_name, position, size, studentName, _studentData)
 	var states = [];
 	var animations = [];
     this.studentData = _studentData;
+    this.compareGroup = 0;
 	var eventHandler =  
 	{
 		timer: null,
@@ -21,19 +22,23 @@ function nwStudent(_name, position, size, studentName, _studentData)
 			//	$("#"+obj.element.id).before("<div id='"+ obj.element.id + "_ph' class='nwStudent emptyStudent''>&nbsp;</div>");
 			//	document.getElementById("playfield").appendChild(obj.element);
 			//}
+            if(obj.activated && obj.compareGroup != compareGroupStatus )
+                return;
 
             if(!obj.activated)
             {
+                obj.compareGroup = compareGroupStatus;
                 obj.activated = true;
                 //obj.setPosition(point);
-                $("#"+obj.element.id).addClass("selectedObject1");
+                $("#"+obj.element.id).addClass("selectedObject" + compareGroupStatus);
                 updateBadgeColorsForStudent([obj]);
 
                 updateGraph_Users(obj.studentName);
             }
             else
             {
-                $("#"+obj.element.id).removeClass("selectedObject");
+                $("#"+obj.element.id).removeClass("selectedObject" + compareGroupStatus);
+
                 updateBadgeColors(true);
                 obj.activated = false;
                 updateBadgeColors(true);
