@@ -51,6 +51,34 @@ function nwNaviGraphBar(graphID, barID, _value)
 nwNaviGraphBar.prototype = Object.create(NObject.prototype);
 
 
+function graphBarHit(id, date)
+{
+    var verb = "";
+    switch(id)
+    {
+        case "nwTweetGraph":
+            verb = "tweeted";
+            break;
+        case "nwBlogPostGraph":
+            verb = "posted";
+            break;
+        case "nwBlogCommentGraph"   :
+            verb = "commented";
+            break;
+        case "nwActivityGraph" :
+            verb = "";
+            break;
+    }
+    $("#nwNaviDetailedActivityView").empty();
+    var dateForURL = "";
+    if(verb != "")
+        dateForURL = 'http://localhost:3000/activitybydate/' + date + "/" + verb;
+    else
+        dateForURL = 'http://localhost:3000/activitybydate/' + date;
+
+    $.getJSON(dateForURL, barClick_callback, "json");
+}
+
 //nwNaviDetailedActivityView
 var link = [];
 var bkData = {};

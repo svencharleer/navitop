@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="99beab25-e08d-4161-8fc8-1c54b518edf8" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/nwBadgeStudentGraph.js" afterPath="$PROJECT_DIR$/js/nwBadgeStudentGraph.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/nwNaviActivityByDayGraph.js" afterPath="$PROJECT_DIR$/js/nwNaviActivityByDayGraph.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/nwNaviGraphBar.js" afterPath="$PROJECT_DIR$/js/nwNaviGraphBar.js" />
     </list>
     <ignored path="navitop.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -28,13 +28,13 @@
     <file path="/naviWorld.css" changelist="99beab25-e08d-4161-8fc8-1c54b518edf8" time="1378905073034" ignored="false" />
     <file path="$PROJECT_DIR$/../navidata/routes/activity.js" changelist="99beab25-e08d-4161-8fc8-1c54b518edf8" time="1379345055537" ignored="false" />
     <file path="/activity.js" changelist="99beab25-e08d-4161-8fc8-1c54b518edf8" time="1379341740002" ignored="false" />
-    <file path="/nwNaviActivityByDayGraph.js" changelist="99beab25-e08d-4161-8fc8-1c54b518edf8" time="1379408966260" ignored="false" />
+    <file path="/nwNaviActivityByDayGraph.js" changelist="99beab25-e08d-4161-8fc8-1c54b518edf8" time="1379410425529" ignored="false" />
     <file path="/nwLogic.js" changelist="99beab25-e08d-4161-8fc8-1c54b518edf8" time="1379315899667" ignored="false" />
     <file path="/a.dummy" changelist="99beab25-e08d-4161-8fc8-1c54b518edf8" time="1379337423188" ignored="false" />
     <file path="/nwMenu.js" changelist="99beab25-e08d-4161-8fc8-1c54b518edf8" time="1377185168698" ignored="false" />
     <file path="/fragment.js2" changelist="99beab25-e08d-4161-8fc8-1c54b518edf8" time="1379400467892" ignored="false" />
-    <file path="/nwNaviGraphBar.js" changelist="99beab25-e08d-4161-8fc8-1c54b518edf8" time="1378799764712" ignored="false" />
-    <file path="/fragment.js" changelist="99beab25-e08d-4161-8fc8-1c54b518edf8" time="1379404949160" ignored="false" />
+    <file path="/nwNaviGraphBar.js" changelist="99beab25-e08d-4161-8fc8-1c54b518edf8" time="1379409787674" ignored="false" />
+    <file path="/fragment.js" changelist="99beab25-e08d-4161-8fc8-1c54b518edf8" time="1379410417192" ignored="false" />
     <file path="/naviObject.js" changelist="99beab25-e08d-4161-8fc8-1c54b518edf8" time="1377264233531" ignored="false" />
     <file path="/naviFramework_UI.js" changelist="99beab25-e08d-4161-8fc8-1c54b518edf8" time="1377265893094" ignored="false" />
     <file path="/nwCompareButtonItem.js" changelist="99beab25-e08d-4161-8fc8-1c54b518edf8" time="1379406309568" ignored="false" />
@@ -81,7 +81,7 @@
       <file leaf-file-name="nwNaviActivityByDayGraph.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/nwNaviActivityByDayGraph.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="123" column="9" selection-start="3509" selection-end="3509" vertical-scroll-proportion="0.734375">
+            <state line="135" column="0" selection-start="3933" selection-end="3933" vertical-scroll-proportion="0.3325893">
               <folding />
             </state>
           </provider>
@@ -99,7 +99,7 @@
       <file leaf-file-name="naviFramework_UI.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/NaviFramework/js/NaviFramework/naviFramework_UI.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="492" column="0" selection-start="14671" selection-end="14671" vertical-scroll-proportion="0.0">
+            <state line="546" column="41" selection-start="16568" selection-end="16568" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -135,7 +135,7 @@
       <file leaf-file-name="nwNaviGraphBar.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/nwNaviGraphBar.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="80" column="4" selection-start="2270" selection-end="2270" vertical-scroll-proportion="0.0">
+            <state line="76" column="67" selection-start="2059" selection-end="2059" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -182,7 +182,6 @@
         <option value="$PROJECT_DIR$/js/nwBadgeIcon.js" />
         <option value="code.jquery.com/jquery-1.10.1.min.js" />
         <option value="$PROJECT_DIR$/js/nwButton.js" />
-        <option value="$PROJECT_DIR$/js/nwNaviGraphBar.js" />
         <option value="$PROJECT_DIR$/js/nwStudentContainer.js" />
         <option value="d3js.org/d3.v3.js" />
         <option value="$PROJECT_DIR$/js/nwStudent.js" />
@@ -193,6 +192,7 @@
         <option value="$PROJECT_DIR$/js/nwCompareButtonItem.js" />
         <option value="$PROJECT_DIR$/js/nwBadgeStudentGraph.js" />
         <option value="$PROJECT_DIR$/js/nwNaviActivityByDayGraph.js" />
+        <option value="$PROJECT_DIR$/js/nwNaviGraphBar.js" />
       </list>
     </option>
   </component>
@@ -243,6 +243,60 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="navitop" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="navitop" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="navitop" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="NaviFramework" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="navitop" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="navitop" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="NaviFramework" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="navitop" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="navitop" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="NaviFramework" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="NaviFramework" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -442,7 +496,7 @@
           <option name="timeStamp" value="84" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="145" />
+      <option name="time" value="147" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -510,13 +564,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/NaviFramework/js/NaviFramework/naviFramework_UI.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="492" column="0" selection-start="14671" selection-end="14671" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/NaviFramework/js/3rdParty/crossfilter.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="825" column="0" selection-start="26449" selection-end="26449" vertical-scroll-proportion="0.0">
@@ -545,16 +592,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/NaviFramework/js/NaviFramework/naviFramework_UI.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="546" column="41" selection-start="16568" selection-end="16568" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/js/nwNaviGraphBar.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="80" column="4" selection-start="2270" selection-end="2270" vertical-scroll-proportion="0.0">
+        <state line="76" column="67" selection-start="2059" selection-end="2059" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/nwNaviActivityByDayGraph.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="123" column="9" selection-start="3509" selection-end="3509" vertical-scroll-proportion="0.734375">
+        <state line="135" column="0" selection-start="3933" selection-end="3933" vertical-scroll-proportion="0.3325893">
           <folding />
         </state>
       </provider>
