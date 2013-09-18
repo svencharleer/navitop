@@ -127,9 +127,9 @@ function nwBadgeContainer()
 		this.removeChildren.call(this, this.badges);
 		this.badges.length = 0; //does this really work?
 	}
-	this.element.style.display = "";
+	//this.element.style.display = "";
 	
-	this.element.style.visibility = "";
+	//this.element.style.visibility = "";
 	this.titleElement = document.getElementById("nwBadgeContainer_Title");
 
 

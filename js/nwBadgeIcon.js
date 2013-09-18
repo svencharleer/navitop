@@ -19,7 +19,7 @@ function nwBadgeIcon(_name, position, size, filename, badgeData)
                 updateStudentColorsForBadges([obj]);
                 obj.activated = true;
                 obj.element.style["webkitFilter"]= "";
-                updateGraph_Badges(obj);
+                //updateGraph_Badges(obj);
 			}
             else
             {
@@ -27,7 +27,7 @@ function nwBadgeIcon(_name, position, size, filename, badgeData)
                 updateStudentColors(true);
                 obj.activated = false;
                 updateStudentColors(true);
-                updateGraph_BadgesDeleted(obj);
+                //updateGraph_Badges(obj);
             }
 			//obj.setPosition(point);
 

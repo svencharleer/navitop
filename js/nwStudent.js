@@ -34,6 +34,7 @@ function nwStudent(_name, position, size, studentName, _studentData)
                 updateBadgeColorsForStudent([obj]);
 
                 updateGraph_Users(obj.studentName);
+                updateBadgeStudentGraph();
             }
             else
             {
@@ -43,6 +44,7 @@ function nwStudent(_name, position, size, studentName, _studentData)
                 obj.activated = false;
                 updateBadgeColors(true);
                 updateGraph_UsersDeleted(obj.studentName);
+                updateBadgeStudentGraph();
             }
 		},
 		onLetGo: function(obj)
@@ -71,7 +73,7 @@ function nwStudent(_name, position, size, studentName, _studentData)
 	this.element.style.display = "";
     if(this.studentData.group != null)
 	    this.element.className = "nwStudent" + " " + this.studentData.group.replace(/ /g, "_");;
-	this.element.innerHTML = this.element.innerHTML.replace("NT_STUDENT_NAME", _studentData.fullname);
+	this.element.innerHTML = this.element.innerHTML.replace("NT_STUDENT_NAME", _studentData.fullname + " " + "("+ _studentData.grade  + " )");
 
 	this.activated = false;
 	this.studentName = studentName;

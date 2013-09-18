@@ -34,8 +34,8 @@ function nwBadgeStudentGraph()
 
 }
 
-var bsg_svgW = 1200;//1200;
-var bsg_svgH = 800;
+var bsg_svgW = 800;//1200;
+var bsg_svgH = 900;
 var bsg_graphBarPadding = 1;
 var bsg_graphPaddingX = 100;
 var bsg_graphPaddingY = 200;
@@ -55,7 +55,7 @@ function addBadgeGraph(title) {
 
     var w = bsg_svgW;
     var h = bsg_svgH;
-    var svg = d3.select("#nwContainerArea")
+    var svg = d3.select("#nwBadgeStudentGraph")
         .append("svg")
         .attr("id","circlechart" )
         .attr("width", w)   // <-- Here
@@ -71,7 +71,7 @@ function addBadgeGraph(title) {
     var xScale = d3.scale.linear()
         .domain([0, nrOfStudents-1])
 
-    .range([paddingY+10, w - paddingY * 2]);
+    .range([paddingY+10, w - paddingY ]);
 
     var yAxis = d3.svg.axis()
         .scale(yScale)
@@ -80,14 +80,14 @@ function addBadgeGraph(title) {
             return badgesFiltered[d].name; })
 
         .orient("left")
-        .tickSize(1);
-
+        ;
 
 
     var xAxis = d3.svg.axis()
         .scale(xScale)
         .ticks(studentsGeneral.length)
         .orient("top")
+
         .tickFormat(function(d,i) {
 
             return studentsGeneral[d].username; });
@@ -95,7 +95,7 @@ function addBadgeGraph(title) {
 
     svg.append("g")
         .attr("class", "CircleGraphAxis")
-        .attr("transform", "translate(0," + ( paddingX) + ")")
+        .attr("transform", "translate(0," + ( paddingX -5)+ ")")
 
         .call(xAxis)
         .selectAll("text")
@@ -109,7 +109,7 @@ function addBadgeGraph(title) {
     ;
     svg.append("g")
         .attr("class", "CircleGraphAxis")
-        .attr("transform", "translate(" + paddingY + ",0)")
+        .attr("transform", "translate(" + (paddingY - 5) + ",0)")
 
         .call(yAxis)
         ;
@@ -165,7 +165,10 @@ function updateBadgeStudentGraph()
     var studentToGraphPositionMap = {};
     for(var i = 0; i < nrOfStudents;i++)
     {
-        studentToGraphPositionMap[studentsGeneral[i].username] = i;
+        var isSelectedInGroup1 = graph_selectedUsers[0].indexOf(studentsGeneral[i].username) != -1 ? true:false;
+        var isSelectedInGroup2 = graph_selectedUsers[1].indexOf(studentsGeneral[i].username) != -1 ? true:false;
+
+        studentToGraphPositionMap[studentsGeneral[i].username] = {index:i, selected1:isSelectedInGroup1, selected2:isSelectedInGroup2};
     }
 
 
@@ -183,7 +186,7 @@ function updateBadgeStudentGraph()
     var xScale = d3.scale.linear()
         .domain([0, nrOfStudents-1])
 
-        .range([paddingY+10, w - paddingY * 2]);
+        .range([paddingY+10, w - paddingY ]);
 
 
 
@@ -193,7 +196,7 @@ function updateBadgeStudentGraph()
         var dataset = badgesFiltered[i].awardedToFlat;
         var chartName = badgesFiltered[i].id;
         var colors = {"positive":"#92ffa1", "negative":"#ff9292", "neutral":"#92e2ff"};
-        var color = colors[badgesFiltered[i].connotation];
+        //var color = colors[badgesFiltered[i].connotation];
         var mainBars = svg.select("#bsg_mainCircles"+chartName);
 
         var p = mainBars.selectAll("circle")
@@ -202,12 +205,21 @@ function updateBadgeStudentGraph()
             .attr("cy", yScale(i))
 
             .attr("cx", function(d,i) {
-                return xScale(studentToGraphPositionMap[d.key]);}) // map the user name onto the correct X value
+                return xScale(studentToGraphPositionMap[d.key].index);}) // map the user name onto the correct X value
 
             .attr("r", function(d,j) {
                 return d.value;})
 
-            .attr("fill", color);
+            .attr("fill",  function(d){
+                if(studentToGraphPositionMap[d.key].selected1) return "#00daec";
+                if(studentToGraphPositionMap[d.key].selected2) return "#ff877f";
+                if(graph_selectedUsers[0].length == 0 && graph_selectedUsers[1].length == 0)
+                    return "#008293";
+                else
+                    return "#004959";//"#004959";
+
+
+            });
 
         p
             .enter()
@@ -217,14 +229,23 @@ function updateBadgeStudentGraph()
             .attr("cy", yScale(i))
 
             .attr("cx", function(d,i) {
-                return xScale(studentToGraphPositionMap[d.key]);}) // map the user name onto the correct X value
+                return xScale(studentToGraphPositionMap[d.key].index);}) // map the user name onto the correct X value
 
             .attr("r",
             function(d,j) {
 
                 return d.value;})
 
-            .attr("fill", color);
+            .attr("fill",  function(d){
+                if(studentToGraphPositionMap[d.key].selected1) return "#00daec";
+                if(studentToGraphPositionMap[d.key].selected2) return "#ff877f";
+                if(graph_selectedUsers[0].length == 0 && graph_selectedUsers[1].length == 0)
+                    return "#008293";
+                else
+                    return "#004959";//"#004959";
+
+
+            });
 
 
 

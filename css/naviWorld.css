@@ -373,7 +373,7 @@ img { -webkit-touch-callout: none !important;}
 {
     display:block;
     position:absolute;
-    width:1000px;
+    width:750px;
     height:200px;
 }
 
@@ -397,32 +397,32 @@ img { -webkit-touch-callout: none !important;}
  {
 
     top:10px;
-     left:10px;
+     left:680px;
  }
 
 #nwBlogPostGraph
 {
     top:220px;
-    left:10px;
+    left:680px;
 }
 
 #nwBlogCommentGraph
 {
     top:430px;
-    left:10px;
+    left:680px;
 }
 
 
 #nwTweetGraph
 {
     top:640px;
-    left:10px;
+    left:680px;
 }
 
 #nwBadgeContainer
 {
     top:10px;
-    left:1000px;
+    left:5000px;
 }
 
 #nwStudentContainer
@@ -431,31 +431,23 @@ img { -webkit-touch-callout: none !important;}
     padding:5px;
     top:1000px;
     left:10px;
-    width:90%;
+    width:98%;
 
 }
 
-.CompareButton
-{
-    width:100px;
-    color:white;
-    background-color: blue;
-    top:10px;
-    left:880px;
-
-}
 
 
 #nwNaviDetailedActivityView
 {
-    width:400px;
-    height:470px;
+    width:300px;
+    height:820px;
     overflow:scroll;
-    top:550px;
-    left:1080px;
+    top:10px;
+    left:1480px;
     text-align: left;
     padding:5px;
     color:white;
+
 
 
 
@@ -463,22 +455,25 @@ img { -webkit-touch-callout: none !important;}
 
 #nwNaviDetailedActivityViewExternal
 {
-    width:400px;
-    height:500px;
-    overflow:scroll;
-    top:900px;
-    left:1080px;
+    width:680px;
+    height:820px;
+    overflow:auto;
+    top:10px;
+    left:1840px;
     text-align: left;
     padding:5px;
     color:white;
 }
 
-svg#circlechart
+#nwBadgeStudentGraph
 {
 
-    top:250px;
-    left:1000px;
-    height:900px;
+    top:10px;
+    left:10px;
+    width:620px;
+    height:830px;
+    border-top: solid 1px cadetblue;
+    border-bottom:  dotted 1px cadetblue;
 }
 
 .CircleGraphAxis path,
@@ -490,7 +485,7 @@ svg#circlechart
 
 .CircleGraphAxis text {
     font-family: ubuntuFont;
-    font-size: 9px;
+    font-size: 10px;
     fill: white;
 }
 
@@ -515,17 +510,62 @@ svg#circlechart
 }
 #nwTimeSliderLeft
 {
-    top:10px;
+    top:900px;
     left:1080px;
 }
 #nwTimeSliderRight
 {
-    top:10px;
+    top:900px;
     left:1280px;
 }
 
 #nwTimeSliderPlay
 {
-    top:10px;
+    top:900px;
     left:1380px;
+}
+
+
+
+.CompareButton
+{
+    width:100px;
+    color:white;
+    background-color: blue;
+    top:900px;
+    left:880px;
+
+}
+
+#verticalDivider1
+{
+    position:absolute;
+    top:30px;
+    left:660px;
+    width:1px;
+    height:780px;
+    border-left:dotted 1px cadetblue;
+
+}
+
+#verticalDivider2
+{
+    position:absolute;
+    top:30px;
+    left:1450px;
+    width:1px;
+    height:780px;
+    border-left:dotted 1px cadetblue;
+
+}
+
+#verticalDivider3
+{
+    position:absolute;
+    top:10px;
+    left:1820px;
+    width:1px;
+    height:780px;
+    border-left:dotted 1px cadetblue;
+
 }
