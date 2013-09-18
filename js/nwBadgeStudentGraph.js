@@ -34,7 +34,7 @@ function nwBadgeStudentGraph()
 
 }
 
-var bsg_svgW = 800;//1200;
+var bsg_svgW = 1000;//1200;
 var bsg_svgH = 900;
 var bsg_graphBarPadding = 1;
 var bsg_graphPaddingX = 100;
@@ -139,7 +139,7 @@ function addBadgeGraph(title) {
 
                 return d.value;})
 
-            .attr("fill", color);
+            .attr("fill", "#008293");
     }
     svg.append("text")
         .attr("class", "ActivityGraphTitle")

@@ -15,19 +15,24 @@ var GRAPH_COMPARE = 1;
 
 var compareGroupStatus =   GRAPH_NOCOMPARE;
 
-function eventButtonCompare()
+function eventButtonCompare1()
+{
+    if(compareGroupStatus == GRAPH_COMPARE)
+    {
+        compareGroupStatus = GRAPH_NOCOMPARE;
+        $("#nwCompareButton").css("background-color","#00daec");
+        $("#nwCompareButton2").css("background-color","#410000");
+    }
+
+}
+
+function eventButtonCompare2()
 {
     if(compareGroupStatus == GRAPH_NOCOMPARE)
     {
         compareGroupStatus = GRAPH_COMPARE;
-        $("#nwCompareButton").css("border","solid 1px white");
+        $("#nwCompareButton2").css("background-color","#ff877f");
+        $("#nwCompareButton").css("background-color","#003749");
     }
-    else
-    {
-        compareGroupStatus = GRAPH_NOCOMPARE;
-        $("#nwCompareButton").css("border","none");
-    }
-    updateGraph();
 
 }
-

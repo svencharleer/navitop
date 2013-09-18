@@ -177,19 +177,43 @@ img { -webkit-touch-callout: none !important;}
 .nwStudent
 {
 	display:block;
-	width:100%;
+	width:99%;
 	height:30px;
 	color: white;
-	
 	z-index:10;
 	
 	background-color:#888888;
 	font-size:.9em;
 	margin:auto;
-	padding:0;
-	margin-right:1px;
-	margin-bottom:1px;
+    vertical-align: middle;
+	margin:1px;
 	overflow:scroll;
+    font-size:12px;
+    font-weight:bold;
+}
+
+.Student_ListItem
+{
+    display:inline-block;
+    width:70%;
+
+    padding:5px;
+}
+
+
+.Student_Grade
+{
+    display:inline-block;
+    font-size:8px;
+    float:right;
+    margin-right:5px;
+}
+
+.Student_Grade strong
+{
+    display:block;
+    font-size:16px;
+
 }
 
 .nwStudent img
@@ -208,11 +232,7 @@ img { -webkit-touch-callout: none !important;}
 	padding:10px;
 	z-index:10;
 }
-.Student_ListItem 
-{
-	display:inline-block;
 
-}
 .nwStudentDragged img
 {
 	display:inline-block;
@@ -262,14 +282,14 @@ img { -webkit-touch-callout: none !important;}
 .selectedObject0
 {
 	
-	background-color: #0082A6;
+	background-color: #00daec;
 	color: white;
 }
 
 .selectedObject1
 {
 
-    background-color: red;
+    background-color: #ff877f;
     color: white;
 }
 
@@ -322,7 +342,7 @@ img { -webkit-touch-callout: none !important;}
 }
 
 .ActivityGraphAxis text {
-    font-family: square;;
+    font-family: elysium;
     font-size: 9px;
     fill: white;
 }
@@ -373,7 +393,7 @@ img { -webkit-touch-callout: none !important;}
 {
     display:block;
     position:absolute;
-    width:750px;
+    width:550px;
     height:200px;
 }
 
@@ -397,26 +417,26 @@ img { -webkit-touch-callout: none !important;}
  {
 
     top:10px;
-     left:680px;
+     left:880px;
  }
 
 #nwBlogPostGraph
 {
     top:220px;
-    left:680px;
+    left:880px;
 }
 
 #nwBlogCommentGraph
 {
     top:430px;
-    left:680px;
+    left:880px;
 }
 
 
 #nwTweetGraph
 {
     top:640px;
-    left:680px;
+    left:880px;
 }
 
 #nwBadgeContainer
@@ -447,6 +467,7 @@ img { -webkit-touch-callout: none !important;}
     text-align: left;
     padding:5px;
     color:white;
+    font-size:12px;
 
 
 
@@ -456,13 +477,31 @@ img { -webkit-touch-callout: none !important;}
 #nwNaviDetailedActivityViewExternal
 {
     width:680px;
-    height:820px;
+    height:830px;
     overflow:auto;
     top:10px;
-    left:1840px;
+    left:1850px;
     text-align: left;
-    padding:5px;
+    padding-left:5px;
     color:white;
+    font-size:12px;
+}
+
+#nwNaviDetailedActivityViewExternal h2
+{
+    font-size:14px;
+}
+
+#nwNaviDetailedActivityViewExternal a
+{
+    color:cyan;
+}
+
+#nwNaviDetailedActivityViewExternal img
+{
+    max-width:100%;
+    text-align: center;
+    border:solid 1px white;
 }
 
 #nwBadgeStudentGraph
@@ -470,7 +509,7 @@ img { -webkit-touch-callout: none !important;}
 
     top:10px;
     left:10px;
-    width:620px;
+    width:820px;
     height:830px;
     border-top: solid 1px cadetblue;
     border-bottom:  dotted 1px cadetblue;
@@ -484,45 +523,67 @@ img { -webkit-touch-callout: none !important;}
 }
 
 .CircleGraphAxis text {
-    font-family: ubuntuFont;
+    font-family: elysium;
     font-size: 10px;
     fill: white;
 }
 
 
-#nwNaviDetailedActivityViewExternal a
-{
-    color:cyan;
-}
+
 
 #nwTimeSlider
 {
-    border:solid 1px #00c6ff;
+
+    top:950px;
+    left:10px;
+    width:98%;
+    height:40px;
+    position:absolute;
+
 }
 
 #nwTimeSliderLeft, #nwTimeSliderRight,#nwTimeSliderPlay
 {
     width:20px;
-    color:cornflowerblue;
-    background-color: aliceblue;
-    border: solid 1px cornflowerblue;
+    color:#008293;
+    background-color: #231f20;
+    border: solid 1px #008293;
     position:absolute;
+
 }
+
+#bgTimeSlider
+{
+    top:20px;
+    left:30px;
+    width:600px;
+    height:1px;
+    border-bottom:dashed 2px #008293;
+    position:absolute;;
+}
+
 #nwTimeSliderLeft
 {
-    top:900px;
-    left:1080px;
+    /*top:900px;
+    left:1080px;*/
+    top:10px;
+    left:30px;
+    width:20px;
 }
 #nwTimeSliderRight
 {
-    top:900px;
-    left:1280px;
+    /*top:900px;
+    left:1280px;*/
+    top:10px;
+    left:630px;
+    width:20px;
 }
 
 #nwTimeSliderPlay
 {
-    top:900px;
-    left:1380px;
+    top:10px;
+    left:660px;
+    width:100px;
 }
 
 
@@ -532,8 +593,26 @@ img { -webkit-touch-callout: none !important;}
     width:100px;
     color:white;
     background-color: blue;
-    top:900px;
-    left:880px;
+    text-align: center;
+    padding-top:10px
+
+}
+
+#nwCompareButton
+{
+    top:1010px;
+    left:10px;
+    background-color: #00daec;
+    height:40px;
+
+}
+
+#nwCompareButton2
+{
+    top:1063px;
+    left:10px;
+    height:40px;
+    background-color: #410000;
 
 }
 
@@ -541,7 +620,7 @@ img { -webkit-touch-callout: none !important;}
 {
     position:absolute;
     top:30px;
-    left:660px;
+    left:860px;
     width:1px;
     height:780px;
     border-left:dotted 1px cadetblue;
@@ -562,10 +641,56 @@ img { -webkit-touch-callout: none !important;}
 #verticalDivider3
 {
     position:absolute;
-    top:10px;
+    top:30px;
     left:1820px;
     width:1px;
     height:780px;
     border-left:dotted 1px cadetblue;
 
 }
+
+
+
+.activityEntry
+{
+    display:block;
+    width:100%;
+    margin-bottom:2px;
+    text-align: left;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.activityType
+{
+    display:inline-block;
+    width:80px;
+    height:15px;
+    font-size:10px;
+    background-color: #004959;
+    padding-left:10px;
+}
+.activityUser
+{
+    margin-left:2px;
+    display:inline-block;
+    width:140px;
+    background-color: #004959;
+    font-size:10px;
+    height:15px;
+    padding-left:10px;
+}
+
+.activityTime
+{
+    margin-left:2px;
+    display:inline-block;
+    width:30px;
+    background-color: #004959;
+    font-size:10px;
+    height:15px;
+    padding-left:10px;
+}
+
+
+

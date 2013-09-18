@@ -1,4 +1,5 @@
 var studentsGeneral = [];
+var studentNames = {};
 
 var studentsLoaded_callBack = function(json)
 {	
@@ -9,6 +10,7 @@ var studentsLoaded_callBack = function(json)
     {
         var user = json[Object.keys(json)[i]];
 		objects.push(new nwStudent(user.username.replace(/[^A-Za-z0-9]+/g, ''), null, null, user.username, user));
+        studentNames[user.username] = user.fullname;
         studentsGeneral.push(user);
 	};
 	if(studentContainer == null)

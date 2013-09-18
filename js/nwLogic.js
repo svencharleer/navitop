@@ -8,6 +8,8 @@ var naviActivityByDayGraph;
 var naviBadgeStudentGraph;
 var naviTimeSliderLeft, naviTimeSliderRight, naviTimeSliderPlay;
 
+var nwCompareButton1, nwCompareButton2;
+
 
 function length(point)
 {
@@ -59,10 +61,12 @@ function loadMenu(){
 
 
 
-    var nwCompareButton = new nwCompareButtonItem("nwCompareButton", eventButtonCompare);
+    nwCompareButton1 = new nwCompareButtonItem("nwCompareButton", eventButtonCompare1);
+    nwCompareButton2 = new nwCompareButtonItem("nwCompareButton2", eventButtonCompare2);
 
 
-    fw.addObjectToDocument(nwCompareButton);
+    fw.addObjectToDocument(nwCompareButton1);
+    fw.addObjectToDocument(nwCompareButton2);
 
 
 

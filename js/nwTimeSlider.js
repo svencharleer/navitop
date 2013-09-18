@@ -1,8 +1,8 @@
 var nwTimeSlider =
 {
-    absolute_x: 1080,
-    length:200,
-    slider_length:200,
+    absolute_x: 30,
+    length:600,
+    slider_length:600,
     position_left:0,
     position_right:200
 };
@@ -13,7 +13,7 @@ function filtering()
     var totalDays = 1+Math.floor((maxDate.getTime() - minDate.getTime()) / (1000 * 60 * 60 * 24));
     var daysLeft = (naviTimeSliderLeft.sliderOffset * totalDays);
     var daysRight = (naviTimeSliderRight.sliderOffset * totalDays);
-    console.log(daysLeft + " " + daysRight);
+//    console.log(daysLeft + " " + daysRight);
     variableMinDate = new Date(minDate.valueOf() + (naviTimeSliderLeft.sliderOffset * totalDays) * 86400000);
     variableMaxDate = new Date(minDate.valueOf() + (naviTimeSliderRight.sliderOffset * totalDays) * 86400000);
     /*if(variableMaxDate < maxDate.valueOf())

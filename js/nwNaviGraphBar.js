@@ -92,19 +92,20 @@ function barClick_callback(data)
         switch(data[i].verb)
         {
             case "tweeted":
-                html = "Tweet by " + data[i].username;
+                html = "<div class='activityEntry'><div class='activityType'>tweet</div><div class='activityUser'>" + studentNames[data[i].username] + "</div><div class='activityTime'>"+ new Date(data[i].starttime).getDate() + "/" + new Date(data[i].starttime).getMonth() +"</div></div>";
                 link[i] = "https://twitter.com/" +data[i].username + "/status/" + data[i].object;
                 break;
             case "posted":
-                html = "Blog post by " + data[i].username + "(" + data[i].starttime + ")";
+                html = "<div class='activityEntry'><div class='activityType'>blog post</div><div class='activityUser'>" + studentNames[data[i].username] + "</div><div class='activityTime'>"+ new Date(data[i].starttime).getDate() + "/" + new Date(data[i].starttime).getMonth() +"</div></div>";
                 link[i] = data[i].object;
                 break;
             case "commented"   :
-                html = "Blog comment by " + data[i].username;
+                html = "<div class='activityEntry'><div class='activityType'>blog comment</div><div class='activityUser'>" + studentNames[data[i].username] + "</div><div class='activityTime'>"+ new Date(data[i].starttime).getDate() + "/" + new Date(data[i].starttime).getMonth() +"</div></div>";
                 link[i] = data[i].object;
                 break;
             default:
                 html = "badge..<br/>";
+                continue;
                 break;
         }
         var iframeButton = new nwButton(
@@ -143,13 +144,18 @@ function barClick_callback(data)
         fw.addObjectToDocument(iframeButton);
         //should make that an object, and use hte methods i made
         $("#nwNaviDetailedActivityView").append(iframeButton.element);
+        $("#nwNaviDetailedActivityViewExternal").text("Click an activity to see its content");
     }
 
 }
 
 function blogpost_callback(data)
 {   if(data != null)
-        $("#nwNaviDetailedActivityViewExternal").html(data.originalrequest);
+    {
+
+        var rep = data.originalrequest.replace(/""/g, '\'');
+        $("#nwNaviDetailedActivityViewExternal").html("<h2>" + data.username + " " + new Date(data.starttime).getDate() + "/" + new Date(data.starttime).getMonth() + "</h2>" +  rep);
+    }
     else
     $("#nwNaviDetailedActivityViewExternal").text("none");
 }

@@ -34,7 +34,7 @@ function nwNaviActivityByDayGraph()
 
 }
 
-var svgW = 800;//1200;
+var svgW = 600;//1200;
 var svgH = 200;
 var graphBarPadding = 1;
 var graphPadding = 38;
@@ -84,6 +84,7 @@ function drawGraph(data, id, color) {
 
     graphDays = 1+ Math.floor((variableMaxDate.getTime() - variableMinDate.getTime()) / (1000 * 60 * 60 * 24));
     graphTransformX[id].domain([variableMinDate, variableMaxDate]);
+
     d3.select("#axis"+id).call(axisX[id]);
 
 
@@ -265,10 +266,12 @@ function addGraph(data, id, title, color) {
         .domain([0, yMax])
         .range([h - graphPadding, graphPadding]);
 
+
+
     axisX[id] = d3.svg.axis()
         .scale(xScale)
         .orient("bottom")
-        .tickFormat(d3.time.format("%W"));
+        .tickFormat(d3.time.format("%d/%m"));
     axisY[id] = d3.svg.axis()
         .scale(yScale)
         .orient("left")
