@@ -162,20 +162,20 @@ function drawSubGraph(mode, id, data) {
             barXOffset = 0;
             barWidth = ((svgW - 2*graphPadding) / graphDays) / 2;
             barGroupName = "#subBars";
-            barColor = colors[0][id];
+            barColor = colors[1][id];
             break;
         case subGraph_mode.SECOND_LIST:
             barXOffset = ((svgW - 2*graphPadding) / graphDays) / 2;
             barWidth = ((svgW - 2*graphPadding) / graphDays) / 2;
             barGroupName = "#subBars2";
-            barColor = colors[1][id];
+            barColor = colors[2][id];
             break;
         case subGraph_mode.ONE_LIST:
             barXOffset = 0;
             barWidth = ((svgW - 2*graphPadding) / graphDays);
             barGroupName = "#subBars";
             //reset if there is still a comparison
-            barColor = colors[0][id];
+            barColor = colors[1][id];
             break;
     }
 
@@ -284,7 +284,7 @@ function addGraph(data, id, title, color) {
         //.attr("y", 20)
         //.attr("text-anchor", "middle")
         //.attr("transform", "rotate(-90)")
-        .attr("fill",color)
+        .attr("fill","white")
         .text(title);
 
 
@@ -308,21 +308,27 @@ var colors = [];
 var fadedColors = {};
 colors[0] = {};
 colors[1] = {};
+colors[2] = {};
 
-colors[0]["nwTweetGraph"] = "#ff7f0e";
-colors[0]["nwActivityGraph"] = "#74c476";
-colors[0]["nwBlogCommentGraph"] = "#9467bd";
-colors[0]["nwBlogPostGraph"] = "#d62728";
+colors[0]["nwTweetGraph"] = "#008293";
+colors[0]["nwActivityGraph"] = "#008293";
+colors[0]["nwBlogCommentGraph"] = "#008293";
+colors[0]["nwBlogPostGraph"] = "#008293";
 
-fadedColors["nwTweetGraph"] = "#9d2c00";
-fadedColors["nwActivityGraph"] = "#004e07";
-fadedColors["nwBlogCommentGraph"] = "#47206f";
-fadedColors["nwBlogPostGraph"] = "#7f0000";
+fadedColors["nwTweetGraph"] = "#004959";
+fadedColors["nwActivityGraph"] = "#004959";
+fadedColors["nwBlogCommentGraph"] = "#004959";
+fadedColors["nwBlogPostGraph"] = "#004959";
 
-colors[1]["nwTweetGraph"] = "#ffba51";
-colors[1]["nwActivityGraph"] = "#baffba";
-colors[1]["nwBlogCommentGraph"] = "#ecbbff";
-colors[1]["nwBlogPostGraph"] = "#ff6b5a";
+colors[2]["nwTweetGraph"] = "#ff877f";
+colors[2]["nwActivityGraph"] = "#ff877f";
+colors[2]["nwBlogCommentGraph"] = "#ff877f";
+colors[2]["nwBlogPostGraph"] = "#ff877f";
+
+colors[1]["nwTweetGraph"] = "#00daec";
+colors[1]["nwActivityGraph"] = "#00daec";
+colors[1]["nwBlogCommentGraph"] = "#00daec";
+colors[1]["nwBlogPostGraph"] = "#00daec";
 
 var dataCache = {
         "nwTweetGraph": {DATA:[], DATA_USERS: [], DATA_USERS2: []},

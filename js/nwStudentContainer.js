@@ -89,14 +89,20 @@ function nwStudentContainer()
         for(var i = 0; i < Object.keys(groups).length;i++)
         {
             var key = Object.keys(groups)[i];
-
+            if(key == "undefined")
+                continue;
             //add divider
             var element = document.createElement("div");
             element.className = "nwGroupDivider";
             element.innerHTML = key;
+            groups[key].forEach(function(d){
+                element.appendChild(d.element);
+
+            })
+
             this.element.appendChild(element);
 
-            this.addChildren.call(this, groups[key], true);
+            this.addChildren.call(this, groups[key], false);
         }
 
 

@@ -34,7 +34,7 @@ body, :-webkit-full-screen body
 	/*background: url("../img/background_tile.png") repeat;*/
 	/*background-size: cover;*/
 	background-color: #231f20;
-	font-family: oblivion;
+	font-family: elysium;
 }
 
 /*check these, it's for the long hold problem on iOS)*/
@@ -176,8 +176,8 @@ img { -webkit-touch-callout: none !important;}
 
 .nwStudent
 {
-	display:inline-block;
-	width:90%;
+	display:block;
+	width:100%;
 	height:30px;
 	color: white;
 	
@@ -328,16 +328,18 @@ img { -webkit-touch-callout: none !important;}
 }
 
 .ActivityGraphTitle {
-    font-family: square;;
-    font-size: 12px;
+    font-family: elysium;;
+    font-size: 14px;
 
 }
 
 
 .nwGroupDivider {
-    font-family: oblivion;;
+    font-family: elysium;;
     font-size: 10px;
     color: white;
+    width:10% ;
+    display:inline-block;
 }
 
 
@@ -371,7 +373,7 @@ img { -webkit-touch-callout: none !important;}
 {
     display:block;
     position:absolute;
-    width:50%;
+    width:1000px;
     height:200px;
 }
 
@@ -382,7 +384,7 @@ img { -webkit-touch-callout: none !important;}
 
     padding:5px;
 
-    width:50%;
+    width:500px;
     display:block;
     vertical-align: top;
 
@@ -419,17 +421,17 @@ img { -webkit-touch-callout: none !important;}
 
 #nwBadgeContainer
 {
-    top:850px;
-    left:10px;
+    top:10px;
+    left:1000px;
 }
 
 #nwStudentContainer
 {
     overflow:scroll;
     padding:5px;
-    top:50px;
-    left:880px;
-    width:10%;
+    top:1000px;
+    left:10px;
+    width:90%;
 
 }
 
@@ -449,7 +451,7 @@ img { -webkit-touch-callout: none !important;}
     width:400px;
     height:470px;
     overflow:scroll;
-    top:50px;
+    top:550px;
     left:1080px;
     text-align: left;
     padding:5px;
@@ -464,7 +466,7 @@ img { -webkit-touch-callout: none !important;}
     width:400px;
     height:500px;
     overflow:scroll;
-    top:500px;
+    top:900px;
     left:1080px;
     text-align: left;
     padding:5px;
@@ -474,8 +476,8 @@ img { -webkit-touch-callout: none !important;}
 svg#circlechart
 {
 
-    top:1050px;
-    left:10px;
+    top:250px;
+    left:1000px;
     height:900px;
 }
 
