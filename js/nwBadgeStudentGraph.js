@@ -141,6 +141,9 @@ function addBadgeGraph(title) {
 
             .attr("fill", "#008293");
     }
+
+
+
     svg.append("text")
         .attr("class", "ActivityGraphTitle")
         .attr("x", 35)

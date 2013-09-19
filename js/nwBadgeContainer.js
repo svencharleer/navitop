@@ -1,5 +1,6 @@
 var badgesGeneral = [];
 var badgesFiltered = [];
+var badgesById = {};
 var badgesLoaded_callBack = function(json)
 {	
 	console.log("BADGES REQUEST: DONE");
@@ -13,6 +14,7 @@ var badgesLoaded_callBack = function(json)
         var badge = json[Object.keys(json)[i]];
 		objects.push(new nwBadgeIcon(badge.id, null, null, badge.image, badge));
         badgesGeneral.push(badge);
+        badgesById[badge.id] = badge;
 	};
     badgesFiltered = JSON.parse(JSON.stringify(badgesGeneral)); //deep copy
     filterData(false);

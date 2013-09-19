@@ -47,7 +47,7 @@ var graphDays = 0;
 function redrawAllGraphs()
 {
     //always draw them, as they will auto reset the values with an empty array
-    var graphs = ["nwActivityGraph","nwTweetGraph","nwBlogPostGraph","nwBlogCommentGraph"];
+    var graphs = ["nwActivityGraph","nwTweetGraph","nwBlogPostGraph","nwBlogCommentGraph", "nwBadgeActivityGraph"];
 
     graphs.forEach(function(d){
         var svg = d3.select("#"+d);
@@ -317,27 +317,33 @@ colors[0]["nwTweetGraph"] = "#008293";
 colors[0]["nwActivityGraph"] = "#008293";
 colors[0]["nwBlogCommentGraph"] = "#008293";
 colors[0]["nwBlogPostGraph"] = "#008293";
+colors[0]["nwBadgeActivityGraph"] = "#008293";
 
 fadedColors["nwTweetGraph"] = "#004959";
 fadedColors["nwActivityGraph"] = "#004959";
 fadedColors["nwBlogCommentGraph"] = "#004959";
 fadedColors["nwBlogPostGraph"] = "#004959";
+fadedColors["nwBadgeActivityGraph"] = "#004959";
 
 colors[2]["nwTweetGraph"] = "#ff877f";
 colors[2]["nwActivityGraph"] = "#ff877f";
 colors[2]["nwBlogCommentGraph"] = "#ff877f";
 colors[2]["nwBlogPostGraph"] = "#ff877f";
+colors[2]["nwBadgeActivityGraph"] = "#ff877f";
 
 colors[1]["nwTweetGraph"] = "#00daec";
 colors[1]["nwActivityGraph"] = "#00daec";
 colors[1]["nwBlogCommentGraph"] = "#00daec";
 colors[1]["nwBlogPostGraph"] = "#00daec";
+colors[1]["nwBadgeActivityGraph"] = "#00daec";
 
 var dataCache = {
         "nwTweetGraph": {DATA:[], DATA_USERS: [], DATA_USERS2: []},
         "nwActivityGraph": {DATA:[], DATA_USERS: [], DATA_USERS2: []},
         "nwBlogCommentGraph": {DATA:[], DATA_USERS: [], DATA_USERS2: []},
-        "nwBlogPostGraph": {DATA:[], DATA_USERS: [], DATA_USERS2: []}
+        "nwBlogPostGraph": {DATA:[], DATA_USERS: [], DATA_USERS2: []},
+    "nwBadgeActivityGraph": {DATA:[], DATA_USERS: [], DATA_USERS2: []} ,
+    "nwBadgeGraphs": {DATA:[], DATA_USERS: [], DATA_USERS2: []}
 };
 
 
@@ -351,9 +357,10 @@ var maxDate = new Date(1369612800000);
 var variableMinDate = minDate;
 var variableMaxDate = maxDate;
 
-var graphsActivated = [{"nwActivityGraph":false},{"nwTweetGraph":false},{"nwBlogPostGraph":false},{"nwBlogCommentGraph":false}];
+var graphsActivated = [{"nwActivityGraph":false},{"nwTweetGraph":false},{"nwBlogPostGraph":false},{"nwBlogCommentGraph":false},{"nwBadgeActivityGraph":false},{"nwBadgeGraphs":false} ];
 
 function getActivityPerDay(activityPerDayFilteredArray) {
+
     var dateRange = crossfilter(activityPerDayFilteredArray);
     var dateRangeWithDayDimension = dateRange.dimension(function (f) {
         return Date.UTC(new Date(f.timestamp).getFullYear(), new Date(f.timestamp).getMonth(), new Date(f.timestamp).getDate())
@@ -362,6 +369,18 @@ function getActivityPerDay(activityPerDayFilteredArray) {
 
     // main activity graph
     return activityPerDayFiltered.top(Infinity);
+
+}
+
+function getCountPerBadge(activityArray) {
+    var badgeRange = crossfilter(activityArray);
+    var badgeRangeDimension = badgeRange.dimension(function (f) {
+        return f.badge_image.replace(/\/|\./g, "_");;
+    });
+    var badgeFiltered = badgeRangeDimension.group().reduceCount();
+
+    // main activity graph
+    return badgeFiltered.top(Infinity);
 }
 
 function filterByUsersAndReturnGroupByDay(dataToFilter,userList)
@@ -387,6 +406,32 @@ function filterByUsersAndReturnGroupByDay(dataToFilter,userList)
         return [];
     }
 }
+
+function filterByUsersAndReturnCountPerBadge(dataToFilter,userList)
+{
+    if(userList.length > 0)
+    {
+        var filteredActivityCF = crossfilter(dataToFilter);
+        var filteredActivityCFdimension = filteredActivityCF.dimension(function(f){return f.username;});
+        filteredActivityCFdimension.filterFunction(function(f)
+        {
+            for(var i=0;i<userList.length;i++)
+            {
+                if(userList[i] == f)
+                    return true;
+            }
+            return false;
+        });
+        return getCountPerBadge(filteredActivityCFdimension.top(Infinity));
+
+    }
+    else
+    {
+        return [];
+    }
+}
+
+
 function updateGraph(data)
 {
     if(data != null)
@@ -418,7 +463,8 @@ function updateGraph(data)
     //other 3 graphs
     var verbs = [{verb:"tweeted", graph:"nwTweetGraph", title:"Tweets"}  ,
         {verb:"posted", graph:"nwBlogPostGraph", title:"Blog Posts"},
-        {verb:"commented", graph:"nwBlogCommentGraph", title:"Blog Comments"}];
+        {verb:"commented", graph:"nwBlogCommentGraph", title:"Blog Comments"},
+        {verb:"awarded", graph:"nwBadgeActivityGraph", title:"Badges"}];
 
     verbs.forEach(function(d){
         var onlyTweets = crossfilter(filteredActivity);
@@ -433,9 +479,35 @@ function updateGraph(data)
             graphsActivated[d.graph] = true;
             addGraph(dataCache[d.graph]["DATA"], d.graph, d.title, colors[0][d.graph]);
         }
+        if(d.verb == "awarded")
+        {
+            //per badge graph
+            dataCache["nwBadgeGraphs"]["DATA"] = getCountPerBadge(onlyTweetsFilteredArray);
+            dataCache["nwBadgeGraphs"]["DATA_USERS"] = {};
+            //get them per key, easier to fetch later
+            //set 1
+            var keyValue  = filterByUsersAndReturnCountPerBadge(onlyTweetsFilteredArray,graph_selectedUsers[0]);
+            keyValue.forEach(function(d)
+            {
+                dataCache["nwBadgeGraphs"]["DATA_USERS"][d.key] = d.value;
+            });
 
+            //set 2
+            keyValue  = filterByUsersAndReturnCountPerBadge(onlyTweetsFilteredArray,graph_selectedUsers[1]);
+            keyValue.forEach(function(d)
+            {
+                dataCache["nwBadgeGraphs"]["DATA_USERS2"][d.key] = d.value;
+            });
+            if(!graphsActivated["nwBadgeGraphs"])
+            {
+                graphsActivated["nwBadgeGraphs"] = true;
+                initSingleBadgeGraphs();
+            }
+            loadSingleBadgeGraphs();
+        }
 
     });
+
 
 
 

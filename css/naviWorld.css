@@ -439,6 +439,11 @@ img { -webkit-touch-callout: none !important;}
     left:880px;
 }
 
+#nwBadgeActivityGraph
+{
+    top:1100px;
+    left:10px;
+}
 #nwBadgeContainer
 {
     top:10px;

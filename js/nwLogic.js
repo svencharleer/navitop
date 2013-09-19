@@ -9,6 +9,7 @@ var naviBadgeStudentGraph;
 var naviTimeSliderLeft, naviTimeSliderRight, naviTimeSliderPlay;
 
 var nwCompareButton1, nwCompareButton2;
+var naviBadgeGraphs;
 
 
 function length(point)
@@ -68,7 +69,8 @@ function loadMenu(){
     fw.addObjectToDocument(nwCompareButton1);
     fw.addObjectToDocument(nwCompareButton2);
 
-
+    naviBadgeGraphs = new nwBadgeGraphs();
+    fw.addObjectToDocument(naviBadgeGraphs);
 
 
 
@@ -127,6 +129,9 @@ var loadingDone = function(badges, students)
     if(badges) badgesLoaded = true;
     if(students) studentsLoaded = true;
     if(badgesLoaded && studentsLoaded)
+    {
         addBadgeGraph("");
+
+    }
 }
 
