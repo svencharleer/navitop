@@ -28,7 +28,7 @@ function nwNaviActivityByDayGraph()
 	NObject.call(this, name, layer, null, null, "", "", eventHandler, animations, states,[], true);
 	this.element.style.display = "";
 
-    $.getJSON('http://localhost:3000/flatActivity', updateGraph, "json");
+
 
 
 

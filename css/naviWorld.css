@@ -69,9 +69,26 @@ img { -webkit-touch-callout: none !important;}
 @-webkit-keyframes pulsate {
     0% {opacity: 0}
     100% {opacity: 1}  
-} 
+}
 
-.flicker
+@-webkit-keyframes scroll
+{
+    0% {margin-top: 0px}
+    15% {margin-top: -40px}
+    85% {margin-top: -40px}
+    100% {margin-top: 0px}
+
+
+}
+
+.scroller
+{
+    -webkit-animation-name: scroll;
+    -webkit-animation-duration: 8s;
+    -webkit-animation-iteration-count: once;
+}
+
+    .flicker
 {
     -webkit-animation-name: flicker;
     -webkit-animation-duration: 5s;
@@ -85,6 +102,8 @@ img { -webkit-touch-callout: none !important;}
     -webkit-animation-duration: 1s;
     -webkit-animation-iteration-count: infinite;    
 }
+
+
 
 
 /*small badge*/
@@ -695,6 +714,82 @@ img { -webkit-touch-callout: none !important;}
     font-size:10px;
     height:15px;
     padding-left:10px;
+}
+
+
+#nwBadgeGraphs
+{
+    top:850px;
+    left:10px;
+    color:white;
+}
+
+.singleBadgeGraph
+{
+    display:inline-block;
+    border-left:dotted 1px deepskyblue;
+    text-align:left;
+    width:300px;
+    height:43px;
+    padding:0px;
+
+    overflow:hidden;
+}
+
+.singleBadgeGraph img
+{
+    float:left;
+    width:30px;
+}
+
+.singleBadgeGraph h2
+{
+    display:inline-block;
+    font-size:10px;
+    margin:0;
+    padding:0;
+    margin-top: 1px;
+    padding-top: 0px;
+
+}
+
+.singleBadgeGraph p
+{
+    display:inline-block;
+    font-size:8px;
+    margin-top:0px;
+
+    margin-right:20px;
+
+}
+
+
+.singleBadgeGraph svg
+{
+    display:inline-block;
+
+
+
+
+}
+
+.singleBadgeGraph svg text
+{
+    font-family: elysium;
+    font-size: 7px;
+    fill: white;
+}
+
+.singleBadgeGraphDetails
+{
+    padding:0px;
+    margin:0px;
+    margin-left:35px;
+
+    height:42px;
+
+
+
 }
 
 

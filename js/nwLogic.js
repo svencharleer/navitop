@@ -131,7 +131,7 @@ var loadingDone = function(badges, students)
     if(badgesLoaded && studentsLoaded)
     {
         addBadgeGraph("");
-
+        $.getJSON('http://localhost:3000/flatActivity', updateGraph, "json");
     }
 }
 
