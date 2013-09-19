@@ -673,7 +673,15 @@ img { -webkit-touch-callout: none !important;}
 
 }
 
+.activitySet1 .activityType, .activitySet1 .activityUser, .activitySet1 .activityTime
+{
+    background-color: #00daec;
+}
 
+.activitySet2 .activityType, .activitySet2 .activityUser, .activitySet2 .activityTime
+{
+    background-color: #ff877f;
+}
 
 .activityEntry
 {

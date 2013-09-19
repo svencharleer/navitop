@@ -525,7 +525,7 @@ function updateGraph(data)
 
     redrawAllGraphs();
 
-
+    updateActivityWithSelectedUsers();
 
     ///
 
@@ -534,7 +534,30 @@ function updateGraph(data)
 
 }
 
+function updateActivityWithSelectedUsers()
+{
 
+    var activities = $(".activityEntry");
+    //check activity tab, see if we need to color us some students
+    for(var i = 0; i < activities.length; i++)
+    {
+        if(activities[i].attributes["student"] == null) continue;
+        if(graph_selectedUsers[0].indexOf(activities[i].attributes["student"].value) != -1)
+        {
+            activities[i].setAttribute("class","activityEntry activitySet1");
+        }
+
+        else if(graph_selectedUsers[1].indexOf(activities[i].attributes["student"].value) != -1)
+        {
+            activities[i].setAttribute("class","activityEntry activitySet2");
+        }
+        else
+        {
+            activities[i].setAttribute("class","activityEntry");
+        }
+
+    }
+}
 
 
 

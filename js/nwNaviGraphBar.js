@@ -70,6 +70,7 @@ function graphBarHit(id, date)
             break;
     }
     $("#nwNaviDetailedActivityView").empty();
+    $("#nwNaviDetailedActivityView").text("Loading...");
     var dateForURL = "";
     if(verb != "")
         dateForURL = 'http://localhost:3000/activitybydate/' + date + "/" + verb;
@@ -77,13 +78,14 @@ function graphBarHit(id, date)
         dateForURL = 'http://localhost:3000/activitybydate/' + date;
 
     $.getJSON(dateForURL, barClick_callback, "json");
+
 }
 
 //nwNaviDetailedActivityView
 var link = [];
 var bkData = {};
 function barClick_callback(data)
-{
+{     $("#nwNaviDetailedActivityView").empty();
      bkData = data;
     for(var i = 0; i < data.length; i++)
     {
@@ -92,15 +94,15 @@ function barClick_callback(data)
         switch(data[i].verb)
         {
             case "tweeted":
-                html = "<div class='activityEntry'><div class='activityType'>tweet</div><div class='activityUser'>" + studentNames[data[i].username] + "</div><div class='activityTime'>"+ new Date(data[i].starttime).getDate() + "/" + new Date(data[i].starttime).getMonth() +"</div></div>";
+                html = "<div class='activityEntry' student='"+data[i].username+"'><div class='activityType'>tweet</div><div class='activityUser'>" + studentNames[data[i].username] + "</div><div class='activityTime'>"+ new Date(data[i].starttime).getDate() + "/" + new Date(data[i].starttime).getMonth() +"</div></div>";
                 link[i] = "https://twitter.com/" +data[i].username + "/status/" + data[i].object;
                 break;
             case "posted":
-                html = "<div class='activityEntry'><div class='activityType'>blog post</div><div class='activityUser'>" + studentNames[data[i].username] + "</div><div class='activityTime'>"+ new Date(data[i].starttime).getDate() + "/" + new Date(data[i].starttime).getMonth() +"</div></div>";
+                html = "<div class='activityEntry' student='"+data[i].username+"'><div class='activityType'>blog post</div><div class='activityUser'>" + studentNames[data[i].username] + "</div><div class='activityTime'>"+ new Date(data[i].starttime).getDate() + "/" + new Date(data[i].starttime).getMonth() +"</div></div>";
                 link[i] = data[i].object;
                 break;
             case "commented"   :
-                html = "<div class='activityEntry'><div class='activityType'>blog comment</div><div class='activityUser'>" + studentNames[data[i].username] + "</div><div class='activityTime'>"+ new Date(data[i].starttime).getDate() + "/" + new Date(data[i].starttime).getMonth() +"</div></div>";
+                html = "<div class='activityEntry' student='"+data[i].username+"'><div class='activityType'>blog comment</div><div class='activityUser'>" + studentNames[data[i].username] + "</div><div class='activityTime'>"+ new Date(data[i].starttime).getDate() + "/" + new Date(data[i].starttime).getMonth() +"</div></div>";
                 link[i] = data[i].object;
                 break;
             default:
@@ -145,8 +147,9 @@ function barClick_callback(data)
         //should make that an object, and use hte methods i made
         $("#nwNaviDetailedActivityView").append(iframeButton.element);
         $("#nwNaviDetailedActivityViewExternal").text("Click an activity to see its content");
-    }
 
+    }
+    updateActivityWithSelectedUsers();
 }
 
 function blogpost_callback(data)
