@@ -35,7 +35,7 @@ function nwNaviActivityByDayGraph()
 }
 
 var svgW = 600;//1200;
-var svgH = 200;
+var svgH = 170;
 var graphBarPadding = 1;
 var graphPadding = 38;
 var graphTransformX = [];

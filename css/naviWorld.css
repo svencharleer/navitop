@@ -413,7 +413,7 @@ img { -webkit-touch-callout: none !important;}
     display:block;
     position:absolute;
     width:550px;
-    height:200px;
+    height:160px;
 }
 
 
@@ -441,27 +441,27 @@ img { -webkit-touch-callout: none !important;}
 
 #nwBlogPostGraph
 {
-    top:220px;
+    top:177px;
     left:880px;
 }
 
 #nwBlogCommentGraph
 {
-    top:430px;
+    top:345px;
     left:880px;
 }
 
 
 #nwTweetGraph
 {
-    top:640px;
+    top:512px;
     left:880px;
 }
 
 #nwBadgeActivityGraph
 {
-    top:1400px;
-    left:10px;
+    top:680px;
+    left:880px;
 }
 #nwBadgeContainer
 {
@@ -624,7 +624,7 @@ img { -webkit-touch-callout: none !important;}
 
 #nwCompareButton
 {
-    top:1310px;
+    top:1255px;
     left:10px;
     background-color: #00daec;
     height:40px;
@@ -633,7 +633,7 @@ img { -webkit-touch-callout: none !important;}
 
 #nwCompareButton2
 {
-    top:1363px;
+    top:1317px;
     left:10px;
     height:40px;
     background-color: #410000;

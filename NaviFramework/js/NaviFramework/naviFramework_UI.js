@@ -370,7 +370,7 @@ function naviFramework_UI()
         }
 
         //have to move this out of here but will do for now
-        if(TouchLoop.idleSince < new Date(Date.now() - 120000)) 
+        if(TouchLoop.idleSince < new Date(Date.now() - 320000))
         {
             naviOverlay.element.style.display = "block";
         }
