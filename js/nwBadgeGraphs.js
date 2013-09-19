@@ -41,11 +41,11 @@ function loadSingleBadgeGraphs()
         //d.key is badge_image
         var set1 = 0, set2 = 0;
         if(dataCache["nwBadgeGraphs"]["DATA_USERS"][d.key] != null)
-            set1 = dataCache["nwBadgeGraphs"]["DATA_USERS"][d.key];
+            set1 = dataCache["nwBadgeGraphs"]["DATA_USERS"][d.key].count;
         if(dataCache["nwBadgeGraphs"]["DATA_USERS2"][d.key] != null)
-            set2 = dataCache["nwBadgeGraphs"]["DATA_USERS2"][d.key];
+            set2 = dataCache["nwBadgeGraphs"]["DATA_USERS2"][d.key].count;
 
-        addSingleBadgeGraph(d.key, d.value,set1,set2);
+        addSingleBadgeGraph(d.key, d.value.count,set1,set2);
 
     });
 

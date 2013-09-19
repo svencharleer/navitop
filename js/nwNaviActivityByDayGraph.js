@@ -377,10 +377,19 @@ function getCountPerBadge(activityArray) {
     var badgeRangeDimension = badgeRange.dimension(function (f) {
         return f.badge_image.replace(/\/|\./g, "_");;
     });
-    var badgeFiltered = badgeRangeDimension.group().reduceCount();
+    var badgeFiltered = badgeRangeDimension.group().reduce(
+         function(p,v){
+             p.count++;p.badge_image = v.badge_image;return p;},
+        function(p,v){
+            p.count--;p.badge_image = v.badge_image;return p;},
+        function(){return {count:0, badge_image:""};}
+
+    );
 
     // main activity graph
-    return badgeFiltered.top(Infinity);
+    return badgeFiltered.order(function(d){
+        return d.badge_image;
+    }).top(Infinity);
 }
 
 function filterByUsersAndReturnGroupByDay(dataToFilter,userList)
