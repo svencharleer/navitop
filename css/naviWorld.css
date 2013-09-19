@@ -270,7 +270,7 @@ img { -webkit-touch-callout: none !important;}
 #nwNaviLogo
 {
 	/*-webkit-opacity:.6;*/
-	width:30px;
+	width:10px;
 	position:fixed;
 	display:block;
 	/*border:solid 0px white;
@@ -460,7 +460,7 @@ img { -webkit-touch-callout: none !important;}
 
 #nwBadgeActivityGraph
 {
-    top:1100px;
+    top:1400px;
     left:10px;
 }
 #nwBadgeContainer
@@ -473,7 +473,7 @@ img { -webkit-touch-callout: none !important;}
 {
     overflow:scroll;
     padding:5px;
-    top:1000px;
+    top:1250px;
     left:10px;
     width:98%;
 
@@ -558,7 +558,7 @@ img { -webkit-touch-callout: none !important;}
 #nwTimeSlider
 {
 
-    top:950px;
+    top:1205px;
     left:10px;
     width:98%;
     height:40px;
@@ -624,7 +624,7 @@ img { -webkit-touch-callout: none !important;}
 
 #nwCompareButton
 {
-    top:1010px;
+    top:1310px;
     left:10px;
     background-color: #00daec;
     height:40px;
@@ -633,7 +633,7 @@ img { -webkit-touch-callout: none !important;}
 
 #nwCompareButton2
 {
-    top:1063px;
+    top:1363px;
     left:10px;
     height:40px;
     background-color: #410000;
@@ -722,16 +722,24 @@ img { -webkit-touch-callout: none !important;}
     top:850px;
     left:10px;
     color:white;
+    text-align: left;
 }
 
 .singleBadgeGraph
 {
     display:inline-block;
-    border-left:dotted 1px deepskyblue;
+    border-left:dotted 1px cadetblue;
+    border-bottom:dotted 1px cadetblue;
     text-align:left;
     width:300px;
-    height:43px;
+    height:41px;
     padding:0px;
+    padding-top:2px;
+    padding-left:5px;
+    margin:0px;
+    margin-top:2px;
+    margin-left:2px;
+
 
     overflow:hidden;
 }
