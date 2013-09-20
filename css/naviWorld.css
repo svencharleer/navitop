@@ -340,7 +340,7 @@ img { -webkit-touch-callout: none !important;}
 #nwNaviOverlay img
 {
 	margin:auto;
-	margin-top:750px
+	margin-top:450px
 }
 
 #nwNaviOverlay p
@@ -633,9 +633,9 @@ img { -webkit-touch-callout: none !important;}
 
 #nwCompareButton2
 {
-    top:1317px;
+    top:1308px;
     left:10px;
-    height:40px;
+    height:48px;
     background-color: #410000;
 
 }
@@ -644,7 +644,7 @@ img { -webkit-touch-callout: none !important;}
 {
     position:absolute;
     top:30px;
-    left:860px;
+    left:855px;
     width:1px;
     height:780px;
     border-left:dotted 1px cadetblue;
@@ -655,7 +655,7 @@ img { -webkit-touch-callout: none !important;}
 {
     position:absolute;
     top:30px;
-    left:1450px;
+    left:1455px;
     width:1px;
     height:780px;
     border-left:dotted 1px cadetblue;
@@ -727,10 +727,13 @@ img { -webkit-touch-callout: none !important;}
 
 #nwBadgeGraphs
 {
-    top:850px;
+    top:900px;
     left:10px;
     color:white;
     text-align: left;
+    width:98%;
+    padding-top:10px;
+    padding-bottom:10px;
 }
 
 .singleBadgeGraph
