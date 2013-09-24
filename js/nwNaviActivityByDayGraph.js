@@ -136,7 +136,8 @@ function drawGraph(data, id, color) {
         {
             var key = data[i].key;
             toAddToFw[0][i].addEventListener('mousedown', function(event){
-                graphBarHit(event.srcElement.attributes["chart"].value.count, event.srcElement.__data__.key);
+                barClick_callback(event.srcElement.__data__.value.actualEvents)
+                //graphBarHit(event.srcElement.attributes["chart"].value, event.srcElement.__data__.key);
             });
         }
     }
