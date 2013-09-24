@@ -96,11 +96,11 @@ function drawGraph(data, id, color) {
         })
         .attr("width", (svgW - 2*graphPadding) / graphDays)
         .attr("y", function (d) {
-            return graphTransformY[id](d.value);//d[1];
+            return graphTransformY[id](d.value.count);//d[1];
         })
         .attr("height", function (d) {
             //console.log("height is " + d[1] + " yScale is" + yScale(d[1]));
-            return svgH - graphTransformY[id](d.value) - graphPadding;
+            return svgH - graphTransformY[id](d.value.count) - graphPadding;
         })
         ;//.attr("fill", color);
 
@@ -117,11 +117,11 @@ function drawGraph(data, id, color) {
         })
         .attr("width", (svgW - 2*graphPadding) /graphDays)
         .attr("y", function (d) {
-            return graphTransformY[id](d.value);//d[1];
+            return graphTransformY[id](d.value.count);//d[1];
         })
         .attr("height", function (d) {
             //console.log("height is " + d[1] + " yScale is" + yScale(d[1]));
-            return svgH - graphTransformY[id](d.value) - graphPadding;
+            return svgH - graphTransformY[id](d.value.count) - graphPadding;
         })
         ;//.attr("fill", color);//"teal");
 
@@ -136,7 +136,7 @@ function drawGraph(data, id, color) {
         {
             var key = data[i].key;
             toAddToFw[0][i].addEventListener('mousedown', function(event){
-                graphBarHit(event.srcElement.attributes["chart"].value, event.srcElement.__data__.key);
+                graphBarHit(event.srcElement.attributes["chart"].value.count, event.srcElement.__data__.key);
             });
         }
     }
@@ -198,10 +198,10 @@ function drawSubGraph(mode, id, data) {
         })
         .attr("width", barWidth)
         .attr("y", function (d) {
-            return graphTransformY[id](d.value);//d[1];
+            return graphTransformY[id](d.value.count);//d[1];
         })
         .attr("height", function (d) {
-            return svgH - graphTransformY[id](d.value) - graphPadding;
+            return svgH - graphTransformY[id](d.value.count) - graphPadding;
         });
     p
         .enter()
@@ -215,10 +215,10 @@ function drawSubGraph(mode, id, data) {
         })
         .attr("width", barWidth)
         .attr("y", function (d) {
-            return graphTransformY[id](d.value);//d[1];
+            return graphTransformY[id](d.value.count);//d[1];
         })
         .attr("height", function (d) {
-            return svgH - graphTransformY[id](d.value) - graphPadding;
+            return svgH - graphTransformY[id](d.value.count) - graphPadding;
         })
         .attr("fill", barColor);
     p.exit().remove();
@@ -260,7 +260,7 @@ function addGraph(data, id, title, color) {
         .domain([variableMinDate, variableMaxDate])
         .range([graphPadding, w - graphPadding * 2]);
     var yMax = d3.max(data, function (d) {
-        return d.value;
+        return d.value.count;
     });
     var yScale = d3.scale.linear()
         .domain([0, yMax])
@@ -352,7 +352,7 @@ var dataCache = {
 var activityData = [];
 
 
-var minDate = new Date(1361232000000);
+var minDate = new Date(1361145600000);
 var maxDate = new Date(1369612800000);
 var variableMinDate = minDate;
 var variableMaxDate = maxDate;
@@ -363,9 +363,22 @@ function getActivityPerDay(activityPerDayFilteredArray) {
 
     var dateRange = crossfilter(activityPerDayFilteredArray);
     var dateRangeWithDayDimension = dateRange.dimension(function (f) {
-        return Date.UTC(new Date(f.timestamp).getFullYear(), new Date(f.timestamp).getMonth(), new Date(f.timestamp).getDate())
+        return Date.UTC(new Date(f.starttime).getFullYear(), new Date(f.starttime).getMonth(), new Date(f.starttime).getDate())
     });
-    var activityPerDayFiltered = dateRangeWithDayDimension.group().reduceCount();
+
+    var activityPerDayFiltered = dateRangeWithDayDimension.group().reduce(
+        function(p,v){
+            p.actualEvents.push(v);
+            p.count++;return p;
+        },
+        function(p,v){
+            p.count--;return p;},
+        function(){return {count:0, actualEvents:[]};}
+
+    );
+
+
+    //.reduceCount();
 
     // main activity graph
     return activityPerDayFiltered.top(Infinity);
@@ -449,7 +462,7 @@ function updateGraph(data)
     //only get the activity of the period we need
     var activity = crossfilter(activityData);
     var activityPerDayDimension = activity.dimension(function(f) {
-        return Date.UTC(new Date(f.timestamp).getFullYear(), new Date(f.timestamp).getMonth(), new Date(f.timestamp).getDate());
+        return Date.UTC(new Date(f.starttime).getFullYear(), new Date(f.starttime).getMonth(), new Date(f.starttime).getDate());
     });
     var _minDate = variableMinDate;
     var _maxDate = variableMaxDate;
@@ -458,7 +471,12 @@ function updateGraph(data)
     //here we have the date range set. now we can filter per verb
 
     //first, all activity
-    dataCache["nwActivityGraph"]["DATA"] = getActivityPerDay(filteredActivity);
+    //get rid of badges in this one
+    var activityWithoutBadges = crossfilter(filteredActivity);
+    var activityWithoutBadgesDimension = activityWithoutBadges.dimension(function(f) {return f.verb;});
+    var activityWithoutBadgesArray = activityWithoutBadgesDimension.filter(function(f) {return f!="awarded"}).top(Infinity);
+
+    dataCache["nwActivityGraph"]["DATA"] = getActivityPerDay(activityWithoutBadgesArray);
     if(!graphsActivated["nwActivityGraph"])
     {
         graphsActivated["nwActivityGraph"] = true;

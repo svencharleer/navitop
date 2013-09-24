@@ -90,7 +90,7 @@ function addBadgeGraph(title) {
 
         .tickFormat(function(d,i) {
 
-            return studentsGeneral[d].username; });
+            return studentNames[studentsGeneral[d].username]; });
 
 
     svg.append("g")
