@@ -157,10 +157,10 @@ function addSingleBadgeGraph(title, total, set1, set2) {
 
         event.currentTarget.setAttribute("class","singleBadgeGraphDetails scroller");
     });
-    divDetails[0][0].addEventListener('touchstart', function(event){
+    /*divDetails[0][0].addEventListener('touchstart', function(event){
 
         event.currentTarget.setAttribute("class","singleBadgeGraphDetails scroller");
-    });
+    });*/
     divDetails[0][0].addEventListener('webkitAnimationEnd', function(event){
 
         event.currentTarget.setAttribute("class","singleBadgeGraphDetails");

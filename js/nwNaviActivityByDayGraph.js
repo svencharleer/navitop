@@ -139,10 +139,11 @@ function drawGraph(data, id, color) {
                 barClick_callback(event.srcElement.__data__.value.actualEvents)
                 //graphBarHit(event.srcElement.attributes["chart"].value, event.srcElement.__data__.key);
             });
-            toAddToFw[0][i].addEventListener('touchstart', function(event){
+            /*toAddToFw[0][i].addEventListener('touchstart', function(event){
+                $("#nwNaviDetailedActivityView").text("Loading...");
                 barClick_callback(event.srcElement.__data__.value.actualEvents)
                 //graphBarHit(event.srcElement.attributes["chart"].value, event.srcElement.__data__.key);
-            });
+            });   */
         }
     }
     fw.addObjectsToDocument(objects);
