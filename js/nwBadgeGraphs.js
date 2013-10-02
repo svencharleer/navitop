@@ -7,6 +7,9 @@ function nwBadgeGraphs()
 	{
 		onHit: function(point, obj)
 		{
+
+
+
 		},
 		onLetGo: function(obj)
 		{
@@ -153,7 +156,7 @@ function addSingleBadgeGraph(title, total, set1, set2) {
     });
 
     var divDetails = d3.select("#singleBadgeGraphDetails"+title);
-    divDetails[0][0].addEventListener('mousedown', function(event){
+    /*divDetails[0][0].addEventListener('mousedown', function(event){
 
         event.currentTarget.setAttribute("class","singleBadgeGraphDetails scroller");
     });
@@ -164,6 +167,10 @@ function addSingleBadgeGraph(title, total, set1, set2) {
     divDetails[0][0].addEventListener('webkitAnimationEnd', function(event){
 
         event.currentTarget.setAttribute("class","singleBadgeGraphDetails");
+    });
+    $(divDetails[0][0]).mousedown(function(event){
+
+        event.currentTarget.setAttribute("class","singleBadgeGraphDetails scroller");
     });
 
 

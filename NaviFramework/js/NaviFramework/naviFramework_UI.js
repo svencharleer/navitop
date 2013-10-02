@@ -1,5 +1,5 @@
 var fw;
-var drawFingers = false;
+var drawFingers = true;
 function PaperCanvas(paper)
 {
     var canvas;
@@ -231,7 +231,7 @@ function naviFramework_UI()
     {
         this.layers = [new DocumentLayer(), new DocumentLayer(), new DocumentLayer(), new DocumentLayer()];
         this.paper = paper;
-        //sfxCanvas = new PaperCanvas(this.paper);
+        sfxCanvas = new PaperCanvas(this.paper);
         //sfxCanvas.init("sfxLayer", {x:0, y:0}, {w:this.view.width, h:this.view.height});
     }
     
@@ -282,7 +282,9 @@ function naviFramework_UI()
                 {
                     this.fingerToObjects[identifier].push(hitResult);
                     hitResult.touchable.fingerEvent(hitPoint, hitResult, "hit");
+
                 }
+
             }
         } 
     }
@@ -546,10 +548,15 @@ var TouchLoop =
         });
         document.addEventListener('touchstart', function(event) {
             //console.log('start');
-            fw.onMouseDown({x:event.targetTouches[0].pageX, y:event.targetTouches[0].pageY}, "mouse");
+            //fw.onMouseDown({x:event.targetTouches[0].pageX, y:event.targetTouches[0].pageY}, "mouse");
             TouchLoop.touches = event.targetTouches;
-            TouchLoop.idleSince = Date.now();  
-            
+            TouchLoop.idleSince = Date.now();
+            console.log(" click on " + document.elementFromPoint(event.targetTouches[0].pageX, event.targetTouches[0].pageY).id );
+            var o = $(document.elementFromPoint(event.targetTouches[0].pageX, event.targetTouches[0].pageY));
+            o.mousedown();
+
+
+
          });
         document.addEventListener('mousedown', function(event) {
             //console.log('mouse touchy');
@@ -568,6 +575,8 @@ var TouchLoop =
      });
     }
 };
+
+
 
 fw = new naviFramework_UI();
 document.addEventListener('webkitfullscreenchange', function(event) {

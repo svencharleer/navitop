@@ -135,7 +135,7 @@ function drawGraph(data, id, color) {
         if(data[i] != null)
         {
             var key = data[i].key;
-            toAddToFw[0][i].addEventListener('mousedown', function(event){
+            /*toAddToFw[0][i].addEventListener('mousedown', function(event){
                 barClick_callback(event.srcElement.__data__.value.actualEvents)
                 //graphBarHit(event.srcElement.attributes["chart"].value, event.srcElement.__data__.key);
             });
@@ -144,6 +144,10 @@ function drawGraph(data, id, color) {
                 barClick_callback(event.srcElement.__data__.value.actualEvents)
                 //graphBarHit(event.srcElement.attributes["chart"].value, event.srcElement.__data__.key);
             });   */
+            $(toAddToFw[0][i]).mousedown(function(event){
+
+                barClick_callback(event.currentTarget.__data__.value.actualEvents);
+            });
         }
     }
     fw.addObjectsToDocument(objects);
