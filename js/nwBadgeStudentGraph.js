@@ -34,8 +34,8 @@ function nwBadgeStudentGraph()
 
 }
 
-var bsg_svgW = 1000;//1200;
-var bsg_svgH = 900;
+var bsg_svgW = 800;//1200;
+var bsg_svgH = 600;
 var bsg_graphBarPadding = 1;
 var bsg_graphPaddingX = 100;
 var bsg_graphPaddingY = 200;

@@ -35,9 +35,9 @@ function nwNaviActivityByDayGraph()
 }
 
 var svgW = 600;//1200;
-var svgH = 170;
+var svgH = 130;
 var graphBarPadding = 1;
-var graphPadding = 38;
+var graphPadding = 30;
 var graphTransformX = [];
 var graphTransformY = [];
 var axisX = {};
@@ -136,6 +136,10 @@ function drawGraph(data, id, color) {
         {
             var key = data[i].key;
             toAddToFw[0][i].addEventListener('mousedown', function(event){
+                barClick_callback(event.srcElement.__data__.value.actualEvents)
+                //graphBarHit(event.srcElement.attributes["chart"].value, event.srcElement.__data__.key);
+            });
+            toAddToFw[0][i].addEventListener('touchstart', function(event){
                 barClick_callback(event.srcElement.__data__.value.actualEvents)
                 //graphBarHit(event.srcElement.attributes["chart"].value, event.srcElement.__data__.key);
             });

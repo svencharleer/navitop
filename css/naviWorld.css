@@ -405,7 +405,7 @@ img { -webkit-touch-callout: none !important;}
     display:block;
     position:absolute;
     border-top: solid 1px cadetblue;
-    border-bottom:  dotted 1px cadetblue;
+
 }
 
 #nwContainerArea > svg
@@ -413,7 +413,7 @@ img { -webkit-touch-callout: none !important;}
     display:block;
     position:absolute;
     width:550px;
-    height:160px;
+    height:130px;
 }
 
 
@@ -436,32 +436,34 @@ img { -webkit-touch-callout: none !important;}
  {
 
     top:10px;
-     left:880px;
+     left:650px;
  }
 
 #nwBlogPostGraph
 {
-    top:177px;
-    left:880px;
+    top:137px;
+    left:650px;
 }
 
 #nwBlogCommentGraph
 {
-    top:345px;
-    left:880px;
+    top:264px;
+    left:650px;
 }
 
 
 #nwTweetGraph
 {
-    top:512px;
-    left:880px;
+    top:390px;
+    left:650px;
 }
 
 #nwBadgeActivityGraph
 {
-    top:680px;
-    left:880px;
+    top:518px;
+    left:2650px;
+    display:none;
+
 }
 #nwBadgeContainer
 {
@@ -473,8 +475,8 @@ img { -webkit-touch-callout: none !important;}
 {
     overflow:scroll;
     padding:5px;
-    top:1250px;
-    left:10px;
+    top:850px;
+    left:12px;
     width:98%;
 
 }
@@ -483,11 +485,11 @@ img { -webkit-touch-callout: none !important;}
 
 #nwNaviDetailedActivityView
 {
-    width:300px;
-    height:820px;
+    width:250px;
+    height:520px;
     overflow:scroll;
     top:10px;
-    left:1480px;
+    left:1230px;
     text-align: left;
     padding:5px;
     color:white;
@@ -500,11 +502,11 @@ img { -webkit-touch-callout: none !important;}
 
 #nwNaviDetailedActivityViewExternal
 {
-    width:680px;
-    height:830px;
+    width:380px;
+    height:530px;
     overflow:auto;
     top:10px;
-    left:1850px;
+    left:1520px;
     text-align: left;
     padding-left:5px;
     color:white;
@@ -533,10 +535,10 @@ img { -webkit-touch-callout: none !important;}
 
     top:10px;
     left:10px;
-    width:820px;
-    height:830px;
+    width:620px;
+    height:530px;
     border-top: solid 1px cadetblue;
-    border-bottom:  dotted 1px cadetblue;
+
 }
 
 .CircleGraphAxis path,
@@ -558,7 +560,7 @@ img { -webkit-touch-callout: none !important;}
 #nwTimeSlider
 {
 
-    top:1205px;
+    top:807px;
     left:10px;
     width:98%;
     height:40px;
@@ -624,7 +626,7 @@ img { -webkit-touch-callout: none !important;}
 
 #nwCompareButton
 {
-    top:1255px;
+    top:855px;
     left:10px;
     background-color: #00daec;
     height:40px;
@@ -633,7 +635,7 @@ img { -webkit-touch-callout: none !important;}
 
 #nwCompareButton2
 {
-    top:1308px;
+    top:908px;
     left:10px;
     height:48px;
     background-color: #410000;
@@ -644,9 +646,9 @@ img { -webkit-touch-callout: none !important;}
 {
     position:absolute;
     top:30px;
-    left:855px;
+    left:645px;
     width:1px;
-    height:780px;
+    height:490px;
     border-left:dotted 1px cadetblue;
 
 }
@@ -655,9 +657,9 @@ img { -webkit-touch-callout: none !important;}
 {
     position:absolute;
     top:30px;
-    left:1455px;
+    left:1205px;
     width:1px;
-    height:780px;
+    height:490px;
     border-left:dotted 1px cadetblue;
 
 }
@@ -666,9 +668,9 @@ img { -webkit-touch-callout: none !important;}
 {
     position:absolute;
     top:30px;
-    left:1820px;
+    left:1505px;
     width:1px;
-    height:780px;
+    height:490px;
     border-left:dotted 1px cadetblue;
 
 }
@@ -682,6 +684,8 @@ img { -webkit-touch-callout: none !important;}
 {
     background-color: #ff877f;
 }
+
+
 
 .activityEntry
 {
@@ -716,7 +720,7 @@ img { -webkit-touch-callout: none !important;}
 .activityTime
 {
     margin-left:2px;
-    display:inline-block;
+    display:none;
     width:30px;
     background-color: #004959;
     font-size:10px;
@@ -727,7 +731,7 @@ img { -webkit-touch-callout: none !important;}
 
 #nwBadgeGraphs
 {
-    top:900px;
+    top:530px;
     left:10px;
     color:white;
     text-align: left;
