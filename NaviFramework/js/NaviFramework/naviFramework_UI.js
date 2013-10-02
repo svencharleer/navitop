@@ -546,7 +546,7 @@ var TouchLoop =
         });
         document.addEventListener('touchstart', function(event) {
             //console.log('start');
-            fw.onMouseDown({x:event.pageX, y:event.pageY}, "mouse");
+            fw.onMouseDown({x:event.targetTouches[0].pageX, y:event.targetTouches[0].pageY}, "mouse");
             TouchLoop.touches = event.targetTouches;
             TouchLoop.idleSince = Date.now();  
             
