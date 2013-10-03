@@ -33,7 +33,7 @@ function nwTimeSliderLeft()
     var states = [];
     var animations = [];
     this.sliderOffset = 0;
-    this.setSlider = function(point)
+    this.setSlider = function(point, firstTouch)
     {
         var min = nwTimeSlider.absolute_x;
         var max = naviTimeSliderRight.getPosition().x-this.getSize().width;
@@ -43,6 +43,7 @@ function nwTimeSliderLeft()
 
 
         this.setPosition({x:x, y: this.getPosition().y});
+        if(firstTouch) this.setTouchAnchor({x: x, y: this.getPosition().y});
         this.sliderOffset = (x-nwTimeSlider.absolute_x)/(nwTimeSlider.slider_length);
     }
     var eventHandler =
@@ -53,11 +54,12 @@ function nwTimeSliderLeft()
         },
         onLetGo: function(obj)
         {
+            filtering();
         },
         onMove: function(point, obj)
         {
             obj.setSlider(point);
-            filtering();
+
 
         }
     };
@@ -74,7 +76,7 @@ function nwTimeSliderRight()
     var animations = [];
     this.sliderOffset = 1;
 
-    this.setSlider = function(point)
+    this.setSlider = function(point, firstTouch)
     {
         var max = nwTimeSlider.absolute_x+nwTimeSlider.slider_length;
         var min = naviTimeSliderLeft.getPosition().x+this.getSize().width;
@@ -84,7 +86,7 @@ function nwTimeSliderRight()
 
 
         this.setPosition({x:x, y: this.getPosition().y});
-
+        if(firstTouch) this.setTouchAnchor({x: x, y: this.getPosition().y});
         this.sliderOffset = (x-nwTimeSlider.absolute_x)/(nwTimeSlider.slider_length);
     }
     var eventHandler =
@@ -95,11 +97,12 @@ function nwTimeSliderRight()
         },
         onLetGo: function(obj)
         {
+            filtering();
         },
         onMove: function(point, obj)
         {
             obj.setSlider(point);
-            filtering();
+
 
         }
     };
