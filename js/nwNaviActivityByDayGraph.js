@@ -389,7 +389,7 @@ function getActivityPerDay(activityPerDayFilteredArray) {
 function getCountPerBadge(activityArray) {
     var badgeRange = crossfilter(activityArray);
     var badgeRangeDimension = badgeRange.dimension(function (f) {
-        return f.badge_image.replace(/\/|\./g, "_");;
+       return f.badge_image.replace(/\/|\./g, "_");;
     });
     var badgeFiltered = badgeRangeDimension.group().reduce(
          function(p,v){
@@ -459,6 +459,25 @@ function updateGraph(data)
 {
     if(data != null)
         activityData = data;
+    activityData.forEach(function(d){
+        var json = null;
+        try
+        {
+             json = JSON.parse(d.originalrequest);
+        }
+        catch(error)
+        {
+            console.log(d);
+        }
+        if(json){
+            d.originalrequest = json;
+            if(d.verb == "awarded")
+                d.badge_image = d.originalrequest.badge != null ? d.originalrequest.badge.image : d.originalrequest.originalrequest.badge.image;
+                if(d.badge_image == null)
+                    d.verb = "incorrectformat";
+         }
+    });
+
 
     //only get the activity of the period we need
     var activity = crossfilter(activityData);
