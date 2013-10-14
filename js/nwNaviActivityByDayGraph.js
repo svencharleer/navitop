@@ -463,6 +463,7 @@ function updateGraph(data)
         var json = null;
         try
         {
+            d.originalrequest = d.originalrequest.replace(/(\r\n|\n|\r)/gm,"");
              json = JSON.parse(d.originalrequest);
         }
         catch(error)
